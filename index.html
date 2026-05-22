@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI/테크 트렌드 트래커</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg:      #f4f5fb;
+  --bg2:     #ffffff;
+  --bg3:     #f0f1f9;
+  --bg4:     #e8eaf5;
+  --border:  #dde1f0;
+  --border2: #bdc3e2;
+  --text:    #1a1a30;
+  --text2:   #4a4a70;
+  --text3:   #9090b8;
+  --accent:  #6366f1;
+  --accent2: #4f46e5;
+  --glow:    rgba(99,102,241,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'Segoe UI',sans-serif;
+     height:100vh;overflow:hidden;display:flex;flex-direction:column;}
+
+/* ── HEADER ── */
+header{background:var(--bg2);border-bottom:1px solid var(--border);
+       padding:0 20px;height:52px;display:flex;align-items:center;
+       justify-content:space-between;flex-shrink:0;}
+.logo{display:flex;align-items:center;gap:9px;}
+.logo-mark{width:30px;height:30px;background:linear-gradient(135deg,#6366f1,#a78bfa);
+            border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.logo h1{font-size:14px;font-weight:700;color:var(--text);}
+.logo span{font-size:11px;color:var(--text3);}
+.tabs{display:flex;background:var(--bg3);border-radius:7px;padding:3px;gap:2px;}
+.tab-btn{padding:5px 16px;border-radius:5px;border:none;background:transparent;
+         color:var(--text2);cursor:pointer;font-size:12px;font-weight:500;transition:all .15s;}
+.tab-btn.active{background:var(--accent);color:#fff;font-weight:600;}
+.tab-btn:not(.active):hover{background:var(--bg4);color:var(--text);}
+
+/* ── LAYOUT ── */
+.app{display:flex;flex:1;overflow:hidden;}
+
+/* ── SIDEBAR ── */
+.sidebar{width:210px;background:var(--bg2);border-right:1px solid var(--border);
+         overflow-y:auto;flex-shrink:0;padding-bottom:12px;}
+.sidebar::-webkit-scrollbar{width:3px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.sb-sec{padding:13px 12px 8px;border-bottom:1px solid var(--border);}
+.sb-title{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;
+          letter-spacing:1px;margin-bottom:9px;}
+.frow{display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:5px;
+      cursor:pointer;transition:background .12s;user-select:none;}
+.frow:hover{background:var(--bg3);}
+.frow.off{opacity:.35;}
+.fdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.flabel{font-size:11px;flex:1;color:var(--text2);}
+.fcount{font-size:9px;color:var(--text3);background:var(--bg4);padding:1px 4px;border-radius:6px;}
+.recent-item{padding:6px 7px;border-radius:5px;cursor:pointer;transition:background .12s;margin-bottom:2px;}
+.recent-item:hover{background:var(--bg3);}
+.r-meta{display:flex;align-items:center;gap:4px;margin-bottom:2px;}
+.r-date{font-size:9px;color:var(--text3);}
+.r-co{font-size:9px;font-weight:700;}
+.r-title{font-size:10px;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+/* ── CALENDAR ── */
+.cal-wrap{display:flex;flex:1;overflow:hidden;}
+.cal-main{flex:1;padding:18px 20px;overflow-y:auto;}
+.cal-main::-webkit-scrollbar{width:3px;}
+.cal-main::-webkit-scrollbar-thumb{background:var(--border2);}
+.cal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.cal-nav{display:flex;align-items:center;gap:10px;}
+.nav-btn{width:28px;height:28px;border-radius:6px;border:1px solid var(--border2);
+         background:var(--bg3);color:var(--text2);cursor:pointer;font-size:13px;
+         display:flex;align-items:center;justify-content:center;transition:all .12s;}
+.nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.cal-lbl{font-size:16px;font-weight:700;color:var(--text);}
+.cal-stat{font-size:11px;color:var(--text3);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-dow{text-align:center;padding:5px 3px;font-size:10px;font-weight:600;color:var(--text3);}
+.cal-day{min-height:84px;background:var(--bg2);border-radius:6px;
+         border:1px solid var(--border);padding:6px 4px 4px;
+         cursor:pointer;transition:all .12s;overflow:hidden;}
+.cal-day:hover{border-color:var(--border2);background:var(--bg3);}
+.cal-day.today{border-color:var(--accent);box-shadow:0 0 0 2px var(--glow);}
+.cal-day.selected{border-color:var(--accent);background:var(--glow);}
+.cal-day.empty{background:transparent;border:none;cursor:default;}
+.cal-day.wknd .dnum{color:#6366f1;}
+.dnum{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:3px;}
+.dnum.today-c{background:var(--accent);color:#fff;width:19px;height:19px;
+               border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;}
+.epill{display:flex;align-items:center;gap:2px;border-radius:3px;padding:2px 3px;
+       font-size:8px;color:#fff;margin-bottom:2px;overflow:hidden;white-space:nowrap;opacity:.9;}
+.epill-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.8);flex-shrink:0;}
+.epill-txt{overflow:hidden;text-overflow:ellipsis;}
+.more-cnt{font-size:8px;color:var(--text3);padding:1px 3px;}
+
+/* ── DETAIL PANEL ── */
+.det-panel{width:300px;background:var(--bg2);border-left:1px solid var(--border);
+           overflow-y:auto;flex-shrink:0;}
+.det-panel::-webkit-scrollbar{width:3px;}
+.det-panel::-webkit-scrollbar-thumb{background:var(--border2);}
+.det-hdr{padding:16px 16px 12px;border-bottom:1px solid var(--border);}
+.det-date{font-size:10px;color:var(--text3);margin-bottom:2px;}
+.det-cnt{font-size:15px;font-weight:700;color:var(--text);}
+.det-body{padding:12px;}
+.ecard{background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+       padding:12px;margin-bottom:9px;transition:border-color .12s;}
+.ecard:hover{border-color:var(--border2);}
+.ecard-tags{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:7px;}
+.co-tag{font-size:8px;padding:2px 6px;border-radius:20px;font-weight:700;color:#fff;}
+.cat-tag{font-size:8px;padding:2px 6px;border-radius:20px;border:1px solid;background:transparent;}
+.etitle{font-size:12px;font-weight:700;margin-bottom:5px;line-height:1.4;color:var(--text);}
+.edesc{font-size:10px;color:var(--text2);line-height:1.6;}
+.echips{display:flex;flex-wrap:wrap;gap:3px;margin-top:7px;}
+.echip{font-size:8px;padding:2px 5px;border-radius:3px;
+       background:rgba(99,102,241,.1);color:var(--accent2);}
+.esrc{display:block;font-size:9px;color:var(--accent);margin-top:7px;text-decoration:none;}
+.esrc:hover{text-decoration:underline;}
+.empty-st{padding:28px 16px;text-align:center;color:var(--text3);font-size:11px;line-height:1.8;}
+
+/* ── MIND MAP ── */
+.mm-wrap{flex:1;position:relative;overflow:hidden;}
+#mm-canvas{width:100%;height:100%;display:block;background:var(--bg);}
+.mm-legend{position:absolute;top:12px;left:12px;background:var(--bg2);
+           border:1px solid var(--border);border-radius:8px;padding:10px;min-width:148px;}
+.mm-ltitle{font-size:8px;font-weight:700;color:var(--text3);text-transform:uppercase;
+           letter-spacing:.8px;margin-bottom:7px;}
+.mm-li{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:10px;color:var(--text2);}
+.mm-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.mm-line{width:18px;height:2px;flex-shrink:0;}
+.mm-ctrls{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:4px;}
+.ctrl-btn{width:30px;height:30px;border-radius:6px;border:1px solid var(--border);
+          background:var(--bg2);color:var(--text2);cursor:pointer;font-size:15px;font-weight:300;
+          display:flex;align-items:center;justify-content:center;transition:all .12s;}
+.ctrl-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.mm-hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+         font-size:9px;color:var(--text3);background:var(--bg2);
+         border:1px solid var(--border);padding:4px 10px;border-radius:14px;}
+
+/* ── TOOLTIP ── */
+#tooltip{position:fixed;background:var(--bg2);border:1px solid var(--border2);
+         border-radius:7px;padding:8px 11px;pointer-events:none;z-index:999;
+         display:none;max-width:200px;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+#tooltip h4{font-size:11px;margin-bottom:3px;color:var(--text);}
+#tooltip p{font-size:10px;color:var(--text2);line-height:1.5;}
+
+/* ── FAB ── */
+.fab{position:fixed;bottom:20px;right:20px;width:42px;height:42px;border-radius:50%;
+     background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;
+     display:flex;align-items:center;justify-content:center;
+     box-shadow:0 4px 14px rgba(99,102,241,.4);transition:all .15s;z-index:50;}
+.fab:hover{transform:scale(1.1);background:var(--accent2);}
+
+/* ── MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);
+         display:none;align-items:center;justify-content:center;z-index:200;}
+.overlay.open{display:flex;}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;
+       padding:22px;width:440px;max-width:95vw;box-shadow:0 8px 32px rgba(0,0,0,.12);}
+.modal h2{font-size:15px;font-weight:700;margin-bottom:16px;color:var(--text);}
+.fg{margin-bottom:11px;}
+.fg label{display:block;font-size:10px;color:var(--text2);font-weight:600;margin-bottom:4px;}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);
+  border-radius:6px;padding:8px 10px;color:var(--text);font-size:12px;outline:none;transition:border-color .12s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);}
+.fg textarea{resize:vertical;min-height:60px;}
+.modal-actions{display:flex;gap:7px;justify-content:flex-end;margin-top:16px;}
+.btn{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-weight:600;transition:all .12s;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:var(--accent2);}
+.btn-ghost{background:var(--bg4);color:var(--text2);}
+.btn-ghost:hover{color:var(--text);}
+.section{display:none;}
+.section.active{display:flex;flex:1;overflow:hidden;}
+
+/* ── PEOPLE / COMPANIES TAB ── */
+.ppl-wrap{display:flex;flex:1;overflow:hidden;}
+.ppl-list{width:190px;background:var(--bg2);border-right:1px solid var(--border);
+          overflow-y:auto;flex-shrink:0;padding-bottom:12px;}
+.ppl-list::-webkit-scrollbar{width:3px;}
+.ppl-list::-webkit-scrollbar-thumb{background:var(--border2);}
+.ppl-grp-lbl{font-size:8px;font-weight:700;color:var(--text3);text-transform:uppercase;
+             letter-spacing:1.2px;padding:12px 12px 5px;}
+.ppl-co-btn{display:flex;align-items:center;gap:7px;padding:5px 12px;cursor:pointer;
+            border:none;background:transparent;width:100%;text-align:left;transition:background .12s;}
+.ppl-co-btn:hover{background:var(--bg3);}
+.ppl-co-btn.sel{background:var(--glow);border-right:2px solid var(--accent);}
+.ppl-co-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ppl-co-name{font-size:11px;color:var(--text2);font-weight:500;}
+
+.ppl-main{flex:1;overflow-y:auto;padding:22px 26px;}
+.ppl-main::-webkit-scrollbar{width:3px;}
+.ppl-main::-webkit-scrollbar-thumb{background:var(--border2);}
+.ppl-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;
+                 height:100%;color:var(--text3);font-size:13px;gap:8px;}
+
+.co-hdr{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;}
+.co-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;
+         justify-content:center;font-size:22px;flex-shrink:0;}
+.co-hdr-meta h2{font-size:19px;font-weight:800;color:var(--text);margin-bottom:5px;}
+.co-pills{display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+.co-grp-pill{font-size:9px;padding:2px 8px;border-radius:20px;font-weight:700;color:#fff;}
+.co-info-pill{font-size:9px;padding:2px 7px;border-radius:4px;
+              background:var(--bg4);color:var(--text3);}
+.co-ceo-pill{font-size:9px;padding:2px 8px;border-radius:4px;
+             background:rgba(99,102,241,.1);color:var(--accent2);font-weight:600;}
+
+.co-desc{font-size:12px;color:var(--text2);line-height:1.75;background:var(--bg3);
+         border-radius:8px;padding:13px 14px;margin-bottom:18px;
+         border-left:3px solid var(--accent);}
+
+.sec-title{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;
+           letter-spacing:1px;margin-bottom:9px;margin-top:20px;display:flex;
+           align-items:center;gap:6px;}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.prod-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px;}
+.prod-chip{font-size:10px;padding:3px 9px;border-radius:5px;
+           background:rgba(99,102,241,.1);color:var(--accent2);
+           border:1px solid rgba(99,102,241,.18);}
+
+.ppl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:9px;}
+.person-card{background:var(--bg3);border:1px solid var(--border);
+             border-radius:8px;padding:11px 13px;}
+.person-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.person-role{font-size:10px;color:var(--accent);font-weight:600;margin-bottom:5px;}
+.person-note{font-size:10px;color:var(--text2);line-height:1.5;}
+
+.moves-list{display:flex;flex-direction:column;gap:8px;}
+.move-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+           padding:10px 13px;display:flex;gap:12px;align-items:flex-start;}
+.move-yr{font-size:12px;font-weight:700;color:var(--text3);min-width:34px;padding-top:1px;}
+.move-body{}
+.move-person{font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.move-path{font-size:10px;color:var(--text2);margin-bottom:3px;}
+.move-path .arr{color:var(--accent);font-weight:700;margin:0 4px;}
+.move-note{font-size:10px;color:var(--text3);line-height:1.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">🔭</div>
+    <div>
+      <h1>AI/테크 트렌드 트래커</h1>
+      <span>빅테크 · AI · 크리에이티브 · 한국 기업 실시간 이슈 보드</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div id="last-updated" style="font-size:10px;color:var(--text3);white-space:nowrap;"></div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="cal" onclick="switchTab('cal')">📅 캘린더</button>
+      <button class="tab-btn" data-tab="mm" onclick="switchTab('mm')">🧠 마인드맵</button>
+      <button class="tab-btn" data-tab="ppl" onclick="switchTab('ppl')">👤 인물/기업</button>
+    </div>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-sec"><div class="sb-title">기업 필터</div><div id="co-filters"></div></div>
+    <div class="sb-sec"><div class="sb-title">카테고리</div><div id="cat-filters"></div></div>
+    <div class="sb-sec" style="border:none"><div class="sb-title">최근 이슈</div><div id="recent-list"></div></div>
+  </aside>
+
+  <div id="cal-section" class="section active">
+    <div class="cal-wrap">
+      <div class="cal-main">
+        <div class="cal-hdr">
+          <div class="cal-nav">
+            <button class="nav-btn" onclick="prevMonth()">‹</button>
+            <span class="cal-lbl" id="cal-lbl"></span>
+            <button class="nav-btn" onclick="nextMonth()">›</button>
+          </div>
+          <span class="cal-stat" id="cal-stat"></span>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+      <div class="det-panel">
+        <div class="det-hdr">
+          <div class="det-date" id="det-date">날짜를 선택하세요</div>
+          <div class="det-cnt" id="det-cnt">이슈 상세</div>
+        </div>
+        <div class="det-body" id="det-body">
+          <div class="empty-st">📅 달력에서 날짜를 클릭하면<br>해당 날의 이슈가 표시됩니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ppl-section" class="section">
+    <div class="ppl-wrap">
+      <div class="ppl-list" id="ppl-list"></div>
+      <div class="ppl-main" id="ppl-main">
+        <div class="ppl-placeholder">
+          <div style="font-size:36px">👤</div>
+          <div>왼쪽에서 기업을 선택하세요</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mm-section" class="section" style="position:relative;">
+    <div class="mm-wrap">
+      <canvas id="mm-canvas"></canvas>
+      <div class="mm-legend">
+        <div class="mm-ltitle">기업 그룹</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#d4a574"></div>AI 연구소</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#4285f4"></div>빅테크</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#76b900"></div>하드웨어</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#1428a0"></div>한국 기업</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#f97316"></div>크리에이티브</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#8b5cf6"></div>스타트업/기타</div>
+        <div class="mm-li"><div class="mm-dot" style="background:#aaaacc;border:1.5px solid #6366f1;box-sizing:border-box"></div>주제/제품</div>
+        <div style="margin-top:8px;border-top:1px solid var(--border);padding-top:7px;">
+          <div class="mm-ltitle">관계 유형</div>
+          <div class="mm-li"><div class="mm-line" style="background:#ef4444"></div>인수/M&A</div>
+          <div class="mm-li"><div class="mm-line" style="background:#10b981"></div>파트너십</div>
+          <div class="mm-li"><div class="mm-line" style="background:#6366f1"></div>제품 출시</div>
+          <div class="mm-li"><div class="mm-line" style="background:#f59e0b"></div>인프라/투자</div>
+          <div class="mm-li"><div class="mm-line" style="background:#8b5cf6"></div>규제/정책</div>
+        </div>
+      </div>
+      <div class="mm-ctrls">
+        <button class="ctrl-btn" onclick="mmZoomIn()">+</button>
+        <button class="ctrl-btn" onclick="mmZoomOut()">−</button>
+        <button class="ctrl-btn" onclick="mmReset()">⊙</button>
+      </div>
+      <div class="mm-hint">드래그로 이동 · 스크롤로 확대/축소 · 노드 드래그 가능</div>
+    </div>
+  </div>
+</div>
+
+<button class="fab" onclick="openModal()">+</button>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h2>✏️ 이슈 추가</h2>
+    <div class="fg"><label>날짜</label><input type="date" id="f-date"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+      <div class="fg"><label>기업</label>
+        <select id="f-co">
+          <option>Anthropic</option><option>OpenAI</option><option>Google</option>
+          <option>Microsoft</option><option>Meta</option><option>Apple</option>
+          <option>NVIDIA</option><option>xAI</option><option>Samsung</option>
+          <option>Naver</option><option>Kakao</option><option>LG</option><option>SK</option>
+          <option>Figma</option><option>Adobe</option><option>Canva</option>
+          <option>Runway</option><option>Midjourney</option><option>ByteDance</option>
+          <option>Higgsfield</option><option>Kuaishou</option><option>기타</option>
+        </select>
+      </div>
+      <div class="fg"><label>카테고리</label>
+        <select id="f-cat">
+          <option value="product">🚀 제품/출시</option>
+          <option value="acquisition">💰 인수/투자</option>
+          <option value="partnership">🤝 파트너십</option>
+          <option value="infrastructure">🏗️ 인프라</option>
+          <option value="regulation">⚖️ 규제/정책</option>
+          <option value="model">🧠 AI 모델</option>
+          <option value="creative">🎨 크리에이티브</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg"><label>제목</label><input type="text" id="f-title" placeholder="이슈 제목"></div>
+    <div class="fg"><label>내용</label><textarea id="f-desc" placeholder="상세 내용"></textarea></div>
+    <div class="fg"><label>태그 (쉼표 구분)</label><input type="text" id="f-tags" placeholder="AI, 글래스, 하드웨어"></div>
+    <div class="fg"><label>출처 URL</label><input type="text" id="f-src" placeholder="https://..."></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">취소</button>
+      <button class="btn btn-primary" onclick="submitEvent()">추가</button>
+    </div>
+  </div>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+const CO_COLORS = {
+  Anthropic:'#d4a574',OpenAI:'#10b981',Google:'#4285f4',Microsoft:'#00bcf2',
+  Meta:'#0082fb',Apple:'#888888',NVIDIA:'#76b900',xAI:'#c8ba40',
+  Samsung:'#1428a0',Naver:'#03c75a',Kakao:'#d4a800',LG:'#a50034',
+  SK:'#ea002c',Intel:'#0071c5',Tesla:'#cc0000',SpaceX:'#6060aa',
+  Figma:'#F24E1E',Adobe:'#e00000',Canva:'#00a8b0',Runway:'#5020a0',
+  Midjourney:'#5a5a6e',ByteDance:'#cc003a',Higgsfield:'#3366dd',Kuaishou:'#e05500',
+  기타:'#6655aa',
+};
+const CAT_INFO = {
+  product:       {label:'🚀 제품/출시',   color:'#6366f1'},
+  acquisition:   {label:'💰 인수/투자',   color:'#ef4444'},
+  partnership:   {label:'🤝 파트너십',    color:'#10b981'},
+  infrastructure:{label:'🏗️ 인프라',     color:'#f59e0b'},
+  regulation:    {label:'⚖️ 규제/정책',  color:'#8b5cf6'},
+  model:         {label:'🧠 AI 모델',    color:'#06b6d4'},
+  creative:      {label:'🎨 크리에이티브',color:'#f97316'},
+};
+
+let EVENTS = [
+  {id:1,date:'2026-01-07',company:'NVIDIA',companies:['NVIDIA','Samsung','Google','LG'],category:'product',
+   title:'CES 2026 — Physical AI 시대 개막',
+   description:'NVIDIA, Samsung, Google이 CES 2026에서 Physical AI 시대를 공동 선언. AI가 디지털에서 물리 세계로 확장. LG는 AI 홈로봇 ClOiD 최초 공개.',
+   tags:['CES','Physical AI','로봇','홈AI'],source:''},
+  {id:2,date:'2026-01-07',company:'LG',companies:['LG'],category:'product',
+   title:'LG ClOiD — AI 홈로봇 공개 (CES)',
+   description:'LG가 CES 2026에서 AI 홈로봇 ClOiD를 공개. 요리·세탁 등 가사 보조. LG ThinQ 생태계 통합, AI 비전으로 자율 탐색.',
+   tags:['로봇','홈AI','CES','ThinQ'],source:''},
+  {id:3,date:'2026-01-12',company:'Meta',companies:['Meta'],category:'infrastructure',
+   title:'Meta, 자체 AI 인프라 이니셔티브 발표',
+   description:'마크 저커버그가 Meta 자체 AI 인프라 대규모 투자 계획 공표. 외부 클라우드 의존도를 낮추고 독자 AI 생태계 구축 전략 선언.',
+   tags:['AI인프라','데이터센터','Meta'],source:'https://techcrunch.com/2026/01/12/mark-zuckerberg-says-meta-is-launching-its-own-ai-infrastructure-initiative/'},
+  {id:4,date:'2026-01-15',company:'Naver',companies:['Naver','Kakao'],category:'product',
+   title:'Naver·Kakao — 에이전틱 AI 2026 로드맵 공개',
+   description:'Naver: AI 쇼핑 에이전트(Q1)·검색 AI 탭(Q2)·Agent N for Business 단계 출시. Kakao: KakaoTalk 내 에이전트 기반 Kanana 및 Kanana Search 상반기 공개.',
+   tags:['에이전틱AI','검색','커머스','한국'],source:'https://www.koreatimes.co.kr/business/tech-science/20260102/naver-kakao-gear-up-for-agentic-ai-era-in-2026'},
+  {id:5,date:'2026-02-02',company:'Adobe',companies:['Adobe'],category:'creative',
+   title:'Adobe Firefly 무제한 생성 플랜 출시',
+   description:'Adobe가 Firefly를 무제한 생성 올인원 크리에이티브 AI 스튜디오로 재정의. 30개 이상의 AI 모델 통합, 이미지·비디오·벡터·오디오 전방위 생성.',
+   tags:['Firefly','무제한생성','크리에이티브AI'],source:'https://blog.adobe.com/en/publish/2026/02/02/create-unlimited-generations-adobe-firefly-all-in-one-creative-ai-studio'},
+  {id:6,date:'2026-02-09',company:'ByteDance',companies:['ByteDance'],category:'model',
+   title:'ByteDance Seedance 2.0 출시 — AI 비디오 글로벌 1위',
+   description:'ByteDance가 멀티모달 AI 비디오 생성 모델 Seedance 2.0을 공식 출시. 텍스트-비디오 Elo 1,269, 이미지-비디오 Elo 1,351로 글로벌 1위. Kling·Veo 3·Sora를 상회.',
+   tags:['Seedance2','AI비디오','멀티모달'],source:'https://aimlapi.com/blog/seedance-2-0-vs-seedance-1-5-pro---bytedances-breakthrough-multimodal-ai-video-models-2026'},
+  {id:7,date:'2026-02-10',company:'Higgsfield',companies:['Higgsfield'],category:'creative',
+   title:'Higgsfield Cinema Studio 2.0 — 70개 카메라 프리셋',
+   description:'Higgsfield AI가 Cinema Studio 2.0 출시. 내러티브 연속성 대폭 개선. 달리샷·크레인·FPV 드론·불릿타임 등 70개+ 카메라 무브먼트 프리셋. Soul ID로 캐릭터 일관성 유지.',
+   tags:['Higgsfield','CinemaStudio2','AI비디오','카메라'],source:'https://higgsfield.ai/'},
+  {id:8,date:'2026-02-13',company:'Anthropic',companies:['Anthropic'],category:'model',
+   title:'Claude Opus 4.6 · Sonnet 4.6 출시',
+   description:'Anthropic이 Claude Opus 4.6 및 Sonnet 4.6 동시 출시. 에이전트 구축 및 컴퓨터 사용 태스크에서 업계 최고 성능. 이전 버전(Sonnet 4·Opus 4)은 4월 20일 API 종료 예고.',
+   tags:['Claude','Opus4.6','에이전트','LLM'],source:'https://www.anthropic.com/claude/sonnet'},
+  {id:9,date:'2026-03-05',company:'OpenAI',companies:['OpenAI'],category:'model',
+   title:'GPT-5.4 출시 — 컴퓨터 사용 벤치마크 신기록',
+   description:'OpenAI가 GPT-5.4를 출시. 컴퓨터 사용(computer-use) 벤치마크에서 역대 최고 점수 달성. 추론·코딩·멀티모달 능력 전반 대폭 향상.',
+   tags:['GPT-5.4','LLM','벤치마크'],source:''},
+  {id:10,date:'2026-03-16',company:'Adobe',companies:['Adobe','NVIDIA'],category:'partnership',
+   title:'Adobe + NVIDIA 전략 파트너십 — 차세대 Firefly 공동 개발',
+   description:'Adobe와 NVIDIA가 전략 파트너십 체결. NVIDIA CUDA-X·NeMo·Cosmos·Agent Toolkit으로 차세대 Firefly 모델 및 에이전틱 워크플로우 공동 개발.',
+   tags:['Adobe','NVIDIA','Firefly','파트너십'],source:'https://news.adobe.com/news/2026/03/adobe-and-nvidia-announce-strategic-partnership'},
+  {id:11,date:'2026-03-17',company:'Midjourney',companies:['Midjourney'],category:'creative',
+   title:'Midjourney V8 Alpha 출시 — 2K·5배 속도·완전 새 코드베이스',
+   description:'Midjourney V8 Alpha 공개. 완전 새로 작성된 코드베이스, 네이티브 2K 해상도, V7 대비 5배 빠른 생성 속도, 텍스트 렌더링 대폭 향상.',
+   tags:['MidjourneyV8','2K','이미지AI'],source:'https://updates.midjourney.com/v8-alpha/'},
+  {id:12,date:'2026-03-19',company:'Adobe',companies:['Adobe'],category:'creative',
+   title:'Adobe Firefly 비디오·커스텀 모델 대폭 확장',
+   description:'Firefly 비디오 에디터에 스튜디오급 사운드·색상 보정·Adobe Stock 통합. Quick Cut으로 텍스트 프롬프트 기반 첫 편집본 자동 생성. 커스텀 모델 공개 베타 시작.',
+   tags:['Firefly','비디오AI','커스텀모델'],source:'https://blog.adobe.com/en/publish/2026/03/19/adobe-firefly-expands-video-image-creation-with-new-ai-capabilities-custom-models'},
+  {id:13,date:'2026-03-24',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI, Sora 서비스 종료 발표 (앱 4/26·API 9/24)',
+   description:'OpenAI가 AI 비디오 앱 Sora 종료 발표. 일 $100만 컴퓨팅 비용, 활성 유저 100만→50만 감소가 배경. 전략적 우선순위 재편의 일환.',
+   tags:['Sora','서비스종료','AI비디오'],source:'https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation'},
+  {id:14,date:'2026-04-08',company:'Meta',companies:['Meta'],category:'model',
+   title:'Meta Muse Spark 출시 — 멀티모달 AI 모델',
+   description:'Meta가 최신 멀티모달 AI 모델 Muse Spark 발표. 인식·추론·헬스케어·에이전트 태스크 경쟁력. Alexandr Wang $140억 딜 이후 첫 주요 모델.',
+   tags:['Muse Spark','LLM','멀티모달'],source:'https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html'},
+  {id:15,date:'2026-04-14',company:'Anthropic',companies:['Anthropic'],category:'product',
+   title:'Anthropic, Claude Sonnet 4·Opus 4 API 종료 예고',
+   description:'Anthropic이 Claude Sonnet 4 및 Opus 4의 API 종료(4/20)를 공지. Opus 4.6·Sonnet 4.6으로 마이그레이션 권고.',
+   tags:['Claude','API종료','마이그레이션'],source:''},
+  {id:16,date:'2026-04-15',company:'Adobe',companies:['Adobe'],category:'creative',
+   title:'Adobe Firefly AI 어시스턴트 공개 — 에이전틱 크리에이티브 시대',
+   description:'대화형 인터페이스에서 원하는 결과를 텍스트로 설명하면 Photoshop·Lightroom·Premiere 등 Creative Cloud 60개+ 전문 도구를 자동 오케스트레이션.',
+   tags:['FireflyAssistant','에이전틱AI','CreativeCloud'],source:'https://blog.adobe.com/en/publish/2026/04/15/introducing-firefly-ai-assistant-new-way-create-with-our-creative-agent'},
+  {id:17,date:'2026-04-15',company:'xAI',companies:['xAI','Tesla','SpaceX','Intel'],category:'infrastructure',
+   title:'Terafab 설립 — xAI·Tesla·SpaceX 반도체 합작, Intel 참여',
+   description:'Elon Musk의 xAI·Tesla·SpaceX가 $250억 규모 반도체 합작사 Terafab 설립. Intel이 18A 공정으로 제조 파트너 합류.',
+   tags:['반도체','Terafab','AI칩'],source:''},
+  {id:18,date:'2026-04-20',company:'xAI',companies:['xAI'],category:'product',
+   title:'Grok Build 출시 — 8개 병렬 에이전트 코딩 도구',
+   description:'xAI의 코딩 에이전트 Grok Build 출시. 최대 8개 병렬 AI 에이전트 동시 실행. Plan → Search → Build 3단계 워크플로우.',
+   tags:['Grok','코딩에이전트','에이전트'],source:'https://devops.com/xai-enters-the-coding-agent-race-with-grok-build/'},
+  {id:19,date:'2026-04-20',company:'Kuaishou',companies:['Kuaishou'],category:'creative',
+   title:'Kuaishou Kling 3.0 출시 — 15초 고해상도 + 멀티언어 오디오',
+   description:'Kuaishou의 AI 비디오 모델 Kling 3.0 출시. 최대 15초, 포토리얼리스틱 고해상도, 여러 언어·억양 네이티브 오디오 생성.',
+   tags:['Kling3','AI비디오','오디오'],source:''},
+  {id:20,date:'2026-04-26',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI Sora 앱 공식 종료 — AI 비디오 시장 재편',
+   description:'Sora 웹·앱 4월 26일 공식 종료. Runway Gen-4·Veo 3·Seedance 2.0·Kling 3.0 등이 공백 빠르게 채우며 AI 비디오 시장 재편 가속.',
+   tags:['Sora종료','AI비디오','시장재편'],source:''},
+  {id:21,date:'2026-04-27',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI AI 스마트폰 개발 착수 보도',
+   description:'OpenAI가 iPhone 대항 AI 스마트폰 개발 중 보도. 2027년 초 출시 목표. 소비자 하드웨어 첫 진출.',
+   tags:['스마트폰','하드웨어','AI기기'],source:'https://www.macrumors.com/2026/04/27/openai-working-on-an-ai-smartphone/'},
+  {id:22,date:'2026-04-27',company:'Adobe',companies:['Adobe'],category:'creative',
+   title:'Adobe Firefly AI 어시스턴트 퍼블릭 베타 시작',
+   description:'Firefly AI 어시스턴트가 퍼블릭 베타로 전환. Creative Cloud 구독자 단계적 롤아웃. 자연어로 복잡한 멀티앱 워크플로우 한 번에 실행.',
+   tags:['FireflyBeta','CreativeCloud'],source:'https://blog.adobe.com/en/publish/2026/04/27/firefly-ai-assistant-public-beta'},
+  {id:23,date:'2026-04-28',company:'SpaceX',companies:['SpaceX'],category:'acquisition',
+   title:'SpaceX, Cursor $600억 인수 옵션 체결',
+   description:'SpaceX가 AI 코딩 스타트업 Cursor를 $600억에 인수하는 옵션 계약 체결. 불발 시 $100억 파트너십으로 전환 가능.',
+   tags:['Cursor','AI코딩','M&A'],source:''},
+  {id:24,date:'2026-04-30',company:'Midjourney',companies:['Midjourney'],category:'creative',
+   title:'Midjourney V8.1 출시 — HD 2K + 역대 최고 속도',
+   description:'Midjourney V8.1 정식 출시. V7 대비 4-5배 빠른 생성 속도. HD 옵션으로 업스케일 없이 네이티브 2K 해상도.',
+   tags:['MidjourneyV8.1','2K','HD'],source:''},
+  {id:25,date:'2026-05-01',company:'Microsoft',companies:['Microsoft','Google','OpenAI'],category:'regulation',
+   title:'미 국방부, 빅테크 8개사와 AI 계약 체결',
+   description:'미 국방부가 8개 주요 테크 기업과 AI 계약 체결. Anthropic 제외. 국방 AI 인프라 구축 본격화.',
+   tags:['국방부','정부AI','Pentagon'],source:'https://www.cnn.com/2026/05/01/tech/pentagon-ai-anthropic'},
+  {id:26,date:'2026-05-03',company:'Runway',companies:['Runway'],category:'creative',
+   title:'Runway Gen-4 출시 — 60초 4K·캐릭터 일관성·3D 통합',
+   description:'Runway의 차세대 AI 비디오 Gen-4 출시. 최대 60초 4K 연속 생성, 장면 간 캐릭터·배경 일관성 유지. Sora 종료 이후 AI 비디오 선두 탈환.',
+   tags:['RunwayGen4','4K','AI비디오','캐릭터'],source:'https://runwayml.com/research/introducing-runway-gen-4'},
+  {id:27,date:'2026-05-05',company:'Microsoft',companies:['Microsoft','Google','xAI'],category:'regulation',
+   title:'MS·Google·xAI, 정부 AI 안전성 평가 협약',
+   description:'Microsoft, Google DeepMind, xAI가 AI 모델 출시 전 미국 정부 안전성 테스트 참여에 합의.',
+   tags:['AI안전','규제','정부평가'],source:'https://www.cnn.com/2026/05/05/tech/microsoft-google-xai-government-test-ai-models'},
+  {id:28,date:'2026-05-08',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI ChatGPT 광고 플랫폼 Ads Manager 출시',
+   description:'ChatGPT 내 광고 셀프서비스 플랫폼 Ads Manager 출시. 올해 광고 매출 목표 $25억, 2030년 $1000억 목표.',
+   tags:['광고','ChatGPT','수익화'],source:''},
+  {id:29,date:'2026-05-10',company:'OpenAI',companies:['OpenAI'],category:'model',
+   title:'OpenAI 실시간 오디오 AI 3종 공개',
+   description:'GPT-Realtime-2(대화형)·GPT-Realtime-Translate(70개 언어 번역)·GPT-Realtime-Whisper(실시간 자막) 3종 공개.',
+   tags:['음성AI','번역','자막','실시간'],source:''},
+  {id:30,date:'2026-05-15',company:'NVIDIA',companies:['NVIDIA','Samsung','SK','Naver'],category:'infrastructure',
+   title:'NVIDIA·한국 25만+ GPU AI 인프라 협약',
+   description:'NVIDIA와 한국 정부·기업 AI 인프라 협약. Samsung·SK·Naver·Hyundai 각각 최대 5~6만 GPU AI 팩토리 구축. 총 25만개 이상 최신 GPU 한국 배치.',
+   tags:['GPU','AI팩토리','한국'],source:'https://nvidianews.nvidia.com/news/south-korea-ai-infrastructure'},
+  {id:31,date:'2026-05-18',company:'Anthropic',companies:['Anthropic'],category:'acquisition',
+   title:'Anthropic, Stainless 인수 ($3억+) — MCP·SDK 전략 자산 확보',
+   description:'Anthropic이 MCP 서버·SDK 생성 스타트업 Stainless를 $3억 이상에 인수. MCP는 출시 후 월 9700만 다운로드, 공개 서버 1만개 돌파.',
+   tags:['MCP','SDK','Stainless','인수'],source:'https://www.anthropic.com/news/anthropic-acquires-stainless'},
+  {id:32,date:'2026-05-19',company:'Google',companies:['Google'],category:'model',
+   title:'Google Gemini Omni 공개 — 멀티모달 월드 모델 (Google I/O)',
+   description:'Google I/O 2026에서 Gemini Omni 공개. 이미지·오디오·비디오·텍스트를 입력받아 Gemini 지식 기반 고품질 비디오 생성. 자연어 편집, 캐릭터 일관성, 물리법칙 구현.',
+   tags:['GeminiOmni','월드모델','AI비디오'],source:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/'},
+  {id:33,date:'2026-05-19',company:'Google',companies:['Google'],category:'creative',
+   title:'Google Veo 3.1 출시 — 무료·모바일·1080p 업스케일',
+   description:'Veo 3.1 출시. 일반 Google 계정 무료 고품질 비디오 생성. 네이티브 세로(9:16) 지원, 1080p·4K 업스케일. YouTube Shorts·Create 앱 무료 접근.',
+   tags:['Veo3.1','AI비디오','무료','YouTube'],source:'https://developers.googleblog.com/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/'},
+  {id:34,date:'2026-05-19',company:'Canva',companies:['Canva','Google'],category:'creative',
+   title:'Canva AI 2.0 + Google Gemini 통합 — 대화형 디자인 플랫폼 전환',
+   description:'Canva Create 2026에서 Canva AI 2.0 발표. 2013년 창립 이래 최대 진화. 대화형·에이전틱 플랫폼으로 전환. Google Gemini 통합으로 Gemini 내 Canva 콘텐츠 직접 생성·편집.',
+   tags:['CanvaAI2','Gemini통합','대화형디자인'],source:'https://www.canva.com/newsroom/news/canva-create-2026-ai/'},
+  {id:35,date:'2026-05-20',company:'Google',companies:['Google','Samsung'],category:'product',
+   title:'Google I/O 2026 — Gemini 스마트 글래스 공개',
+   description:'Google·Samsung이 Google I/O 2026에서 Gemini AI 탑재 스마트 글래스 공개. Android XR 기반, Gentle Monster & Warby Parker 프레임. 2026년 가을 오디오 전용 버전, 인렌즈 디스플레이 버전 추후 출시. 예상가 $600~900.',
+   tags:['스마트글래스','Gemini','AndroidXR','웨어러블'],source:'https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/'},
+  {id:36,date:'2026-05-20',company:'Google',companies:['Google'],category:'product',
+   title:'Android XR 플랫폼 정식 발표',
+   description:'Google이 XR 기기 통합 플랫폼 Android XR 정식 발표. 스마트 글래스부터 헤드셋까지 모든 확장현실 기기를 위한 공통 OS.',
+   tags:['AndroidXR','XR','OS'],source:'https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/'},
+  {id:37,date:'2025-10-03',company:'Figma',companies:['Figma'],category:'acquisition',
+   title:'Figma, Weavy 인수 ($200M) → Figma Weave 출범',
+   description:'Figma가 텔아비브 AI 미디어 생성 스타트업 Weavy를 약 $200M에 인수. 역대 최대 딜. Google·Kling·OpenAI·Runway·Luma 등 주요 AI 모델을 단일 캔버스로 통합. Figma Weave로 리브랜드.',
+   tags:['Weavy','FigmaWeave','인수','미디어생성'],source:'https://techcrunch.com/2025/10/30/figma-acquires-ai-powered-media-generation-company-weavy/'},
+  {id:38,date:'2026-04-20',company:'Apple',companies:['Apple'],category:'leadership',
+   title:'Tim Cook, 15년 만에 Apple CEO 사임 발표 — 후임 John Ternus',
+   description:'Tim Cook이 2026년 4월 20일 CEO직 사임을 공식 발표. 15년간 재임하며 Apple을 시가총액 $1T→$3.5T로 성장시킴. 9월 1일부로 Executive Chairman으로 전환. 후임으로 하드웨어 엔지니어링 SVP John Ternus가 CEO 취임.',
+   tags:['TimCook','JohnTernus','CEO교체','리더십'],source:'https://www.apple.com/newsroom/'},
+  {id:39,date:'2026-05-12',company:'Apple',companies:['Apple','Intel'],category:'partnership',
+   title:'Apple-Intel, 미국산 프로세서 제조 계약 체결 — 주가 13% 급등',
+   description:'Apple이 미국 내 생산을 위해 Intel과 주요 프로세서 제조 계약을 공식 체결. 보도 직후 Apple 주가 13% 급등, 이후 WSJ 확인 보도에 추가 14% 상승. Samsung과도 병행 협의 중. 트럼프 행정부의 미국 제조업 회귀 기조에 따른 공급망 재편.',
+   tags:['Intel','프로세서','미국생산','공급망재편'],source:'https://www.cnbc.com/2026/05/12/google-races-put-gemini-at-center-of-android-before-apples-ai-reboot.html'},
+  {id:40,date:'2026-05-20',company:'Anthropic',companies:['Anthropic','SpaceX'],category:'infrastructure',
+   title:'Anthropic-SpaceX, $450억 컴퓨트 계약 — 월 $12.5억 Colossus 전용',
+   description:'Anthropic이 SpaceX Colossus 데이터센터(멤피스, 테네시) 컴퓨팅 전용으로 2029년까지 매월 $12.5억, 총 약 $450억 규모 계약 체결. 300MW+ 용량 확보. 우주 데이터센터 공동 개발도 협의 중. SpaceX IPO 서류에서 계약 규모 공개.',
+   tags:['Colossus','컴퓨팅','인프라','SpaceX'],source:'https://www.bloomberg.com/news/articles/2026-05-20/anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal'},
+  {id:41,date:'2026-05-21',company:'Anthropic',companies:['Anthropic','Microsoft'],category:'partnership',
+   title:'Anthropic-Microsoft, Maia 200 AI 칩 공급 협상 진행 중',
+   description:'Microsoft가 자체 개발 AI 칩 Maia 200을 Anthropic에 공급하는 협상 진행 중. Maia 200은 토큰당 비용 30% 이상 절감 효과. Microsoft의 $50억 Anthropic 투자 이후 후속 파트너십. AWS·Google에 뒤처진 Microsoft 커스텀 칩 사업의 주요 레퍼런스 될 전망.',
+   tags:['Maia200','AI칩','파트너십','클라우드'],source:'https://www.cnbc.com/2026/05/21/anthropic-microsoft-maia-200-ai-chip.html'},
+  {id:42,date:'2026-05-22',company:'Google',companies:['Google','Samsung'],category:'product',
+   title:'Google, Gemini 중심 Android Auto 전면 재설계 — 2.5억대 차량 탑재',
+   description:'Google이 Gemini 기반으로 Android Auto를 전면 재설계. Samsung Galaxy·Pixel 우선 배포 후 전 세계 2억 5천만대 차량으로 확대. AI 어시스턴트가 차량 핵심 인터페이스로 전환. Apple CarPlay와 차량 AI 플랫폼 주도권 경쟁 본격화.',
+   tags:['AndroidAuto','Gemini','차량AI','삼성'],source:'https://www.cnbc.com/2026/05/12/google-races-put-gemini-at-center-of-android-before-apples-ai-reboot.html'},
+  {id:43,date:'2026-05-22',company:'NVIDIA',companies:['NVIDIA'],category:'product',
+   title:'NVIDIA Q1 2026 실적 — 매출 $816억 (YoY +85%), 역대 최고',
+   description:'NVIDIA가 2026년 1분기(4월 26일 종료) 매출 $816억 달성. 전년 동기 대비 85%, 전분기 대비 20% 성장. 데이터센터 AI 칩 수요 폭증 주도. 동시에 Intel·AMD와의 AI 칩 경쟁 심화로 주가 상승폭은 상대적으로 둔화.',
+   tags:['실적','데이터센터','H200','Blackwell'],source:'https://nvidianews.nvidia.com/news/latest'},
+];
+
+// ─── MIND MAP DATA ───
+const GRP_COLORS = {
+  'ai-lab':'#d4a574','bigtech':'#4285f4','hw':'#76b900',
+  'korea':'#1428a0','other':'#8b5cf6','topic':'#9090bb',
+  'creative':'#f97316',
+};
+const NODE_COLORS = {
+  Anthropic:'#c4904a',OpenAI:'#0e9e6a',Google:'#4285f4',Microsoft:'#00a0cc',
+  Meta:'#0070d8',Apple:'#888888',NVIDIA:'#5f9600',xAI:'#b0a030',
+  Samsung:'#1428a0',Naver:'#02aa4a',Kakao:'#c09000',LG:'#850028',
+  SK:'#cc0020',Intel:'#005aaa',Tesla:'#aa0000',SpaceX:'#505090',
+  Figma:'#e03a10',Adobe:'#cc0000',Canva:'#009098',Runway:'#4818a0',
+  Midjourney:'#484860',ByteDance:'#aa002a',Higgsfield:'#2255cc',Kuaishou:'#c04500',
+};
+const REL_COLORS = {
+  acquisition:'#ef4444',product:'#6366f1',partnership:'#10b981',
+  infrastructure:'#f59e0b',regulation:'#8b5cf6',
+};
+const MM_NODES = [
+  {id:'Anthropic',label:'Anthropic',grp:'ai-lab',sz:24},
+  {id:'OpenAI',label:'OpenAI',grp:'ai-lab',sz:24},
+  {id:'xAI',label:'xAI',grp:'ai-lab',sz:18},
+  {id:'Google',label:'Google',grp:'bigtech',sz:26},
+  {id:'Microsoft',label:'Microsoft',grp:'bigtech',sz:20},
+  {id:'Meta',label:'Meta',grp:'bigtech',sz:22},
+  {id:'Apple',label:'Apple',grp:'bigtech',sz:14},
+  {id:'NVIDIA',label:'NVIDIA',grp:'hw',sz:24},
+  {id:'Intel',label:'Intel',grp:'hw',sz:14},
+  {id:'Samsung',label:'Samsung',grp:'korea',sz:22},
+  {id:'Naver',label:'Naver',grp:'korea',sz:16},
+  {id:'Kakao',label:'Kakao',grp:'korea',sz:14},
+  {id:'SK',label:'SK Group',grp:'korea',sz:14},
+  {id:'LG',label:'LG',grp:'korea',sz:14},
+  {id:'Tesla',label:'Tesla',grp:'other',sz:12},
+  {id:'SpaceX',label:'SpaceX',grp:'other',sz:12},
+  {id:'Figma',label:'Figma',grp:'creative',sz:20},
+  {id:'Adobe',label:'Adobe',grp:'creative',sz:22},
+  {id:'Canva',label:'Canva',grp:'creative',sz:18},
+  {id:'Runway',label:'Runway',grp:'creative',sz:16},
+  {id:'Midjourney',label:'Midjourney',grp:'creative',sz:16},
+  {id:'ByteDance',label:'ByteDance',grp:'bigtech',sz:18},
+  {id:'Higgsfield',label:'Higgsfield',grp:'creative',sz:12},
+  {id:'Kuaishou',label:'Kuaishou\n(Kling)',grp:'bigtech',sz:14},
+  {id:'MCP',label:'MCP 프로토콜',grp:'topic',sz:16},
+  {id:'Stainless',label:'Stainless SDK',grp:'topic',sz:12},
+  {id:'GemGlass',label:'Gemini 글래스',grp:'topic',sz:18},
+  {id:'AndroidXR',label:'Android XR',grp:'topic',sz:14},
+  {id:'GPT54',label:'GPT-5.4',grp:'topic',sz:12},
+  {id:'GrokBuild',label:'Grok Build',grp:'topic',sz:12},
+  {id:'Terafab',label:'Terafab',grp:'topic',sz:14},
+  {id:'ClOiD',label:'ClOiD 로봇',grp:'topic',sz:10},
+  {id:'MuseSpark',label:'Muse Spark',grp:'topic',sz:12},
+  {id:'Kanana',label:'Kanana/AgentN',grp:'topic',sz:10},
+  {id:'AISphone',label:'AI 스마트폰',grp:'topic',sz:12},
+  {id:'GPTAds',label:'ChatGPT Ads',grp:'topic',sz:10},
+  {id:'KoreaGPU',label:'한국 AI팩토리\n25만+ GPU',grp:'topic',sz:14},
+  {id:'GovSafety',label:'정부 AI\n안전평가',grp:'topic',sz:12},
+  {id:'Cursor',label:'Cursor',grp:'topic',sz:10},
+  {id:'FigmaWeave',label:'Figma Weave',grp:'topic',sz:12},
+  {id:'GemOmni',label:'Gemini Omni',grp:'topic',sz:16},
+  {id:'Veo31',label:'Veo 3.1',grp:'topic',sz:12},
+  {id:'FireflyAI',label:'Firefly AI\nAssistant',grp:'topic',sz:14},
+  {id:'MidjV8',label:'Midjourney V8',grp:'topic',sz:12},
+  {id:'Seedance2',label:'Seedance 2.0',grp:'topic',sz:12},
+  {id:'RunwayG4',label:'Runway Gen-4',grp:'topic',sz:12},
+  {id:'CanvaAI2',label:'Canva AI 2.0',grp:'topic',sz:14},
+  {id:'SoraOff',label:'Sora 종료\n(4/26)',grp:'topic',sz:10},
+  {id:'Kling30',label:'Kling 3.0',grp:'topic',sz:10},
+];
+const MM_LINKS = [
+  {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
+  {s:'Anthropic',t:'MCP',type:'개발/출시',rel:'product'},
+  {s:'Stainless',t:'MCP',type:'SDK 생성',rel:'partnership'},
+  {s:'Google',t:'Samsung',type:'공동 개발',rel:'partnership'},
+  {s:'Google',t:'AndroidXR',type:'플랫폼 출시',rel:'product'},
+  {s:'Google',t:'GemGlass',type:'제품 출시',rel:'product'},
+  {s:'Samsung',t:'GemGlass',type:'공동 출시',rel:'product'},
+  {s:'AndroidXR',t:'GemGlass',type:'기반 OS',rel:'partnership'},
+  {s:'Google',t:'GemOmni',type:'Omni 출시',rel:'product'},
+  {s:'Google',t:'Veo31',type:'Veo 3.1 출시',rel:'product'},
+  {s:'OpenAI',t:'GPT54',type:'출시 (3/5)',rel:'product'},
+  {s:'OpenAI',t:'AISphone',type:'개발 중',rel:'product'},
+  {s:'OpenAI',t:'GPTAds',type:'출시',rel:'product'},
+  {s:'OpenAI',t:'GovSafety',type:'참여',rel:'regulation'},
+  {s:'OpenAI',t:'SoraOff',type:'종료 (4/26)',rel:'product'},
+  {s:'xAI',t:'GrokBuild',type:'출시',rel:'product'},
+  {s:'xAI',t:'Terafab',type:'공동 설립',rel:'infrastructure'},
+  {s:'Tesla',t:'Terafab',type:'공동 설립',rel:'infrastructure'},
+  {s:'SpaceX',t:'Terafab',type:'공동 설립',rel:'infrastructure'},
+  {s:'Intel',t:'Terafab',type:'18A 공정',rel:'partnership'},
+  {s:'SpaceX',t:'Cursor',type:'$600억 추진',rel:'acquisition'},
+  {s:'xAI',t:'GovSafety',type:'참여',rel:'regulation'},
+  {s:'Meta',t:'MuseSpark',type:'출시 (4/8)',rel:'product'},
+  {s:'NVIDIA',t:'KoreaGPU',type:'인프라 구축',rel:'infrastructure'},
+  {s:'Samsung',t:'KoreaGPU',type:'AI 팩토리',rel:'infrastructure'},
+  {s:'SK',t:'KoreaGPU',type:'AI 팩토리',rel:'infrastructure'},
+  {s:'Naver',t:'KoreaGPU',type:'6만 GPU',rel:'infrastructure'},
+  {s:'Naver',t:'Kanana',type:'Agent N 출시',rel:'product'},
+  {s:'Kakao',t:'Kanana',type:'Kanana 출시',rel:'product'},
+  {s:'LG',t:'ClOiD',type:'CES 공개',rel:'product'},
+  {s:'Microsoft',t:'GovSafety',type:'참여',rel:'regulation'},
+  {s:'Google',t:'GovSafety',type:'참여',rel:'regulation'},
+  {s:'Apple',t:'AISphone',type:'경쟁 시장',rel:'partnership'},
+  {s:'Figma',t:'FigmaWeave',type:'인수 리브랜드',rel:'acquisition'},
+  {s:'Adobe',t:'FireflyAI',type:'에이전트 출시',rel:'product'},
+  {s:'Adobe',t:'NVIDIA',type:'전략 파트너십',rel:'partnership'},
+  {s:'Midjourney',t:'MidjV8',type:'V8 출시',rel:'product'},
+  {s:'ByteDance',t:'Seedance2',type:'출시 (2/9)',rel:'product'},
+  {s:'Kuaishou',t:'Kling30',type:'출시 (4/20)',rel:'product'},
+  {s:'Runway',t:'RunwayG4',type:'Gen-4 출시',rel:'product'},
+  {s:'Canva',t:'CanvaAI2',type:'AI 2.0 출시',rel:'product'},
+  {s:'Canva',t:'Google',type:'Gemini 통합',rel:'partnership'},
+  {s:'Higgsfield',t:'RunwayG4',type:'모델 통합',rel:'partnership'},
+  {s:'Higgsfield',t:'Kling30',type:'모델 통합',rel:'partnership'},
+  {s:'Seedance2',t:'Kling30',type:'시장 비교',rel:'partnership'},
+];
+
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+// ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
+const BUILD_DATETIME='2026-05-22 11:00';
+document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
+
+let cy=2026,cm=4,selDate=null;
+let actCos=new Set(Object.keys(CO_COLORS));
+let actCats=new Set(Object.keys(CAT_INFO));
+let nextId=300;
+
+// ─── localStorage 퍼시스턴스 (Cowork에서는 실패해도 무시) ───
+function saveUserEvents(){
+  try{
+    const userEvs=EVENTS.filter(e=>e.id>=300);
+    localStorage.setItem('aitracker_events',JSON.stringify(userEvs));
+    localStorage.setItem('aitracker_nextId',String(nextId));
+  }catch(e){}
+}
+function loadUserEvents(){
+  try{
+    const raw=localStorage.getItem('aitracker_events');
+    if(raw){
+      const evs=JSON.parse(raw);
+      evs.forEach(e=>EVENTS.push(e));
+    }
+    const savedId=localStorage.getItem('aitracker_nextId');
+    if(savedId){nextId=Math.max(nextId,parseInt(savedId,10));}
+  }catch(e){}
+}
+loadUserEvents(); // 페이지 로드 시 저장된 이벤트 복원
+
+let mmReady=false,mmOffset={x:0,y:0},mmScale=1;
+let mmNodes=[],mmLinks=[];
+let mmDragging=null,mmHovered=null;
+let mmAnimating=false;
+
+// ═══════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════
+const fe=()=>EVENTS.filter(e=>{
+  const cs=e.companies||[e.company];
+  return cs.some(c=>actCos.has(c))&&actCats.has(e.category);
+});
+const onDate=ds=>fe().filter(e=>e.date===ds);
+const ds=(y,m,d)=>`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+const fmtDate=s=>{const d=new Date(s+'T00:00:00');return`${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`;};
+
+// ═══════════════════════════════════════
+// CALENDAR
+// ═══════════════════════════════════════
+function renderCal(){
+  const months=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  document.getElementById('cal-lbl').textContent=`${cy}년 ${months[cm]}`;
+  const mev=fe().filter(e=>{const d=new Date(e.date+'T00:00:00');return d.getFullYear()===cy&&d.getMonth()===cm;});
+  document.getElementById('cal-stat').textContent=`${mev.length}개 이슈`;
+  const firstDow=new Date(cy,cm,1).getDay();
+  const dim=new Date(cy,cm+1,0).getDate();
+  const today=new Date();
+  const dows=['일','월','화','수','목','금','토'];
+  let h=dows.map(d=>`<div class="cal-dow">${d}</div>`).join('');
+  for(let i=0;i<firstDow;i++)h+=`<div class="cal-day empty"></div>`;
+  for(let day=1;day<=dim;day++){
+    const s=ds(cy,cm,day);
+    const devs=mev.filter(e=>e.date===s);
+    const isT=today.getFullYear()===cy&&today.getMonth()===cm&&today.getDate()===day;
+    const isSel=selDate===s;
+    const dow=(firstDow+day-1)%7;
+    const isW=dow===0||dow===6;
+    let cls='cal-day'+(isT?' today':'')+(isSel?' selected':'')+(isW?' wknd':'');
+    const num=isT?`<div class="dnum"><span class="today-c">${day}</span></div>`:`<div class="dnum">${day}</div>`;
+    const pills=devs.slice(0,3).map(e=>{
+      const co=(e.companies||[e.company])[0];
+      const bg=CO_COLORS[co]||'#6366f1';
+      return`<div class="epill" style="background:${bg}"><div class="epill-dot"></div><span class="epill-txt">${e.title}</span></div>`;
+    }).join('');
+    const more=devs.length>3?`<div class="more-cnt">+${devs.length-3}개</div>`:'';
+    h+=`<div class="${cls}" onclick="selDate_('${s}')">${num}${pills}${more}</div>`;
+  }
+  document.getElementById('cal-grid').innerHTML=h;
+}
+function selDate_(s){selDate=s;renderCal();renderDet(s);}
+function renderDet(s){
+  document.getElementById('det-date').textContent=fmtDate(s);
+  const evs=onDate(s);
+  document.getElementById('det-cnt').textContent=`${evs.length}개 이슈`;
+  if(!evs.length){document.getElementById('det-body').innerHTML=`<div class="empty-st">📭 이날은 등록된 이슈가 없습니다.<br>+ 버튼으로 추가하세요.</div>`;return;}
+  document.getElementById('det-body').innerHTML=evs.map(e=>{
+    const cos=e.companies||[e.company];
+    const ci=CAT_INFO[e.category]||{label:e.category,color:'#6366f1'};
+    const ctags=cos.map(c=>`<span class="co-tag" style="background:${CO_COLORS[c]||'#666'}">${c}</span>`).join('');
+    const chips=(e.tags||[]).map(t=>`<span class="echip">${t}</span>`).join('');
+    const src=e.source?`<a class="esrc" href="${e.source}" target="_blank">↗ 출처 보기</a>`:'';
+    return`<div class="ecard">
+      <div class="ecard-tags">${ctags}<span class="cat-tag" style="border-color:${ci.color};color:${ci.color}">${ci.label}</span></div>
+      <div class="etitle">${e.title}</div>
+      <div class="edesc">${e.description}</div>
+      <div class="echips">${chips}</div>${src}
+    </div>`;
+  }).join('');
+}
+function prevMonth(){cm--;if(cm<0){cm=11;cy--;}renderCal();}
+function nextMonth(){cm++;if(cm>11){cm=0;cy++;}renderCal();}
+function jumpTo(s){const d=new Date(s+'T00:00:00');cy=d.getFullYear();cm=d.getMonth();selDate=s;renderCal();renderDet(s);if(!document.getElementById('cal-section').classList.contains('active'))switchTab('cal');}
+
+// ═══════════════════════════════════════
+// SIDEBAR
+// ═══════════════════════════════════════
+function renderSidebar(){
+  const coCnt={};
+  EVENTS.forEach(e=>(e.companies||[e.company]).forEach(c=>{coCnt[c]=(coCnt[c]||0)+1;}));
+  const coList=Object.entries(coCnt).filter(([c])=>CO_COLORS[c]).sort((a,b)=>b[1]-a[1]);
+  document.getElementById('co-filters').innerHTML=coList.map(([c,n])=>
+    `<div class="frow ${actCos.has(c)?'':'off'}" onclick="togCo('${c}')">
+      <div class="fdot" style="background:${CO_COLORS[c]}"></div>
+      <span class="flabel">${c}</span><span class="fcount">${n}</span>
+    </div>`).join('');
+  document.getElementById('cat-filters').innerHTML=Object.entries(CAT_INFO).map(([k,v])=>{
+    const n=EVENTS.filter(e=>e.category===k).length;
+    return`<div class="frow ${actCats.has(k)?'':'off'}" onclick="togCat('${k}')">
+      <div class="fdot" style="background:${v.color}"></div>
+      <span class="flabel">${v.label}</span><span class="fcount">${n}</span>
+    </div>`;}).join('');
+  const recent=[...EVENTS].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,7);
+  document.getElementById('recent-list').innerHTML=recent.map(e=>{
+    const c=CO_COLORS[e.company]||'#6366f1';
+    const d=new Date(e.date+'T00:00:00');
+    return`<div class="recent-item" onclick="jumpTo('${e.date}')">
+      <div class="r-meta">
+        <div class="fdot" style="background:${c};width:6px;height:6px"></div>
+        <span class="r-date">${d.getMonth()+1}/${d.getDate()}</span>
+        <span class="r-co" style="color:${c}">${e.company}</span>
+      </div>
+      <div class="r-title">${e.title}</div>
+    </div>`;}).join('');
+}
+function togCo(c){if(actCos.has(c)){if(actCos.size>1)actCos.delete(c);}else actCos.add(c);renderSidebar();renderCal();if(selDate)renderDet(selDate);}
+function togCat(k){if(actCats.has(k)){if(actCats.size>1)actCats.delete(k);}else actCats.add(k);renderSidebar();renderCal();if(selDate)renderDet(selDate);}
+
+// ═══════════════════════════════════════
+// TAB
+// ═══════════════════════════════════════
+function switchTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  ['cal','mm','ppl'].forEach(t=>document.getElementById(t+'-section').classList.toggle('active',t===tab));
+  if(tab==='mm'){if(!mmReady)initMindMap();else if(!mmAnimating)startAnim();}
+  if(tab==='ppl')renderPplList();
+}
+
+// ═══════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════
+function openModal(){
+  const td=new Date();
+  document.getElementById('f-date').value=selDate||ds(td.getFullYear(),td.getMonth(),td.getDate());
+  document.getElementById('overlay').classList.add('open');
+}
+function closeModal(){document.getElementById('overlay').classList.remove('open');}
+document.getElementById('overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+function submitEvent(){
+  const date=document.getElementById('f-date').value;
+  const title=document.getElementById('f-title').value.trim();
+  if(!date||!title){alert('날짜와 제목은 필수입니다.');return;}
+  const co=document.getElementById('f-co').value;
+  EVENTS.push({id:nextId++,date,company:co,companies:[co],
+    category:document.getElementById('f-cat').value,title,
+    description:document.getElementById('f-desc').value.trim(),
+    tags:document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
+    source:document.getElementById('f-src').value.trim()});
+  saveUserEvents(); // localStorage에 저장
+  closeModal();renderSidebar();jumpTo(date);
+  ['f-title','f-desc','f-tags','f-src'].forEach(id=>document.getElementById(id).value='');
+}
+
+// ═══════════════════════════════════════
+// MIND MAP — Canvas Physics
+// ═══════════════════════════════════════
+function initMindMap(){
+  mmReady=true;
+  const canvas=document.getElementById('mm-canvas');
+  const wrap=canvas.parentElement;
+  canvas.width=wrap.clientWidth;
+  canvas.height=wrap.clientHeight;
+  const W=canvas.width,H=canvas.height;
+  const cx=W/2,cy=H/2;
+
+  // ── 회사 노드: 고정 링 배치 (순수 기하학, 물리 없음) ──
+  // 각도: 0°=오른쪽, 90°=아래(캔버스), 270°=위
+  const D2R=Math.PI/180;
+  const R=250; // 고정 반경 (auto-fit이 화면에 맞게 줌 조정)
+
+  // 그룹별 호(arc): 15° 간격, 노드수 비례 배분 (총 360°)
+  // bigtech=68°, hw=22°, korea=57°, creative=68°, other=22°, ai-lab=35° + 15°×6=90° → 362°≈360°
+  // 시작: bigtech 중심 270°(꼭대기) → s=270-34=236°
+  const GRP_ARC={
+    'bigtech': {s:236, e:304},  // 236~304° (중심 270°=위)
+    'hw':      {s:319, e:341},  // 319~341° (우상단)
+    'korea':   {s:356, e:413},  // 356~413° (오른쪽→우하단, 0° 경계 통과)
+    'creative':{s: 68, e:136},  // 68~136°  (아래)
+    'other':   {s:151, e:173},  // 151~173° (좌하단)
+    'ai-lab':  {s:188, e:223},  // 188~223° (왼쪽~좌상단)
+  };
+
+  const grpNodes={};
+  MM_NODES.forEach(n=>{if(n.grp!=='topic')(grpNodes[n.grp]=grpNodes[n.grp]||[]).push(n);});
+
+  const posMap={};
+  Object.entries(grpNodes).forEach(([grp,nodes])=>{
+    const arc=GRP_ARC[grp];if(!arc)return;
+    nodes.forEach((n,i)=>{
+      const t=nodes.length===1?0.5:i/(nodes.length-1);
+      const deg=arc.s+(arc.e-arc.s)*t;
+      posMap[n.id]={x:cx+Math.cos(deg*D2R)*R, y:cy+Math.sin(deg*D2R)*R};
+    });
+  });
+
+  // ── 주제 노드: 부모 방향으로 R×1.45, 같은 부모묶음은 부채꼴 ──
+  const topicNodes=MM_NODES.filter(n=>n.grp==='topic');
+  const byParent={};
+  topicNodes.forEach(n=>{
+    const links=MM_LINKS.filter(l=>l.s===n.id||l.t===n.id);
+    const parents=links.map(l=>l.s===n.id?l.t:l.s).filter(id=>posMap[id]);
+    const key=parents.slice().sort().join('|');
+    (byParent[key]=byParent[key]||{parents,items:[]}).items.push(n);
+  });
+  Object.values(byParent).forEach(({parents,items})=>{
+    const ax=parents.length?parents.reduce((s,id)=>s+posMap[id].x,0)/parents.length:cx;
+    const ay=parents.length?parents.reduce((s,id)=>s+posMap[id].y,0)/parents.length:cy;
+    const base=Math.atan2(ay-cy,ax-cx);
+    const count=items.length;
+    const span=Math.min(0.50,count*0.20);
+    items.forEach((n,i)=>{
+      const a=count===1?base:base+(i/(count-1)-0.5)*span;
+      posMap[n.id]={x:cx+Math.cos(a)*R*1.45, y:cy+Math.sin(a)*R*1.45};
+    });
+  });
+
+  mmNodes=MM_NODES.map(n=>{
+    const p=posMap[n.id]||{x:cx,y:cy};
+    return{...n,x:p.x,y:p.y,vx:0,vy:0,pinned:n.grp!=='topic'};
+  });
+  mmLinks=MM_LINKS.map(l=>({...l,
+    sn:mmNodes.find(n=>n.id===l.s),
+    tn:mmNodes.find(n=>n.id===l.t)
+  })).filter(l=>l.sn&&l.tn);
+
+  setupCanvasEvents(canvas);
+
+  // ── Auto-fit: 모든 노드가 화면에 맞도록 초기 줌/오프셋 ──
+  const pad=40;
+  const xs=mmNodes.map(n=>n.x), ys=mmNodes.map(n=>n.y);
+  const minX=Math.min(...xs)-pad, maxX=Math.max(...xs)+pad;
+  const minY=Math.min(...ys)-pad, maxY=Math.max(...ys)+pad;
+  const fw=maxX-minX, fh=maxY-minY;
+  mmScale=Math.min(1.0,(W*0.96)/fw,(H*0.96)/fh);
+  mmOffset.x=(W-fw*mmScale)/2-minX*mmScale;
+  mmOffset.y=(H-fh*mmScale)/2-minY*mmScale;
+
+  // 물리 완전 비활성화 — 순수 기하학 배치로 항상 안정
+  mmAlpha=0.002;
+  mmAnimating=true;
+  animate(canvas);
+}
+
+let mmAlpha=1;
+function tick(W,H){
+  // 물리는 거의 꺼진 상태 — 드래그 시 주변 노드 살짝 밀기만
+  if(mmAlpha<0.001||!mmDragging)return;
+  const nodes=mmNodes;
+  for(let j=0;j<nodes.length;j++){
+    const B=nodes[j];
+    if(B===mmDragging||B.pinned)continue;
+    const dx=B.x-mmDragging.x,dy=B.y-mmDragging.y;
+    const d=Math.sqrt(dx*dx+dy*dy)||1;
+    const minD=mmDragging.sz+B.sz+18;
+    if(d<minD){
+      const f=(minD-d)*0.25;
+      B.vx+=dx/d*f;B.vy+=dy/d*f;
+    }
+  }
+  nodes.forEach(n=>{
+    if(n===mmDragging||n.pinned)return;
+    n.vx*=0.65;n.vy*=0.65;
+    n.x+=n.vx;n.y+=n.vy;
+  });
+}
+
+function draw(canvas){
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+  ctx.save();
+  ctx.translate(mmOffset.x,mmOffset.y);
+  ctx.scale(mmScale,mmScale);
+
+  // Links
+  mmLinks.forEach(l=>{
+    const A=l.sn,B=l.tn;
+    const dx=B.x-A.x,dy=B.y-A.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
+    const ex=B.x-dx/dist*(B.sz+6),ey=B.y-dy/dist*(B.sz+6);
+    ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(ex,ey);
+    ctx.strokeStyle=REL_COLORS[l.rel]||'#aaa';
+    ctx.globalAlpha=0.4;ctx.lineWidth=1.4;ctx.stroke();
+    const ang=Math.atan2(dy,dx);
+    ctx.beginPath();ctx.moveTo(ex,ey);
+    ctx.lineTo(ex-8*Math.cos(ang-0.4),ey-8*Math.sin(ang-0.4));
+    ctx.lineTo(ex-8*Math.cos(ang+0.4),ey-8*Math.sin(ang+0.4));
+    ctx.closePath();ctx.fillStyle=REL_COLORS[l.rel]||'#aaa';ctx.globalAlpha=0.5;ctx.fill();
+    ctx.globalAlpha=1;
+    // 라벨: hover 시만
+    if(mmHovered&&(mmHovered===l.sn||mmHovered===l.tn)){
+      const mx=(A.x+ex)/2,my=(A.y+ey)/2;
+      ctx.font='7px sans-serif';ctx.fillStyle='#9090b0';
+      ctx.textAlign='center';ctx.fillText(l.type,mx,my-2);
+    }
+  });
+
+  // Nodes
+  mmNodes.forEach(n=>{
+    const isH=mmHovered===n;
+    const r=n.sz+(isH?3:0);
+    const col=NODE_COLORS[n.id]||GRP_COLORS[n.grp]||'#6366f1';
+    const isTopic=n.grp==='topic';
+    ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);
+    ctx.fillStyle=isTopic?col+'30':col+(isH?'ff':'cc');
+    ctx.fill();
+    ctx.strokeStyle=col;
+    ctx.lineWidth=isTopic?1.5:2;
+    ctx.stroke();
+    // Label
+    const lines=n.label.split('\n');
+    ctx.font=`${n.sz>18?10:8}px sans-serif`;
+    ctx.fillStyle='#1a1a30';ctx.textAlign='center';
+    lines.forEach((line,i)=>{ctx.fillText(line,n.x,n.y+r+(i+1)*11);});
+  });
+  ctx.restore();
+}
+
+function animate(canvas){
+  if(!mmAnimating)return;
+  tick(canvas.width,canvas.height);
+  draw(canvas);
+  requestAnimationFrame(()=>animate(canvas));
+}
+function startAnim(){
+  mmAnimating=true;
+  const canvas=document.getElementById('mm-canvas');
+  animate(canvas);
+}
+
+function toGraph(cx,cy,canvas){
+  const rect=canvas.getBoundingClientRect();
+  return{x:(cx-rect.left-mmOffset.x)/mmScale,y:(cy-rect.top-mmOffset.y)/mmScale};
+}
+function hitNode(gx,gy){return mmNodes.find(n=>{const dx=n.x-gx,dy=n.y-gy;return Math.sqrt(dx*dx+dy*dy)<=n.sz+5;});}
+
+function setupCanvasEvents(canvas){
+  let lastMx=0,lastMy=0,panning=false,panStart={x:0,y:0},panOff={x:0,y:0};
+  let mouseDownX=0,mouseDownY=0,dragMoved=false;
+
+  canvas.addEventListener('mousedown',e=>{
+    const g=toGraph(e.clientX,e.clientY,canvas);
+    const n=hitNode(g.x,g.y);
+    mouseDownX=e.clientX;mouseDownY=e.clientY;dragMoved=false;
+    if(n){mmDragging=n;} // alpha는 실제 드래그 이동 시에만 올림
+    else{panning=true;panStart={x:e.clientX,y:e.clientY};panOff={x:mmOffset.x,y:mmOffset.y};}
+  });
+  canvas.addEventListener('mousemove',e=>{
+    if(mmDragging){
+      // 최소 4px 이상 움직여야 드래그로 인정 (클릭과 구분)
+      if(!dragMoved){
+        const dx=e.clientX-mouseDownX,dy=e.clientY-mouseDownY;
+        if(Math.abs(dx)>4||Math.abs(dy)>4){
+          dragMoved=true;
+          // pinned 노드는 드래그 중에만 임시 unpin
+          if(mmDragging&&mmDragging.pinned)mmDragging._wasPin=true;
+        }
+      }
+      if(dragMoved){
+        const g=toGraph(e.clientX,e.clientY,canvas);
+        mmDragging.x=g.x;mmDragging.y=g.y;
+      }
+    } else if(panning){
+      mmOffset.x=panOff.x+(e.clientX-panStart.x);
+      mmOffset.y=panOff.y+(e.clientY-panStart.y);
+    } else {
+      const g=toGraph(e.clientX,e.clientY,canvas);
+      const n=hitNode(g.x,g.y);
+      mmHovered=n||null;
+      canvas.style.cursor=n?'pointer':'default';
+      if(n){
+        const tt=document.getElementById('tooltip');
+        const cnt=EVENTS.filter(ev=>(ev.companies||[ev.company]).includes(n.id)).length;
+        const lnk=mmLinks.filter(l=>l.s===n.id||l.t===n.id).length;
+        tt.innerHTML=`<h4>${n.label.replace('\n',' ')}</h4><p>연결: ${lnk}건${cnt?`<br>관련 이슈: ${cnt}건`:''}${n.grp!=='topic'?'<br><span style="color:#6366f1">더블클릭 → 캘린더 이동</span>':''}</p>`;
+        tt.style.display='block';tt.style.left=(e.clientX+12)+'px';tt.style.top=(e.clientY-36)+'px';
+      } else document.getElementById('tooltip').style.display='none';
+    }
+    lastMx=e.clientX;lastMy=e.clientY;
+  });
+  canvas.addEventListener('mouseup',()=>{
+    if(mmDragging&&mmDragging._wasPin){
+      mmDragging.pinned=true; // 드롭 후 다시 고정
+      mmDragging._wasPin=false;
+      mmDragging.vx=0;mmDragging.vy=0;
+    }
+    mmDragging=null;panning=false;dragMoved=false;
+  });
+  canvas.addEventListener('mouseleave',()=>{mmDragging=null;panning=false;document.getElementById('tooltip').style.display='none';});
+  // 클릭 시 캘린더 강제 이동 제거 — 더블클릭으로만 이동
+  canvas.addEventListener('dblclick',e=>{
+    const g=toGraph(e.clientX,e.clientY,canvas);
+    const n=hitNode(g.x,g.y);
+    if(n&&n.grp!=='topic'){
+      const rel=EVENTS.filter(ev=>(ev.companies||[ev.company]).includes(n.id));
+      if(rel.length){const lat=[...rel].sort((a,b)=>b.date.localeCompare(a.date))[0];jumpTo(lat.date);}
+    }
+  });
+  canvas.addEventListener('wheel',e=>{
+    e.preventDefault();
+    const rect=canvas.getBoundingClientRect();
+    const mx=e.clientX-rect.left,my=e.clientY-rect.top;
+    const factor=e.deltaY<0?1.12:0.89;
+    mmOffset.x=mx-(mx-mmOffset.x)*factor;
+    mmOffset.y=my-(my-mmOffset.y)*factor;
+    mmScale=Math.max(0.2,Math.min(4,mmScale*factor));
+  },{passive:false});
+}
+
+function mmZoomIn(){const canvas=document.getElementById('mm-canvas');const W=canvas.width,H=canvas.height;mmOffset.x=W/2-(W/2-mmOffset.x)*1.25;mmOffset.y=H/2-(H/2-mmOffset.y)*1.25;mmScale=Math.min(4,mmScale*1.25);}
+function mmZoomOut(){const canvas=document.getElementById('mm-canvas');const W=canvas.width,H=canvas.height;mmOffset.x=W/2-(W/2-mmOffset.x)*0.8;mmOffset.y=H/2-(H/2-mmOffset.y)*0.8;mmScale=Math.max(0.2,mmScale*0.8);}
+function mmReset(){
+  const canvas=document.getElementById('mm-canvas');
+  if(!mmNodes.length)return;
+  const W=canvas.width,H=canvas.height,pad=40;
+  const xs=mmNodes.map(n=>n.x),ys=mmNodes.map(n=>n.y);
+  const minX=Math.min(...xs)-pad,maxX=Math.max(...xs)+pad;
+  const minY=Math.min(...ys)-pad,maxY=Math.max(...ys)+pad;
+  const fw=maxX-minX,fh=maxY-minY;
+  mmScale=Math.min(1.0,(W*0.96)/fw,(H*0.96)/fh);
+  mmOffset.x=(W-fw*mmScale)/2-minX*mmScale;
+  mmOffset.y=(H-fh*mmScale)/2-minY*mmScale;
+}
+
+// ═══════════════════════════════════════
+// PEOPLE / COMPANIES DATA
+// ═══════════════════════════════════════
+const GRP_LABELS = {
+  'ai-lab':'AI 연구소','bigtech':'빅테크','hw':'하드웨어',
+  'korea':'한국 기업','creative':'크리에이티브','other':'스타트업/기타',
+};
+const CO_ICONS = {
+  Anthropic:'🤖',OpenAI:'🌀',xAI:'𝕏',Google:'🔍',Microsoft:'🪟',Meta:'♾️',
+  Apple:'🍎',NVIDIA:'⚡',Samsung:'📱',Naver:'🟢',Kakao:'💬',LG:'🏠',SK:'🔋',
+  Figma:'🎨',Adobe:'🔴',Canva:'🖼️',Runway:'🎬',Midjourney:'✨',ByteDance:'🎵',
+  Higgsfield:'🎥',Kuaishou:'📹',Tesla:'🚗',SpaceX:'🚀',Intel:'💻',
+};
+const COMPANY_PROFILES = [
+  {id:'Anthropic',grp:'ai-lab',founded:2021,hq:'San Francisco, CA',ceo:'Dario Amodei',
+   valuation:'$61B+',
+   desc:'OpenAI 핵심 연구자들이 "AI 안전"을 최우선 가치로 2021년 집단 이탈해 설립. Claude 모델 시리즈 및 MCP(Model Context Protocol) 개발. 2026년 Stainless 인수로 SDK 생태계 선점.',
+   products:['Claude 3.5 / 4 / Opus 4.6','MCP 프로토콜','Claude API','Workspaces'],
+   people:[
+     {name:'Dario Amodei',role:'CEO & 공동창업자',note:'OpenAI 前 VP of Research. 안전 AI 철학 주창자'},
+     {name:'Daniela Amodei',role:'President & 공동창업자',note:'OpenAI 前 VP of Operations. Dario의 동생'},
+     {name:'Tom Brown',role:'연구 리드',note:'GPT-3 논문 수석 저자 → Anthropic 합류 (2021)'},
+     {name:'Chris Olah',role:'해석가능성(Interpretability) 리드',note:'신경망 시각화 연구의 세계적 권위자'},
+     {name:'John Schulman',role:'연구원',note:'PPO 알고리즘 발명자. OpenAI 공동창업자 → 2024 Anthropic 합류'},
+   ]},
+  {id:'OpenAI',grp:'ai-lab',founded:2015,hq:'San Francisco, CA',ceo:'Sam Altman',
+   valuation:'$300B+',
+   desc:'비영리로 출발해 ChatGPT로 AI 대중화를 이끈 세계 최대 AI 기업. 2023년 이사회 갈등으로 Sam Altman이 해임·복귀하는 초유의 사태 발생. GPT 시리즈, DALL-E, Sora(종료) 개발.',
+   products:['ChatGPT','GPT-5.4','DALL-E 3','Whisper','OpenAI API','Ads Manager'],
+   people:[
+     {name:'Sam Altman',role:'CEO',note:'2023년 이사회가 전격 해임 → 직원 연대·MS 압박으로 5일 만에 복귀'},
+     {name:'Greg Brockman',role:'공동창업자 / 前 CTO',note:'2024년 무기한 휴직. 복귀 여부 불명확'},
+     {name:'Ilya Sutskever',role:'前 CSO',note:'OpenAI 공동창업자. 이사회 갈등 중심 인물 → 2024 퇴사 → SSI 창업'},
+     {name:'Mira Murati',role:'前 CTO',note:'ChatGPT 출시 총괄. 2024년 10월 전격 퇴사 → Thinking Machines Lab 창업'},
+     {name:'Andrej Karpathy',role:'前 연구원',note:'창립멤버 → Tesla AI 총괄 → OpenAI 복귀 → 2024 퇴사 → EurekaLabs 창업'},
+   ]},
+  {id:'xAI',grp:'ai-lab',founded:2023,hq:'Memphis, TN',ceo:'Elon Musk',
+   valuation:'$50B+',
+   desc:'일론 머스크가 OpenAI 이사회 탈퇴·소송 후 2023년 설립. X(트위터) 플랫폼과 통합해 실시간 데이터 강점 확보. Colossus 슈퍼컴퓨터(10만 GPU) 멤피스 구축. Grok Build로 AI 코딩 에이전트 시장 진입.',
+   products:['Grok 3','Grok Build','Colossus 슈퍼컴퓨터','Terafab(공동설립)'],
+   people:[
+     {name:'Elon Musk',role:'CEO & 창업자',note:'Tesla·SpaceX·X 겸직. OpenAI 공동창업자 출신, 현재 법적 분쟁 중'},
+     {name:'Igor Babuschkin',role:'前 수석 엔지니어',note:'Google DeepMind → xAI. Grok 초기 개발 핵심'},
+     {name:'Tony Wu',role:'연구 리드',note:'Google DeepMind 출신. 멀티모달 모델 총괄'},
+   ]},
+  {id:'Google',grp:'bigtech',founded:1998,hq:'Mountain View, CA',ceo:'Sundar Pichai',
+   valuation:'$2.3T (Alphabet)',
+   desc:'검색·광고·유튜브·클라우드 세계 1위. 2023년 DeepMind 통합으로 Google DeepMind 출범. 2026 Google I/O에서 Gemini Omni, Veo 3.1, Android XR 스마트 글래스 공개. Samsung과 XR 협력.',
+   products:['Gemini Omni/Ultra','Veo 3.1','Android XR','Google Cloud AI','NotebookLM'],
+   people:[
+     {name:'Sundar Pichai',role:'CEO (Alphabet & Google)',note:'2015년 구글 CEO, 2019년 Alphabet CEO 겸직. 인도 출신'},
+     {name:'Demis Hassabis',role:'Google DeepMind CEO',note:'DeepMind 공동창업자. 2023 노벨화학상 수상(AlphaFold). 구글에 인수됨'},
+     {name:'Jeff Dean',role:'Chief Scientist',note:'MapReduce·TensorFlow·Transformer 아키텍처 공헌자'},
+     {name:'Liz Reid',role:'Google 검색 SVP',note:'AI 오버뷰·검색 AI 전환 총괄'},
+   ]},
+  {id:'Microsoft',grp:'bigtech',founded:1975,hq:'Redmond, WA',ceo:'Satya Nadella',
+   valuation:'$3.2T',
+   desc:'Azure 클라우드·Office·GitHub·Xbox 세계 최대 기업. OpenAI에 $130억 투자로 AI 전략 선도. GitHub Copilot 출시로 AI 코딩 시장 개척. 2026년 미 국방부 AI 계약 체결.',
+   products:['Azure OpenAI','Microsoft Copilot','GitHub Copilot','Office 365 AI'],
+   people:[
+     {name:'Satya Nadella',role:'CEO',note:'2014년 취임. 클라우드·AI 피벗으로 시가총액 10배 성장 이끔'},
+     {name:'Kevin Scott',role:'CTO',note:'OpenAI 파트너십 기술 아키텍처 총괄'},
+     {name:'Mustafa Suleyman',role:'Microsoft AI CEO',note:'DeepMind 공동창업자 → Inflection AI → 2024 Microsoft AI 수장'},
+   ]},
+  {id:'Meta',grp:'bigtech',founded:2004,hq:'Menlo Park, CA',ceo:'Mark Zuckerberg',
+   valuation:'$1.5T',
+   desc:'Facebook·Instagram·WhatsApp 운영. 오픈소스 AI(Llama) 전략으로 업계 영향력 확대. 2026년 Scale AI 창업자 Alexandr Wang을 $140억 딜로 영입해 AI 가속화 선언. Ray-Ban Meta 스마트 글래스 인기.',
+   products:['Llama 3/4','Muse Spark','Ray-Ban Meta 글래스','Horizon OS'],
+   people:[
+     {name:'Mark Zuckerberg',role:'CEO & 창업자',note:'2026년 Alexandr Wang $14B 딜 주도. AR 글래스 전략 직접 지휘'},
+     {name:'Yann LeCun',role:'Chief AI Scientist',note:'AI 거장·튜링상 수상. 오픈소스 AI 강력 지지, OpenAI 비판자'},
+     {name:'Alexandr Wang',role:'수석 AI 어드바이저',note:'Scale AI 창업자 (최연소 억만장자) → 2026년 Meta 합류'},
+   ]},
+  {id:'Apple',grp:'bigtech',founded:1976,hq:'Cupertino, CA',ceo:'John Ternus (2026.9~)',
+   valuation:'$3.5T',
+   desc:'iPhone·Mac·iPad·서비스 세계 1위. 2026년 4월 Tim Cook이 15년 재임 후 사임 발표, 9월 1일부로 Executive Chairman 전환. 후임 John Ternus(하드웨어 엔지니어링 SVP)가 신임 CEO 취임. AI 분야는 Apple Intelligence·온디바이스 프라이버시 전략 유지.',
+   products:['Apple Intelligence','Siri (재설계 중)','M4 칩','Vision Pro'],
+   people:[
+     {name:'John Ternus',role:'CEO (2026.9~ 취임 예정)',note:'하드웨어 엔지니어링 SVP 출신. iPhone·Mac·iPad 하드웨어 총괄 → Tim Cook 후임'},
+     {name:'Tim Cook',role:'前 CEO → Executive Chairman',note:'2011~2026.8 재임. 서비스·인도 제조 전략 주도. 2026년 9월 Executive Chairman으로 전환'},
+     {name:'John Giannandrea',role:'SVP AI & ML',note:'前 Google 검색 수석 → 2018 Apple 합류. Siri·Apple Intelligence 총괄'},
+     {name:'Craig Federighi',role:'SVP Software Engineering',note:'iOS·macOS·Apple Intelligence 소프트웨어 총괄'},
+   ]},
+  {id:'NVIDIA',grp:'hw',founded:1993,hq:'Santa Clara, CA',ceo:'Jensen Huang',
+   valuation:'$3.6T',
+   desc:'AI 가속기(GPU) 시장 점유율 80%+. H100·Blackwell B200으로 AI 인프라 시장 독점적 지위. 한국에 Samsung·SK·Naver와 25만+ GPU AI 팩토리 협약. Terafab 경쟁사로 부상.',
+   products:['H100','Blackwell B200','CUDA','NIM 마이크로서비스','DGX 클라우드'],
+   people:[
+     {name:'Jensen Huang (황인훈)',role:'CEO & 공동창업자',note:'대만계 미국인. 반도체 업계 최고 유명 경영자. 가죽재킷 트레이드마크'},
+     {name:'Bill Dally',role:'Chief Scientist',note:'Stanford 교수 출신. GPU 병렬 아키텍처 권위자'},
+     {name:'Colette Kress',role:'CFO',note:'재무·투자자 관계 총괄. NVIDIA 시총 $3조 시대 견인'},
+   ]},
+  {id:'Samsung',grp:'korea',founded:1969,hq:'수원/서울, 대한민국',ceo:'한종희 부회장',
+   valuation:'시총 약 400조원',
+   desc:'반도체(HBM·DRAM·NAND)·스마트폰·가전 세계 최대 기업 중 하나. HBM3E 공급 이슈로 경쟁력 논란. NVIDIA와 25만+ GPU 한국 AI 팩토리 협약. Google과 Android XR 스마트 글래스 공동 개발.',
+   products:['Galaxy S25 Ultra','HBM3E','Gauss2 AI 모델','갤럭시 AI','Android XR 글래스'],
+   people:[
+     {name:'이재용',role:'회장 (그룹 총수)',note:'삼성그룹 총수. 수차례 사법 리스크 극복 후 경영 주도'},
+     {name:'한종희',role:'DX부문장 부회장',note:'갤럭시 AI·스마트홈·XR 전략 총괄'},
+     {name:'경계현',role:'DS부문장 사장',note:'반도체 사업 총괄. HBM 경쟁력 회복 과제'},
+   ]},
+  {id:'Naver',grp:'korea',founded:1999,hq:'성남, 대한민국',ceo:'최수연',
+   valuation:'시총 약 30조원',
+   desc:'국내 검색 점유율 1위(약 60%). HyperCLOVA X 기반 AI 에이전트 전환 추진. NVIDIA와 6만 GPU AI 팩토리 협약. Webtoon·쇼핑·클라우드·금융 복합 플랫폼. Agent N 출시로 에이전틱 AI 시대 대응.',
+   products:['HyperCLOVA X','CLOVA X','Cue: AI 검색','Agent N','Naver Cloud'],
+   people:[
+     {name:'최수연',role:'CEO',note:'2022년 취임. AI·글로벌(라인) 투 트랙 전략 주도'},
+     {name:'이준혁',role:'CLOVA CTO',note:'HyperCLOVA X 개발 총괄'},
+   ]},
+  {id:'Kakao',grp:'korea',founded:2010,hq:'제주/성남, 대한민국',ceo:'정신영',
+   valuation:'시총 약 20조원',
+   desc:'KakaoTalk(월 5500만 사용자) 기반 메시징·금융(카카오페이)·콘텐츠·모빌리티 플랫폼. Kanana AI 에이전트 출시로 AI 전환 가속. 2023~2024 경영진 리스크 이후 정비 중.',
+   products:['KakaoTalk','Kanana AI 에이전트','Kakao Pay','Kakao T','Kakao Brain'],
+   people:[
+     {name:'정신영',role:'CEO',note:'2024년 취임. 전 카카오 법무 출신. 내부 안정화·AI 전략 총괄'},
+     {name:'김범수',role:'창업자 (의장)',note:'카카오 창업자. 2024년 경영 일선에서 물러남'},
+     {name:'김일두',role:'Kakao Brain CEO',note:'AI 연구·Kanana 개발 총괄'},
+   ]},
+  {id:'Figma',grp:'creative',founded:2012,hq:'San Francisco, CA',ceo:'Dylan Field',
+   valuation:'$12.5B',
+   desc:'브라우저 기반 협업 디자인 툴 세계 1위. 2022년 Adobe의 $200억 인수 시도가 EU·영국 독점 규제로 무산. 이후 IPO 추진 + Weavy 인수($200M)로 AI 미디어 생성 플랫폼 Figma Weave 출범.',
+   products:['Figma Design','Figma Weave (AI 미디어 생성)','FigJam','Dev Mode'],
+   people:[
+     {name:'Dylan Field',role:'CEO & 공동창업자',note:'Brown 대학 중퇴. Adobe 인수 무산 후 독자 IPO 경로 선택'},
+     {name:'Evan Wallace',role:'前 CTO & 공동창업자',note:'WebGL 기반 Figma 렌더 엔진 설계자. 퇴임 후 개인 프로젝트'},
+     {name:'Sho Kuwamoto',role:'Product VP',note:'Macromedia·Adobe 출신. Figma 제품 총괄'},
+   ]},
+  {id:'Adobe',grp:'creative',founded:1982,hq:'San Jose, CA',ceo:'Shantanu Narayen',
+   valuation:'$200B',
+   desc:'Photoshop·Premiere·Illustrator 크리에이티브 소프트웨어 부동의 1위. Figma 인수 무산 후 Firefly AI로 내부 AI 전환 가속. NVIDIA와 전략 파트너십 체결(2026). Firefly AI Assistant 에이전틱 워크플로우 출시.',
+   products:['Firefly AI','Firefly AI Assistant','Photoshop','Premiere','Creative Cloud'],
+   people:[
+     {name:'Shantanu Narayen',role:'CEO',note:'1998년 입사, 2007년 CEO. 구독 모델 전환과 Figma 인수 추진 주도'},
+     {name:'Ely Greenfield',role:'CTO',note:'Firefly AI 전략·기술 총괄. Adobe AI 전환의 핵심 인물'},
+     {name:'Ashley Still',role:'Creative Cloud SVP',note:'Firefly 모델 개발·Creative Cloud AI 통합 총괄'},
+   ]},
+  {id:'Canva',grp:'creative',founded:2013,hq:'Sydney, Australia',ceo:'Melanie Perkins',
+   valuation:'$26B',
+   desc:'비개발자용 비주얼 디자인 플랫폼. 월 활성 사용자 1억 7000만. AI 2.0으로 대화형·에이전틱 플랫폼 전환 선언. Google Gemini 통합 파트너십. Affinity 인수로 전문가 시장도 공략.',
+   products:['Canva AI 2.0','Magic Studio','Canva Docs','Affinity (인수)'],
+   people:[
+     {name:'Melanie Perkins',role:'CEO & 공동창업자',note:'25세에 창업. 호주 최연소 억만장자. 파트너 Cliff와 공동창업'},
+     {name:'Cliff Obrecht',role:'COO & 공동창업자',note:'Melanie의 삶의 파트너 겸 비즈니스 파트너'},
+     {name:'Cameron Adams',role:'CPO & 공동창업자',note:'Google 출신 디자이너. Canva 제품 방향 총괄'},
+   ]},
+  {id:'Runway',grp:'creative',founded:2018,hq:'New York, NY',ceo:'Cristóbal Valenzuela',
+   valuation:'$1.5B',
+   desc:'AI 비디오 생성 선두주자. Gen 시리즈로 영화·광고·콘텐츠 제작 워크플로우 혁신. 2026년 Sora 종료 이후 AI 비디오 시장 선두 탈환. Gen-4는 최대 60초 4K 연속 생성.',
+   products:['Gen-4 (60초 4K)','Gen-3 Alpha','Runway Studio','Act-One'],
+   people:[
+     {name:'Cristóbal Valenzuela',role:'CEO & 공동창업자',note:'칠레 출신. NYU ITP 졸업. "AI는 창작의 도구" 철학'},
+     {name:'Anastasis Germanidis',role:'CTO & 공동창업자',note:'AI 모델 아키텍처 총괄'},
+     {name:'Alejandro Matamala',role:'CCO & 공동창업자',note:'크리에이티브 방향·UX 총괄'},
+   ]},
+  {id:'Midjourney',grp:'creative',founded:2021,hq:'San Francisco, CA',ceo:'David Holz',
+   valuation:'비공개 (수익성 유지)',
+   desc:'텍스트→이미지 AI 생성 선두주자. Discord 기반 서비스로 대중화. 외부 투자 없이 자체 수익으로 운영하는 희귀 케이스. V8에서 완전 새 코드베이스·네이티브 2K·5배 속도 달성.',
+   products:['Midjourney V8 / V8.1','Midjourney Web','Niji 모드'],
+   people:[
+     {name:'David Holz',role:'CEO & 창업자',note:'Leap Motion 창업자 출신. 소규모 팀(~40명)으로 수억달러 매출 달성'},
+   ]},
+  {id:'ByteDance',grp:'bigtech',founded:2012,hq:'北京, 中國',ceo:'Liang Rubo',
+   valuation:'$300B+',
+   desc:'TikTok 모회사. Seedance 2.0으로 글로벌 AI 비디오 Elo 1위 달성(2026.2). AI 모델·앱 전반에 걸쳐 공격적 투자. 미국 TikTok 매각 압박 지속.',
+   products:['Seedance 2.0','CapCut','TikTok','Doubao AI'],
+   people:[
+     {name:'Liang Rubo (梁汝波)',role:'CEO',note:'ByteDance 공동창업자. 장이밍(張一鳴) 퇴임 후 2021년 CEO 승계'},
+     {name:'장이밍 (張一鳴)',role:'창업자 / 前 CEO',note:'TikTok·ByteDance 설계자. 2021년 CEO 사임 후 전략 고문'},
+   ]},
+];
+
+const TALENT_MOVES = [
+  {year:2021,person:'Dario & Daniela Amodei + 연구진 7명',from:'OpenAI',to:'Anthropic',note:'AI 안전 철학 차이로 집단 이탈. OpenAI의 상업화 방향에 반발. GPT-3 핵심 저자 Tom Brown 포함'},
+  {year:2022,person:'Mustafa Suleyman',from:'Google DeepMind (공동창업자)',to:'Inflection AI → Microsoft AI (CEO)',note:'DeepMind 공동창업자가 독립해 Inflection AI 창업 → 2024년 Microsoft AI 수장으로 합류'},
+  {year:2023,person:'Igor Babuschkin',from:'Google DeepMind',to:'xAI',note:'일론 머스크의 xAI 합류. Grok 초기 모델 개발의 핵심 인물'},
+  {year:2023,person:'Andrej Karpathy',from:'Tesla AI Director',to:'OpenAI (복귀)',note:'OpenAI 창립멤버 → Tesla AI 총괄 → OpenAI 재합류 (2023)'},
+  {year:2024,person:'John Schulman',from:'OpenAI (공동창업자)',to:'Anthropic',note:'PPO·RLHF 알고리즘 설계자. AI 안전 연구 집중하기 위해 이동'},
+  {year:2024,person:'Ilya Sutskever',from:'OpenAI (공동창업자·CSO)',to:'SSI (Safe Superintelligence Inc)',note:'Sam Altman 해임 사태 중심 인물. 2024년 OpenAI 퇴사 → 초안전 AI 스타트업 SSI 창업'},
+  {year:2024,person:'Mira Murati',from:'OpenAI (CTO)',to:'Thinking Machines Lab (CEO)',note:'ChatGPT 출시 총괄. 2024년 10월 전격 퇴사 발표. 자신의 AI 스타트업 창업'},
+  {year:2024,person:'Andrej Karpathy',from:'OpenAI',to:'EurekaLabs (창업)',note:'2024년 최종 퇴사. AI 교육 스타트업 EurekaLabs 창업'},
+  {year:2024,person:'Greg Brockman',from:'OpenAI (CTO → President)',to:'(휴직)',note:'OpenAI 공동창업자. 2024년 무기한 휴직 선언. 복귀 여부 미확정'},
+  {year:2026,person:'Alexandr Wang',from:'Scale AI (CEO & 창업자)',to:'Meta (수석 AI 어드바이저)',note:'Scale AI로 최연소 억만장자 등극. Zuckerberg의 $14B 딜로 Meta 합류. AI 데이터·인프라 전략 자문'},
+  {year:2026,person:'Tim Cook',from:'Apple (CEO)',to:'Apple (Executive Chairman)',note:'15년 재임 후 2026년 4월 20일 사임 발표. 9월 1일부로 Executive Chairman 전환. 후임으로 John Ternus(HW 엔지니어링 SVP) 선임'},
+];
+
+// ═══════════════════════════════════════
+// PEOPLE TAB RENDERING
+// ═══════════════════════════════════════
+const PPL_GRP_ORDER = ['ai-lab','bigtech','hw','korea','creative'];
+let selCo = null;
+
+function renderPplList(){
+  const grouped = {};
+  PPL_GRP_ORDER.forEach(g=>grouped[g]=[]);
+  COMPANY_PROFILES.forEach(c=>{if(grouped[c.grp])grouped[c.grp].push(c);});
+  let h='';
+  PPL_GRP_ORDER.forEach(g=>{
+    if(!grouped[g].length)return;
+    h+=`<div class="ppl-grp-lbl">${GRP_LABELS[g]||g}</div>`;
+    grouped[g].forEach(c=>{
+      const col=CO_COLORS[c.id]||'#6366f1';
+      const isSel=selCo===c.id;
+      h+=`<button class="ppl-co-btn${isSel?' sel':''}" onclick="selectCo('${c.id}')">
+        <div class="ppl-co-dot" style="background:${col}"></div>
+        <span class="ppl-co-name">${c.id}</span>
+      </button>`;
+    });
+  });
+  document.getElementById('ppl-list').innerHTML=h;
+  if(!selCo&&COMPANY_PROFILES.length)selectCo(COMPANY_PROFILES[0].id);
+}
+
+function selectCo(id){
+  selCo=id;
+  // update list selection
+  document.querySelectorAll('.ppl-co-btn').forEach(b=>{
+    b.classList.toggle('sel',b.textContent.trim()===id);
+  });
+  const co=COMPANY_PROFILES.find(c=>c.id===id);
+  if(!co)return;
+  const col=CO_COLORS[id]||'#6366f1';
+  const grpLabel=GRP_LABELS[co.grp]||co.grp;
+  const icon=CO_ICONS[id]||'🏢';
+  // Related moves
+  const moves=TALENT_MOVES.filter(m=>m.from.includes(id)||m.to.includes(id));
+
+  const peopleHtml=co.people.map(p=>`
+    <div class="person-card">
+      <div class="person-name">${p.name}</div>
+      <div class="person-role">${p.role}</div>
+      <div class="person-note">${p.note}</div>
+    </div>`).join('');
+
+  const movesHtml=moves.length?moves.map(m=>{
+    const dir=m.from.includes(id)?'출발':'합류';
+    const badge=dir==='출발'
+      ?`<span style="background:#ef4444;color:#fff;font-size:8px;padding:1px 5px;border-radius:3px;margin-left:5px">퇴사/이탈</span>`
+      :`<span style="background:#10b981;color:#fff;font-size:8px;padding:1px 5px;border-radius:3px;margin-left:5px">합류</span>`;
+    return`<div class="move-card">
+      <div class="move-yr">${m.year}</div>
+      <div class="move-body">
+        <div class="move-person">${m.person}${badge}</div>
+        <div class="move-path"><span>${m.from}</span><span class="arr">→</span><span>${m.to}</span></div>
+        <div class="move-note">${m.note}</div>
+      </div>
+    </div>`;}).join('')
+    :`<div style="color:var(--text3);font-size:11px;padding:10px 0">기록된 인재 이동 없음</div>`;
+
+  document.getElementById('ppl-main').innerHTML=`
+    <div class="co-hdr">
+      <div class="co-icon" style="background:${col}22;border:2px solid ${col}44">${icon}</div>
+      <div class="co-hdr-meta">
+        <h2>${co.id}</h2>
+        <div class="co-pills">
+          <span class="co-grp-pill" style="background:${col}">${grpLabel}</span>
+          <span class="co-info-pill">설립 ${co.founded}</span>
+          <span class="co-info-pill">📍 ${co.hq}</span>
+          ${co.valuation?`<span class="co-info-pill">💰 ${co.valuation}</span>`:''}
+          <span class="co-ceo-pill">👤 ${co.ceo}</span>
+        </div>
+      </div>
+    </div>
+    <div class="co-desc">${co.desc}</div>
+    <div class="sec-title">주요 제품 / 서비스</div>
+    <div class="prod-wrap">${co.products.map(p=>`<span class="prod-chip">${p}</span>`).join('')}</div>
+    <div class="sec-title">핵심 인물</div>
+    <div class="ppl-grid">${peopleHtml}</div>
+    <div class="sec-title">인재 이동 내역</div>
+    <div class="moves-list">${movesHtml}</div>
+    <div style="height:30px"></div>
+  `;
+}
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+renderSidebar();renderCal();
+const lat=[...EVENTS].sort((a,b)=>b.date.localeCompare(a.date))[0];
+if(lat){const d=new Date(lat.date+'T00:00:00');cy=d.getFullYear();cm=d.getMonth();selDate=lat.date;renderCal();renderDet(lat.date);}
+</script>
+</body>
+</html>
