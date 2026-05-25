@@ -7,18 +7,18 @@
 <style>
 :root {
   color-scheme: light;
-  --bg:      #f7f6f2;
+  --bg:      #f2f4f7;
   --bg2:     #ffffff;
-  --bg3:     #f2f1ed;
-  --bg4:     #e9e7e1;
-  --border:  #e3e0d8;
-  --border2: #c8c4ba;
-  --text:    #0e0e0c;
-  --text2:   #58564f;
-  --text3:   #9c9990;
-  --accent:  #0e0e0c;
-  --accent2: #2e2d2a;
-  --glow:    rgba(14,14,12,.05);
+  --bg3:     #eaecf1;
+  --bg4:     #dde1e9;
+  --border:  #d6dae3;
+  --border2: #b0bac8;
+  --text:    #0d0f14;
+  --text2:   #424d5e;
+  --text3:   #7e8fa3;
+  --accent:  #0d0f14;
+  --accent2: #1e2a3a;
+  --glow:    rgba(13,15,20,.05);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);
@@ -249,6 +249,19 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);
 .move-path{font-size:11.5px;color:var(--text2);margin-bottom:3px;}
 .move-path .arr{color:var(--text3);margin:0 4px;}
 .move-note{font-size:11.5px;color:var(--text3);line-height:1.5;}
+
+/* ── CO FILTER SELECT ── */
+.frow.co-sel{background:var(--bg4);}
+.frow.co-sel .flabel{color:var(--text);font-weight:900;}
+.frow.co-sel .fdot{outline:2px solid var(--text);outline-offset:1px;}
+
+/* ── CALENDAR CO HIGHLIGHT ── */
+.cal-day.co-highlight{border-width:2px;border-color:var(--text2);background:var(--bg3);}
+.cal-day.co-highlight .dnum{color:var(--text);font-weight:900;}
+
+/* ── ECARD DATE ── */
+.ecard-date{font-size:9.5px;font-weight:900;color:var(--text3);
+            letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
 </style>
 </head>
 <body>
@@ -293,7 +306,7 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);
       </div>
       <div class="det-panel">
         <div class="det-hdr">
-          <div class="det-date" id="det-date">날짜를 선택하세요</div>
+          <div class="det-date" id="det-date">날짜 또는 기업을 선택하세요</div>
           <div class="det-cnt" id="det-cnt">이슈 상세</div>
         </div>
         <div class="det-body" id="det-body">
@@ -759,6 +772,7 @@ const BUILD_DATETIME='2026-05-26 09:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=4,selDate=null;
+let selCoFilter=null;
 let actCos=new Set(Object.keys(CO_COLORS));
 let actCats=new Set(Object.keys(CAT_INFO));
 let nextId=300;
@@ -821,7 +835,8 @@ function renderCal(){
     const isSel=selDate===s;
     const dow=(firstDow+day-1)%7;
     const isW=dow===0||dow===6;
-    let cls='cal-day'+(isT?' today':'')+(isSel?' selected':'')+(isW?' wknd':'');
+    const hasSelCo=selCoFilter&&devs.some(e=>(e.companies||[e.company]).includes(selCoFilter));
+    let cls='cal-day'+(isT?' today':'')+(isSel?' selected':'')+(isW?' wknd':'')+(hasSelCo?' co-highlight':'');
     const num=isT?`<div class="dnum"><span class="today-c">${day}</span></div>`:`<div class="dnum">${day}</div>`;
     const pills=devs.slice(0,3).map(e=>{
       const co=(e.companies||[e.company])[0];
@@ -865,7 +880,7 @@ function renderSidebar(){
   EVENTS.forEach(e=>(e.companies||[e.company]).forEach(c=>{coCnt[c]=(coCnt[c]||0)+1;}));
   const coList=Object.entries(coCnt).filter(([c])=>CO_COLORS[c]).sort((a,b)=>b[1]-a[1]);
   document.getElementById('co-filters').innerHTML=coList.map(([c,n])=>
-    `<div class="frow ${actCos.has(c)?'':'off'}" onclick="togCo('${c}')">
+    `<div class="frow ${selCoFilter===c?'co-sel':''}" onclick="selCoSidebar('${c}')">
       <div class="fdot" style="background:${CO_COLORS[c]}"></div>
       <span class="flabel">${c}</span><span class="fcount">${n}</span>
     </div>`).join('');
@@ -888,7 +903,40 @@ function renderSidebar(){
       <div class="r-title">${e.title}</div>
     </div>`;}).join('');
 }
-function togCo(c){if(actCos.has(c)){if(actCos.size>1)actCos.delete(c);}else actCos.add(c);renderSidebar();renderCal();if(selDate)renderDet(selDate);}
+function selCoSidebar(c){
+  if(selCoFilter===c){
+    selCoFilter=null;
+    document.getElementById('det-date').textContent='날짜 또는 기업을 선택하세요';
+    document.getElementById('det-cnt').textContent='';
+    document.getElementById('det-body').innerHTML='<div class="empty-st">날짜를 클릭하거나 기업을 선택하세요</div>';
+  } else {
+    selCoFilter=c;
+    renderCoFilter(c);
+  }
+  renderSidebar();renderCal();
+}
+function renderCoFilter(c){
+  const evs=EVENTS.filter(e=>(e.companies||[e.company]).includes(c)).sort((a,b)=>b.date.localeCompare(a.date));
+  document.getElementById('det-date').textContent=c;
+  document.getElementById('det-cnt').textContent=`${evs.length}개 이슈`;
+  if(!evs.length){document.getElementById('det-body').innerHTML='<div class="empty-st">이슈 없음</div>';return;}
+  document.getElementById('det-body').innerHTML=evs.map(e=>{
+    const cos=e.companies||[e.company];
+    const ci=CAT_INFO[e.category]||{label:e.category,color:'#666'};
+    const ctags=cos.map(cc=>`<span class="co-tag" style="background:${CO_COLORS[cc]||'#666'}">${cc}</span>`).join('');
+    const chips=(e.tags||[]).map(t=>`<span class="echip">${t}</span>`).join('');
+    const src=e.source?`<a class="esrc" href="${e.source}" target="_blank">↗ 출처 보기</a>`:'';
+    const d=new Date(e.date+'T00:00:00');
+    const dateStr=`<div class="ecard-date">${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}</div>`;
+    return`<div class="ecard" onclick="jumpTo('${e.date}');selCoFilter=null;" style="cursor:pointer">
+      ${dateStr}
+      <div class="ecard-tags">${ctags}<span class="cat-tag" style="color:${ci.color}">${ci.label}</span></div>
+      <div class="etitle">${e.title}</div>
+      <div class="edesc">${e.description}</div>
+      <div class="echips">${chips}</div>${src}
+    </div>`;
+  }).join('');
+}
 function togCat(k){if(actCats.has(k)){if(actCats.size>1)actCats.delete(k);}else actCats.add(k);renderSidebar();renderCal();if(selDate)renderDet(selDate);}
 
 // ═══════════════════════════════════════
