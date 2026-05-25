@@ -93,10 +93,11 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);
 .cal-day.wknd .dnum{color:var(--text3);}
 .dnum{font-size:10px;font-weight:400;color:var(--text2);margin-bottom:3px;}
 .dnum.today-c{font-weight:700;color:var(--text);}
-.epill{display:flex;align-items:center;gap:3px;padding:2px 4px;
-       font-size:8px;margin-bottom:1px;overflow:hidden;white-space:nowrap;}
-.epill-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
-.epill-txt{overflow:hidden;text-overflow:ellipsis;color:var(--text2);}
+.epill{display:flex;align-items:center;gap:3px;padding:2px 5px;
+       font-size:8px;font-weight:700;margin-bottom:2px;overflow:hidden;white-space:nowrap;
+       border-radius:2px;}
+.epill-dot{display:none;}
+.epill-txt{overflow:hidden;text-overflow:ellipsis;color:#0e0e0c;}
 .more-cnt{font-size:8px;color:var(--text3);padding:1px 3px;}
 
 /* ── DETAIL PANEL ── */
@@ -113,7 +114,7 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);
 .ecard:hover{opacity:.8;}
 .ecard:first-child{border-top:none;padding-top:0;}
 .ecard-tags{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
-.co-tag{font-size:8px;padding:0;font-weight:600;letter-spacing:.02em;}
+.co-tag{font-size:9px;padding:1px 6px;font-weight:700;letter-spacing:.02em;color:#0e0e0c;border-radius:2px;}
 .cat-tag{font-size:8px;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);}
 .etitle{font-size:11px;font-weight:500;margin-bottom:4px;line-height:1.5;color:var(--text);}
 .edesc{font-size:10px;color:var(--text2);line-height:1.65;}
@@ -392,13 +393,13 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);
 // DATA
 // ═══════════════════════════════════════
 const CO_COLORS = {
-  Anthropic:'#d4a574',OpenAI:'#10b981',Google:'#4285f4',Microsoft:'#00bcf2',
-  Meta:'#0082fb',Apple:'#888888',NVIDIA:'#76b900',xAI:'#c8ba40',
-  Samsung:'#1428a0',Naver:'#03c75a',Kakao:'#d4a800',LG:'#a50034',
-  SK:'#ea002c',Intel:'#0071c5',Tesla:'#cc0000',SpaceX:'#6060aa',
-  Figma:'#F24E1E',Adobe:'#e00000',Canva:'#00a8b0',Runway:'#5020a0',
-  Midjourney:'#5a5a6e',ByteDance:'#cc003a',Higgsfield:'#3366dd',Kuaishou:'#e05500',
-  기타:'#6655aa',
+  Anthropic:'#f5c897',OpenAI:'#7ee8c4',Google:'#93c4ff',Microsoft:'#7dd8f5',
+  Meta:'#85c2ff',Apple:'#c8c8c8',NVIDIA:'#bce87a',xAI:'#f0e070',
+  Samsung:'#90aaee',Naver:'#7ae8a8',Kakao:'#f0d060',LG:'#f0a0b5',
+  SK:'#f5a8b0',Intel:'#7ac4f0',Tesla:'#f5a0a0',SpaceX:'#b0b0e0',
+  Figma:'#fcb89a',Adobe:'#f5a0a0',Canva:'#80dde5',Runway:'#c4a8f8',
+  Midjourney:'#c0c0cc',ByteDance:'#f5a0b8',Higgsfield:'#90baf5',Kuaishou:'#f5b888',
+  기타:'#c0b0f0',
 };
 const CAT_INFO = {
   product:       {label:'🚀 제품/출시',   color:'#6366f1'},
