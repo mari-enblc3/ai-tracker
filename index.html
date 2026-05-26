@@ -637,6 +637,14 @@ let EVENTS = [
    title:'교황 레오 14세, AI 시대 인간 보호 교서 발표 — Anthropic 공동 참여',
    description:'교황 레오 14세가 첫 교서 "Magnifica Humanitas(장엄한 인간성)"를 발표. Anthropic 공동창업자 Christopher Olah가 공동 발표자로 참여.',
    tags:['교황','바티칸','AI윤리','인간존엄','규제'],source:'https://llm-stats.com/ai-news'},
+  {id:54,date:'2026-05-19',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI, Guaranteed Capacity 출시 — 기업 AI 컴퓨팅 1~3년 장기 확보',
+   description:'OpenAI가 기업 고객을 위한 Guaranteed Capacity 출시. 1·2·3년 약정으로 AI 모델·에이전트·워크플로우 컴퓨팅 자원을 선점 확보. 약정 기간에 따른 할인 제공. OpenAI IPO 전 기업 매출 기반 강화 전략.',
+   tags:['GuaranteedCapacity','기업AI','컴퓨팅','장기계약'],source:'https://www.cnbc.com/2026/05/19/openai-announces-new-guaranteed-capacity-offering-for-customers-to-secure-compute.html'},
+  {id:55,date:'2026-05-26',company:'Anthropic',companies:['Anthropic'],category:'regulation',
+   title:'Anthropic, Glasswing 파트너의 Mythos 취약점 발견 공개 허용',
+   description:'Anthropic이 Project Glasswing 참여 파트너사들에게 Claude Mythos로 발견한 취약점 연구 결과를 공개 공유할 수 있도록 허용. 한 달 만에 1만 개 이상의 고·심각 취약점 발견. 패치 속도를 넘어서는 발견 속도로 오픈소스 유지보수자들과 공시 속도 조율 중.',
+   tags:['Glasswing','Mythos','사이버보안','취약점공개'],source:'https://securityboulevard.com/2026/05/anthropic-allows-glasswing-partners-to-share-mythos-based-findings/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -768,7 +776,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-05-26 09:00';
+const BUILD_DATETIME='2026-05-26 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=4,selDate=null;
