@@ -645,6 +645,22 @@ let EVENTS = [
    title:'Adobe·Canva·CapCut, Gemini 앱 통합 — AI 크리에이티브 도구 원스톱 접근',
    description:'Adobe(Firefly), Canva, CapCut이 Google Gemini 앱 통합을 동시 발표. Gemini 대화 내에서 이미지·비디오 편집 도구에 직접 접근 가능. 별도 로그인·앱 전환 불필요. Google의 Gemini를 앰비언트 AI 레이어로 포지셔닝하는 전략의 일환. 6월까지 지역별 단계적 출시.',
    tags:['Gemini통합','Firefly','CapCut','크리에이티브AI','앱통합'],source:'https://aitoolsrecap.com/Blog/ai-news-may-25-2026'},
+  {id:56,date:'2026-05-19',company:'Google',companies:['Google'],category:'infrastructure',
+   title:'Google TPU 8i·8t 8세대 AI 칩 발표 — 추론·학습 분리 설계',
+   description:'Google I/O 2026에서 8세대 TPU 칩 2종 발표. TPU 8t(학습용): 전 세대 대비 원시 연산 능력 3배, 100만개+ TPU 분산 학습 지원. TPU 8i(추론용): 소비자 AI 제품의 고빈도·저지연 워크로드 전용 설계. 양 칩 모두 와트당 성능 전 세대 대비 2배. Google이 학습·추론 워크로드를 분리해 특화 설계하는 방향으로 전환.',
+   tags:['TPU8','AI칩','인프라','구글클라우드'],source:'https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud'},
+  {id:57,date:'2026-05-19',company:'Google',companies:['Google'],category:'product',
+   title:'Google Universal Cart 출시 — Search·Gemini·YouTube·Gmail 통합 쇼핑카트',
+   description:'Google I/O 2026에서 Universal Cart 공개. Search 탐색·Gemini 대화·YouTube 시청·Gmail 수신 중 어디서든 상품 추가 가능한 통합 장바구니. 배경에서 가격 하락·딜 자동 탐지. 쇼핑 에이전트 기반 24/7 자율 구매 지원. Amazon에 맞서는 Google의 커머스 AI 에이전트 전략.',
+   tags:['UniversalCart','쇼핑에이전트','Gemini','커머스'],source:'https://blog.google/products-and-platforms/products/shopping/google-shopping-cart/'},
+  {id:58,date:'2026-05-26',company:'Anthropic',companies:['Anthropic'],category:'regulation',
+   title:'Anthropic Project Glasswing 업데이트 — Claude Mythos, 1만개+ 취약점 발견',
+   description:'Anthropic이 Project Glasswing 중간 경과를 발표. Claude Mythos Preview가 주요 OS·브라우저 등 핵심 소프트웨어 전반에서 기존에 알려지지 않은 제로데이 취약점 1만개 이상(고위험·치명적 등급)을 발견. AWS·Apple·Cisco·CrowdStrike·Google·JPMorganChase·Linux Foundation·Microsoft·NVIDIA·Palo Alto Networks 등 50개 파트너사 참여. Mythos 일반 공개는 계획 없으며, 안전 배포 방안 연구 병행.',
+   tags:['ProjectGlasswing','ClaudeMythos','사이버보안','제로데이'],source:'https://www.helpnetsecurity.com/2026/05/26/anthropic-project-glasswing-update/'},
+  {id:59,date:'2026-05-26',company:'OpenAI',companies:['OpenAI'],category:'leadership',
+   title:'Sam Altman, AI 일자리 대규모 실직 예측 번복',
+   description:'OpenAI CEO Sam Altman이 5월 26일 시드니 강연에서 AI로 인한 화이트칼라 대규모 실직 예측을 번복. 실제 도입 데이터를 근거로 AI는 대체보다 증강이 지배적 패턴임을 인정. 인간 상호작용이 많은 직군에서 AI 대체 예상보다 느리다는 현실을 반영한 발언.',
+   tags:['Altman','AI일자리','노동시장','리더십'],source:'https://techstartups.com/2026/05/26/top-tech-news-today-may-26-2026/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -776,7 +792,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-05-26 11:00';
+const BUILD_DATETIME='2026-05-27 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=4,selDate=null;
