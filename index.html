@@ -669,6 +669,18 @@ let EVENTS = [
    title:'Anthropic Series H $30B+ 펀딩 라운드 마감 — $900B+ 밸류에이션 세계 최고가 AI 스타트업',
    description:'Anthropic이 $900B 이상 기업가치로 $30B 이상 신규 펀딩 라운드를 마감. Sequoia Capital·Dragoneer·Altimeter·Greenoaks 각 $20억 공동 리드. 2026년 2월 Series G($380B) 대비 밸류에이션 2.5배 급등. OpenAI($852B) 제치고 세계 최고가 AI 스타트업 공식 등극. 연환산 매출 $44B+·창사 이래 첫 분기 흑자 달성이 밸류에이션 근거.',
    tags:['펀딩','SeriesH','$900B','밸류에이션','Sequoia'],source:'https://www.bloomberg.com/news/articles/2026-05-22/anthropic-to-close-over-30-billion-round-as-soon-as-next-week'},
+  {id:62,date:'2026-05-27',company:'Anthropic',companies:['Anthropic'],category:'leadership',
+   title:'Anthropic 한국 서울 오피스 공식 설립 — 최기영 대표이사 선임',
+   description:'Anthropic이 서울 오피스를 공식 설립하고 전 Snowflake Korea 컨트리 매니저 최기영을 한국 대표이사로 선임. 30년 이상 IT 업계 경험(Google Cloud·Adobe·Autodesk·Microsoft Korea 역임). 한국의 Claude 사용량은 인구 대비 3.5배 초과, 아시아 2위. 기업·스타트업·정부·연구기관 파트너십 및 개발자 커뮤니티 지원 계획.',
+   tags:['한국','서울','오피스','최기영','리더십'],source:'https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea'},
+  {id:63,date:'2026-05-28',company:'Anthropic',companies:['Anthropic'],category:'model',
+   title:'Claude Opus 4.8 출시 — 코딩 성능 향상·2.5배 빠른 패스트 모드',
+   description:'Anthropic이 최신 플래그십 모델 Claude Opus 4.8 출시. 에이전트 코딩 점수 64.3%→69.2% 향상. 패스트 모드(Fast Mode) 도입으로 2.5배 속도·3배 비용 절감. 진행 상황 불확실 시 능동적 플래그 기능 강화. 다중 서브에이전트 동시 실행 지원 \"동적 워크플로우\" 및 응답 노력 조절 컨트롤 패널 동시 출시. 가격은 Opus 4.7과 동일 유지.',
+   tags:['ClaudeOpus4.8','LLM','코딩에이전트','패스트모드'],source:'https://www.bloomberg.com/news/articles/2026-05-28/anthropic-unveils-new-flagship-ai-model-that-s-better-at-coding'},
+  {id:64,date:'2026-05-29',company:'Anthropic',companies:['Anthropic'],category:'model',
+   title:'Anthropic, Claude Mythos 전체 사용자 공개 예정 발표',
+   description:'Anthropic이 사이버보안 특화 AI 모델 Claude Mythos를 수주 내 전체 고객에게 공개할 예정이라고 발표. 현재 Project Glasswing 파트너 40개+ 조직에 제한 배포 중인 Mythos Preview는 FreeBSD 17년 된 원격코드실행 취약점 등 주요 OS·브라우저 전반 1만개+ 제로데이 취약점 자율 발견. 방어자가 공격자 수준 AI를 확보해야 한다는 철학에 따라 순차 공개 결정.',
+   tags:['ClaudeMythos','사이버보안','제로데이','ProjectGlasswing'],source:'https://www.wionews.com/technology/anthropic-s-most-powerful-mythos-class-ai-model-could-soon-reach-all-users-1780038579860'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -800,7 +812,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-05-28 11:00';
+const BUILD_DATETIME='2026-05-29 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=4,selDate=null;
