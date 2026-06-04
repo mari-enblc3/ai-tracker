@@ -773,6 +773,10 @@ let EVENTS = [
    title:'Intel, COMPUTEX 2026서 랙스케일 AI 인프라 공개 — SambaNova·Foxconn·Siemens 협력',
    description:'Intel이 COMPUTEX 2026에서 추론·에이전틱 워크로드 확장을 위한 Xeon 기반 랙스케일 AI 인프라를 발표. SambaNova SN-50 RDU와 결합해 비용·전력 효율을 높인 생산 준비 랙을 시연하고, Foxconn(시스템 통합)·Siemens(설계~제조 전 영역) 협력을 확대. Vista Equity·Cambium Capital이 설립한 Vector Core Compute는 Xeon·SambaNova RDU·NVIDIA Blackwell을 결합한 완전 분리형(disaggregated) 추론 클라우드를 공개.',
    tags:['COMPUTEX','랙스케일','Xeon','SambaNova','Foxconn'],source:'https://newsroom.intel.com/artificial-intelligence/intel-announces-new-ai-innovations-at-computex'},
+  {id:88,date:'2026-06-04',company:'NVIDIA',companies:['NVIDIA'],category:'model',
+   title:'NVIDIA Nemotron 3 Ultra 정식 배포 시작 — 550B 오픈웨이트 에이전트 모델',
+   description:'NVIDIA가 Computex 2026(6/1)에서 공개한 오픈웨이트 프런티어 모델 Nemotron 3 Ultra를 6월 4일 Hugging Face·OpenRouter·build.nvidia.com에 NIM 마이크로서비스로 정식 배포. 총 550B 파라미터·토큰당 약 55B 활성 MoE 구조, 출력 속도 300+ tokens/s, 유사 프런티어 모델 대비 운영비 약 30% 절감. Artificial Analysis Intelligence Index 48점으로 미국 오픈웨이트 모델 중 최고 수준이나 중국 오픈모델(Kimi K2 등)에는 아직 뒤짐. Accenture·CrowdStrike·Palantir·Perplexity 등 초기 도입사 확인.',
+   tags:['Nemotron3Ultra','오픈웨이트','MoE','550B','에이전트'],source:'https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -904,7 +908,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-04 11:00';
+const BUILD_DATETIME='2026-06-05 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
