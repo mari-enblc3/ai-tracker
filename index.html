@@ -761,6 +761,18 @@ let EVENTS = [
    title:'NVIDIA RTX Spark + Microsoft — 에이전트 네이티브 Windows AI PC 발표 (Build 2026)',
    description:'NVIDIA가 Microsoft Build 2026에서 RTX Spark 슈퍼칩 발표. 1페타플롭 AI 성능, 최대 128GB 통합 메모리, 20코어 Grace CPU + Blackwell RTX GPU 결합. 로컬에서 120B 파라미터 LLM 구동, 4K AI 비디오 생성, 12K 영상 편집 지원. ASUS·Dell·HP·Lenovo·Microsoft Surface·MSI 등 2026년 가을 출시 예정. Surface RTX Spark Dev Box 개발자용 동시 공개.',
    tags:['RTXSpark','WindowsAI','에이전트PC','Blackwell','로컬AI'],source:'https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark'},
+  {id:85,date:'2026-06-03',company:'Anthropic',companies:['Anthropic'],category:'partnership',
+   title:'Anthropic, Claude Partner Network에 Services Track·Partner Hub 신설 — 엔터프라이즈 확장',
+   description:'Anthropic이 3개월 된 Claude Partner Network에 컨설팅·SI 파트너용 Services Track과 Partner Hub 포털을 추가. Services Track은 Select(인증 실무자 10명+·운영 배포 2건+), Preferred(100명·15고객), Global Premier(1,000명·100고객·3개 지역+) 3개 티어로 구성. Partner Hub는 파트너의 자격 충족 현황과 고객의 적합 파트너 매칭을 매일 갱신. 3월 출범 이후 4만개+ 기업 지원, 1만명+ 컨설턴트가 Claude 인증 취득.',
+   tags:['ClaudePartnerNetwork','ServicesTrack','PartnerHub','엔터프라이즈','파트너십'],source:'https://www.anthropic.com/news/services-track-partner-hub'},
+  {id:86,date:'2026-06-03',company:'OpenAI',companies:['OpenAI'],category:'acquisition',
+   title:'OpenAI, Deployment Company 출범·Tomoro 인수 — FDE 150명 합류',
+   description:'OpenAI가 기업의 AI 도입·운영을 지원하는 합작 법인 \\"OpenAI Deployment Company\\"를 19개 글로벌 투자·컨설팅사와 함께 출범(40억 달러+ 초기 투자, TPG 주도·Advent·Bain Capital·Brookfield 공동 창립 파트너). 동시에 런던 기반 응용 AI 컨설팅·엔지니어링 기업 Tomoro 인수 합의, 경험 많은 Forward Deployed Engineer(FDE)·배포 전문가 약 150명을 1일차부터 확보. FDE를 고객 조직에 상주시켜 핵심 워크플로우를 AI 중심으로 재설계하는 전략.',
+   tags:['DeploymentCompany','Tomoro인수','FDE','엔터프라이즈','TPG'],source:'https://openai.com/index/openai-launches-the-deployment-company/'},
+  {id:87,date:'2026-06-02',company:'Intel',companies:['Intel','NVIDIA','Samsung'],category:'infrastructure',
+   title:'Intel, COMPUTEX 2026서 랙스케일 AI 인프라 공개 — SambaNova·Foxconn·Siemens 협력',
+   description:'Intel이 COMPUTEX 2026에서 추론·에이전틱 워크로드 확장을 위한 Xeon 기반 랙스케일 AI 인프라를 발표. SambaNova SN-50 RDU와 결합해 비용·전력 효율을 높인 생산 준비 랙을 시연하고, Foxconn(시스템 통합)·Siemens(설계~제조 전 영역) 협력을 확대. Vista Equity·Cambium Capital이 설립한 Vector Core Compute는 Xeon·SambaNova RDU·NVIDIA Blackwell을 결합한 완전 분리형(disaggregated) 추론 클라우드를 공개.',
+   tags:['COMPUTEX','랙스케일','Xeon','SambaNova','Foxconn'],source:'https://newsroom.intel.com/artificial-intelligence/intel-announces-new-ai-innovations-at-computex'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -892,7 +904,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-03 11:00';
+const BUILD_DATETIME='2026-06-04 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
