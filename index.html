@@ -793,6 +793,14 @@ let EVENTS = [
    title:'플로리다주, OpenAI·샘 올트먼 상대 첫 주(州) 차원 소송 — ChatGPT 안전 결함 주장',
    description:'플로리다주 법무장관이 6월 1일 하이랜즈 카운티 순회법원에 OpenAI와 CEO 샘 올트먼을 상대로 소송을 제기. 미국 주 정부 최초의 OpenAI 제소로, ChatGPT의 위험성을 경고하지 않고 아동을 포함한 사용자에게 안전하다고 마케팅했다고 주장. 플로리다 기만적·불공정거래법, 과실, 엄격책임, 사기적 표시, 공적 불법방해 등을 적용. 올트먼의 개인 책임도 적시하며 위반 건당 최대 1만 달러 민사벌금·금지명령·손해배상·부당이득 반환을 요구. ChatGPT 관련 피해 소송 20여 건과 맞물려 규제 압박이 가중.',
    tags:['규제','소송','플로리다','안전','OpenAI'],source:'https://techcrunch.com/2026/06/01/florida-sues-openai-sam-altman-in-first-of-its-kind-lawsuit-over-violent-incidents/'},
+  {id:93,date:'2026-06-03',company:'Meta',companies:['Meta'],category:'product',
+   title:'Meta, Business Agent 글로벌 출시 — WhatsApp·Instagram·Messenger 비즈니스 AI 에이전트',
+   description:'Meta가 6월 3일 런던에서 열린 Conversations 2026 컨퍼런스에서 Meta Business Agent를 글로벌 출시. WhatsApp·Instagram·Messenger에서 고객 문의 응대, 비즈니스 카탈로그 기반 제품 추천, 예약 일정 관리, 잠재 고객 선별, 거래 완료까지 수행하며, 정해진 기준에 도달하면 실제 직원에게 넘기는 핸드오프 기능을 제공. 이미 100만+ 비즈니스가 WhatsApp·Messenger에서 24시간 응대에 활용 중. WhatsApp Business 앱·Instagram Pro·Messenger·Meta Business Suite에서 일부 비즈니스 대상 시작, 무료로 제공하되 향후 유료 구독으로 확대 예정. 마크 저커버그는 "모델이 발전하면 에이전트가 비즈니스 전체를 운영하게 될 것"이라고 언급.',
+   tags:['BusinessAgent','WhatsApp','에이전트','비즈니스AI','Conversations'],source:'https://whatsappbusiness.com/blog/introducing-meta-business-agent-ai/'},
+  {id:94,date:'2026-06-04',company:'Samsung',companies:['Samsung','OpenAI','Anthropic'],category:'infrastructure',
+   title:'삼성 파운드리, OpenAI 커스텀 칩 협상 중단 후 Anthropic으로 선회',
+   description:'삼성전자와 OpenAI의 ARM 기반 추론 NPU 커스텀 칩 공동 개발 협상이 전략적 이견으로 사실상 중단됐다는 보도가 잇따름. 삼성 파운드리는 미국 텍사스 테일러 공장의 2nm 양산 라인을 활용해 Anthropic을 차세대 고객으로 확보하려는 방향으로 선회. 삼성은 SK하이닉스 등과 함께 Anthropic 투자 라운드에 참여하며 "로직 칩"을 핵심 협력 분야로 명시, 업계는 향후 삼성 공장이 Anthropic 전용 하드웨어 생산에 쓰일 가능성을 주목. 다만 Anthropic은 파운드리 발주를 공식 확인하지 않았고, 양사 발표도 제조 약정 수준에는 미치지 못함.',
+   tags:['파운드리','2nm','테일러','커스텀칩','로직칩'],source:'https://www.digitimes.com/news/a20260602VL217/samsung-foundry-anthropic-ai-soc-openai.html'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -878,6 +886,8 @@ const MM_NODES = [
   {id:'ChatGPTMem',label:'ChatGPT 메모리\n(Dreaming)',grp:'topic',sz:12},
   {id:'CodexBiz',label:'Codex\n비즈플러그인',grp:'topic',sz:12},
   {id:'FLLawsuit',label:'플로리다\nOpenAI 소송',grp:'topic',sz:12},
+  {id:'MetaBizAgent',label:'Meta Business\nAgent',grp:'topic',sz:14},
+  {id:'SamsungFab',label:'삼성 파운드리\nAI 칩(2nm)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -944,6 +954,10 @@ const MM_LINKS = [
   {s:'OpenAI',t:'CodexBiz',type:'플러그인 출시',rel:'product'},
   {s:'Figma',t:'CodexBiz',type:'앱 통합',rel:'partnership'},
   {s:'OpenAI',t:'FLLawsuit',type:'주 차원 제소',rel:'regulation'},
+  {s:'Meta',t:'MetaBizAgent',type:'글로벌 출시',rel:'product'},
+  {s:'Samsung',t:'SamsungFab',type:'2nm 파운드리',rel:'infrastructure'},
+  {s:'OpenAI',t:'SamsungFab',type:'커스텀칩 협상 중단',rel:'infrastructure'},
+  {s:'Anthropic',t:'SamsungFab',type:'고객 선회 추진',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
