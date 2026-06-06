@@ -781,6 +781,18 @@ let EVENTS = [
    title:'Meta, 텐트형 데이터센터로 AI 인프라 가속 — 건설 기간 절반 단축',
    description:'Meta가 데이터센터 비용 절감을 위해 미국 오하이오 뉴올버니 등 캠퍼스에 대형 텐트(신속배치구조물, rapid deployment structures)를 세우고 수십억 달러 규모 칩을 투입, 오프그리드 터빈으로 전력을 공급. 4~6월 사이 12.5만 평방피트 규모 텐트 5~6동을 건설해 컴퓨트 구축 시간을 기존 2~3년에서 절반으로 단축. Tesla가 모델3 양산 당시 프리몬트 공장 주차장에 텐트를 세운 전략을 차용한 것으로, AI 인프라 증설 가속을 위한 Meta의 비용·속도 최적화 전략.',
    tags:['데이터센터','텐트','AI인프라','오프그리드','Meta'],source:'https://techcrunch.com/2026/06/04/meta-steals-a-tactic-from-tesla-and-builds-data-centers-in-tents/'},
+  {id:90,date:'2026-06-05',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI, ChatGPT 메모리 대규모 개편 "Dreaming" 공개 — 미국 Plus·Pro 우선 배포',
+   description:'OpenAI가 6월 4일 블로그 "Dreaming: Better memory for a more helpful ChatGPT"를 통해 ChatGPT 메모리 시스템을 전면 재구축. 중요 맥락을 자동으로 합성·갱신하고, 사용자가 저장된 기억을 검토·수정·삭제할 수 있는 메모리 요약 페이지를 신설. 내부 평가에서 사실 회상 정확도 67.9%→82.8%, 선호 반영 55.3%→71.3%, 시간 경과 정확도 52.2%→75.1%로 개선. 약 5배 연산 절감으로 Plus·Pro 메모리 용량 2배 확대, 6월 5일 미국 Plus·Pro에 우선 배포 후 수주 내 Free·Go 및 추가 국가로 확대.',
+   tags:['ChatGPT','메모리','Dreaming','개인화','OpenAI'],source:'https://www.neowin.net/news/openai-is-rolling-out-a-major-upgrade-to-chatgpt-memory/'},
+  {id:91,date:'2026-06-02',company:'OpenAI',companies:['OpenAI','Figma'],category:'product',
+   title:'OpenAI, Codex를 ChatGPT에 통합·역할별 비즈니스 플러그인 6종·Sites 출시',
+   description:'OpenAI가 코딩 도구 Codex를 ChatGPT 앱 전반에 통합하고, 영업·데이터 분석·크리에이티브 제작·제품 디자인·상장주 투자·투자은행 등 역할별 비즈니스 플러그인 6종을 공개. 62개 업무 앱(Snowflake·Figma·Salesforce 등)과 110개 자동화 스킬을 기본 제공하며, 데이터 분석 플러그인은 Snowflake·Databricks·Hex·Tableau를 통합해 자연어 질의를 리포트로 변환. 자연어 입력을 웹 호스팅 사내 앱으로 만드는 Sites 기능도 Business·Enterprise 프리뷰로 출시. 비개발자가 주간 활성 사용자 500만 중 약 20%를 차지하며 엔지니어보다 3배 빠르게 도입.',
+   tags:['Codex','비즈니스플러그인','Sites','엔터프라이즈','OpenAI'],source:'https://openai.com/index/codex-for-every-role-tool-workflow/'},
+  {id:92,date:'2026-06-01',company:'OpenAI',companies:['OpenAI'],category:'regulation',
+   title:'플로리다주, OpenAI·샘 올트먼 상대 첫 주(州) 차원 소송 — ChatGPT 안전 결함 주장',
+   description:'플로리다주 법무장관이 6월 1일 하이랜즈 카운티 순회법원에 OpenAI와 CEO 샘 올트먼을 상대로 소송을 제기. 미국 주 정부 최초의 OpenAI 제소로, ChatGPT의 위험성을 경고하지 않고 아동을 포함한 사용자에게 안전하다고 마케팅했다고 주장. 플로리다 기만적·불공정거래법, 과실, 엄격책임, 사기적 표시, 공적 불법방해 등을 적용. 올트먼의 개인 책임도 적시하며 위반 건당 최대 1만 달러 민사벌금·금지명령·손해배상·부당이득 반환을 요구. ChatGPT 관련 피해 소송 20여 건과 맞물려 규제 압박이 가중.',
+   tags:['규제','소송','플로리다','안전','OpenAI'],source:'https://techcrunch.com/2026/06/01/florida-sues-openai-sam-altman-in-first-of-its-kind-lawsuit-over-violent-incidents/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -863,6 +875,9 @@ const MM_NODES = [
   {id:'IntelRack',label:'Xeon 랙스케일\nAI 인프라',grp:'topic',sz:12},
   {id:'Nemotron3',label:'Nemotron 3\nUltra 550B',grp:'topic',sz:14},
   {id:'MetaTents',label:'텐트형\n데이터센터',grp:'topic',sz:12},
+  {id:'ChatGPTMem',label:'ChatGPT 메모리\n(Dreaming)',grp:'topic',sz:12},
+  {id:'CodexBiz',label:'Codex\n비즈플러그인',grp:'topic',sz:12},
+  {id:'FLLawsuit',label:'플로리다\nOpenAI 소송',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -925,13 +940,17 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'Nemotron3',type:'오픈웨이트 배포',rel:'product'},
   {s:'Meta',t:'MetaTents',type:'인프라 가속',rel:'infrastructure'},
   {s:'Tesla',t:'MetaTents',type:'전략 차용',rel:'infrastructure'},
+  {s:'OpenAI',t:'ChatGPTMem',type:'메모리 개편',rel:'product'},
+  {s:'OpenAI',t:'CodexBiz',type:'플러그인 출시',rel:'product'},
+  {s:'Figma',t:'CodexBiz',type:'앱 통합',rel:'partnership'},
+  {s:'OpenAI',t:'FLLawsuit',type:'주 차원 제소',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-05 11:00';
+const BUILD_DATETIME='2026-06-06 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
