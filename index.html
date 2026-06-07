@@ -801,6 +801,14 @@ let EVENTS = [
    title:'삼성 파운드리, OpenAI 커스텀 칩 협상 중단 후 Anthropic으로 선회',
    description:'삼성전자와 OpenAI의 ARM 기반 추론 NPU 커스텀 칩 공동 개발 협상이 전략적 이견으로 사실상 중단됐다는 보도가 잇따름. 삼성 파운드리는 미국 텍사스 테일러 공장의 2nm 양산 라인을 활용해 Anthropic을 차세대 고객으로 확보하려는 방향으로 선회. 삼성은 SK하이닉스 등과 함께 Anthropic 투자 라운드에 참여하며 "로직 칩"을 핵심 협력 분야로 명시, 업계는 향후 삼성 공장이 Anthropic 전용 하드웨어 생산에 쓰일 가능성을 주목. 다만 Anthropic은 파운드리 발주를 공식 확인하지 않았고, 양사 발표도 제조 약정 수준에는 미치지 못함.',
    tags:['파운드리','2nm','테일러','커스텀칩','로직칩'],source:'https://www.digitimes.com/news/a20260602VL217/samsung-foundry-anthropic-ai-soc-openai.html'},
+  {id:95,date:'2026-06-05',company:'NVIDIA',companies:['NVIDIA','SK','LG','Naver','Samsung'],category:'partnership',
+   title:'젠슨 황 방한 \\\'삼소맥 회동\\\' — 엔비디아 \"한국에 AI·로보틱스 연구센터 설립\"',
+   description:'젠슨 황 엔비디아 CEO가 6월 5일 오후 서울 마포구 홍대입구 인근 삼겹살집에서 최태원 SK그룹 회장, 구광모 LG그룹 회장, 이해진 네이버 의장과 약 2시간 \\\'삼소맥(삼겹살+소맥)\\\' 회동. 황 CEO는 \"한국 파트너들이 매우 중요하다\"며 한국에 AI 연구 엔지니어·로보틱스 연구를 위한 R&D 센터를 구축 중이고 관련 인재를 채용하고 있다고 밝힘. 차세대 AI 플랫폼 \\\'베라 루빈\\\', 신규 CPU \\\'베라\\\', AI PC 플랫폼 \\\'RTX 스파크\\\', 로봇용 컴퓨팅 \\\'젯슨 토르\\\' 등을 소개. 8일에는 네이버·LG·현대차 본사를 잇달아 찾아 피지컬 AI·자율주행·로보틱스 협력을 논의할 예정.',
+   tags:['젠슨황','방한','R&D센터','로보틱스','베라루빈'],source:'https://www.fnnews.com/news/202606052007518533'},
+  {id:96,date:'2026-06-05',company:'OpenAI',companies:['OpenAI','Anthropic','Google','Microsoft'],category:'regulation',
+   title:'OpenAI·Anthropic·Google·Microsoft CEO, 美 의회에 \"합성 DNA 스크리닝 의무화\" 공동 서한',
+   description:'샘 올트먼(OpenAI)·다리오 아모데이(Anthropic)·데미스 허사비스(Google DeepMind)·무스타파 술레이만(Microsoft AI) 등 4대 AI 기업 수장이 6월 5일 미 의회에 합성 DNA 공급업체에 대한 바이오보안 스크리닝 의무화를 촉구하는 공동 서한에 서명. 과학자·국가안보 당국자·유전자합성기업 임원도 동참했으며, 합성 핵산 판매·제조 시 주문 서열 검증, 구매자 신원 확인, 거래 기록 보관을 법제화할 것을 요구. AI가 생물무기 제작의 기술적 장벽을 빠르게 낮추고 있다는 우려가 배경으로, Twist Bioscience·Ansa Biotechnologies 등 제조사도 서명하며 업계 일부가 규제를 환영.',
+   tags:['바이오보안','합성DNA','생물무기','규제','공동서한'],source:'https://fortune.com/2026/06/05/openai-anthropic-microsoft-ceos-congress-bioweapon-safeguards/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -888,6 +896,8 @@ const MM_NODES = [
   {id:'FLLawsuit',label:'플로리다\nOpenAI 소송',grp:'topic',sz:12},
   {id:'MetaBizAgent',label:'Meta Business\nAgent',grp:'topic',sz:14},
   {id:'SamsungFab',label:'삼성 파운드리\nAI 칩(2nm)',grp:'topic',sz:14},
+  {id:'NvKoreaRD',label:'엔비디아\n한국 R&D센터',grp:'topic',sz:14},
+  {id:'BioSecurity',label:'합성DNA\n바이오보안 서한',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -958,13 +968,21 @@ const MM_LINKS = [
   {s:'Samsung',t:'SamsungFab',type:'2nm 파운드리',rel:'infrastructure'},
   {s:'OpenAI',t:'SamsungFab',type:'커스텀칩 협상 중단',rel:'infrastructure'},
   {s:'Anthropic',t:'SamsungFab',type:'고객 선회 추진',rel:'partnership'},
+  {s:'NVIDIA',t:'NvKoreaRD',type:'설립·채용 발표',rel:'infrastructure'},
+  {s:'SK',t:'NvKoreaRD',type:'삼소맥 회동',rel:'partnership'},
+  {s:'LG',t:'NvKoreaRD',type:'삼소맥 회동',rel:'partnership'},
+  {s:'Naver',t:'NvKoreaRD',type:'삼소맥 회동',rel:'partnership'},
+  {s:'OpenAI',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
+  {s:'Anthropic',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
+  {s:'Google',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
+  {s:'Microsoft',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-06 11:00';
+const BUILD_DATETIME='2026-06-07 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
