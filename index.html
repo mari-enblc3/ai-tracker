@@ -809,6 +809,14 @@ let EVENTS = [
    title:'OpenAI·Anthropic·Google·Microsoft CEO, 美 의회에 \"합성 DNA 스크리닝 의무화\" 공동 서한',
    description:'샘 올트먼(OpenAI)·다리오 아모데이(Anthropic)·데미스 허사비스(Google DeepMind)·무스타파 술레이만(Microsoft AI) 등 4대 AI 기업 수장이 6월 5일 미 의회에 합성 DNA 공급업체에 대한 바이오보안 스크리닝 의무화를 촉구하는 공동 서한에 서명. 과학자·국가안보 당국자·유전자합성기업 임원도 동참했으며, 합성 핵산 판매·제조 시 주문 서열 검증, 구매자 신원 확인, 거래 기록 보관을 법제화할 것을 요구. AI가 생물무기 제작의 기술적 장벽을 빠르게 낮추고 있다는 우려가 배경으로, Twist Bioscience·Ansa Biotechnologies 등 제조사도 서명하며 업계 일부가 규제를 환영.',
    tags:['바이오보안','합성DNA','생물무기','규제','공동서한'],source:'https://fortune.com/2026/06/05/openai-anthropic-microsoft-ceos-congress-bioweapon-safeguards/'},
+  {id:97,date:'2026-06-08',company:'Apple',companies:['Apple','Google'],category:'partnership',
+   title:'Apple WWDC 2026 — Gemini 기반 새 Siri·iOS 27 공개',
+   description:'Apple이 6월 8일 WWDC 2026 키노트에서 Google Gemini로 구동되는 전면 재구축 Siri와 iOS 27을 공개. 블룸버그 보도에 따르면 Apple은 Siri 전용 1.2조 파라미터 커스텀 Gemini 모델 사용 대가로 Google에 연 약 10억 달러를 지불하며, 해당 모델은 Apple 실리콘 서버의 Private Cloud Compute에서 무상태(stateless)로 처리돼 사용자 데이터를 보존하지 않고 Google의 Gemini 재학습에도 쓰이지 않도록 계약. 새 Siri는 독립 앱·시스템 전역 \\\"Search or Ask\\\" 제스처·Dynamic Island 통합·챗봇형 인터페이스를 갖추고 이메일·사진·파일 등 개인 맥락 접근과 화면 인식·앱 간 액션을 지원. 서드파티 챗봇(ChatGPT·Claude 등) 연동도 개방.',
+   tags:['WWDC','Siri','Gemini','iOS27','Apple','Google'],source:'https://www.macrumors.com/guide/wwdc-2026-what-to-expect/'},
+  {id:98,date:'2026-06-04',company:'OpenAI',companies:['OpenAI'],category:'model',
+   title:'OpenAI GPT-Rosalind 업데이트 — 생명과학·신약개발 프런티어 모델',
+   description:'OpenAI가 생명과학 연구·신약개발에 특화된 프런티어 모델 GPT-Rosalind의 신규 업데이트를 공개. GPT-5.5의 에이전틱 코딩·툴 사용 능력에 의약화학·유전체학 등 핵심 도메인 지능을 결합해 전 영역에서 GPT-5.5를 능가하면서 토큰 사용은 절감(유전체학 분석 31% 토큰 절약). ChatGPT·Codex·API에서 신뢰 접근 프로그램 대상 리서치 프리뷰로 제공되며, Amgen·Moderna·Allen Institute·Thermo Fisher 등과 연구·발견 워크플로우에 적용 중.',
+   tags:['GPT-Rosalind','생명과학','신약개발','유전체학','OpenAI'],source:'https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -836,7 +844,7 @@ const MM_NODES = [
   {id:'Google',label:'Google',grp:'bigtech',sz:26},
   {id:'Microsoft',label:'Microsoft',grp:'bigtech',sz:20},
   {id:'Meta',label:'Meta',grp:'bigtech',sz:22},
-  {id:'Apple',label:'Apple',grp:'bigtech',sz:14},
+  {id:'Apple',label:'Apple',grp:'bigtech',sz:16},
   {id:'NVIDIA',label:'NVIDIA',grp:'hw',sz:24},
   {id:'Intel',label:'Intel',grp:'hw',sz:14},
   {id:'Samsung',label:'Samsung',grp:'korea',sz:22},
@@ -898,6 +906,8 @@ const MM_NODES = [
   {id:'SamsungFab',label:'삼성 파운드리\nAI 칩(2nm)',grp:'topic',sz:14},
   {id:'NvKoreaRD',label:'엔비디아\n한국 R&D센터',grp:'topic',sz:14},
   {id:'BioSecurity',label:'합성DNA\n바이오보안 서한',grp:'topic',sz:12},
+  {id:'SiriGemini',label:'새 Siri\n(Gemini)',grp:'topic',sz:16},
+  {id:'GPTRosalind',label:'GPT-Rosalind\n(생명과학)',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -976,13 +986,16 @@ const MM_LINKS = [
   {s:'Anthropic',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
   {s:'Google',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
   {s:'Microsoft',t:'BioSecurity',type:'공동 서한',rel:'regulation'},
+  {s:'Apple',t:'SiriGemini',type:'WWDC 새 Siri 공개',rel:'product'},
+  {s:'Google',t:'SiriGemini',type:'Gemini 1.2T 라이선스($1B/년)',rel:'partnership'},
+  {s:'OpenAI',t:'GPTRosalind',type:'생명과학 모델 출시',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-07 11:00';
+const BUILD_DATETIME='2026-06-08 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
