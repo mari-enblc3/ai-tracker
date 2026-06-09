@@ -817,6 +817,10 @@ let EVENTS = [
    title:'OpenAI GPT-Rosalind 업데이트 — 생명과학·신약개발 프런티어 모델',
    description:'OpenAI가 생명과학 연구·신약개발에 특화된 프런티어 모델 GPT-Rosalind의 신규 업데이트를 공개. GPT-5.5의 에이전틱 코딩·툴 사용 능력에 의약화학·유전체학 등 핵심 도메인 지능을 결합해 전 영역에서 GPT-5.5를 능가하면서 토큰 사용은 절감(유전체학 분석 31% 토큰 절약). ChatGPT·Codex·API에서 신뢰 접근 프로그램 대상 리서치 프리뷰로 제공되며, Amgen·Moderna·Allen Institute·Thermo Fisher 등과 연구·발견 워크플로우에 적용 중.',
    tags:['GPT-Rosalind','생명과학','신약개발','유전체학','OpenAI'],source:'https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind/'},
+  {id:99,date:'2026-06-08',company:'OpenAI',companies:['OpenAI','Google','xAI','Anthropic'],category:'regulation',
+   title:'美 국방부, Anthropic Claude 대체 위해 OpenAI·Google·xAI 모델 테스트',
+   description:'미 국방부가 기밀 시스템 전반에서 Anthropic Claude를 대체하기 위해 OpenAI·Google·xAI 모델을 테스트 중이라는 보도가 6월 8일 다시 부각. Anthropic이 대량 감시·자율무기 사용에 대한 가드레일을 거두기를 거부하자, 국방장관 피트 헤그세스가 3월 Anthropic을 공급망 리스크로 지정한 직후 테스트가 시작됨. Claude는 기밀 네트워크의 주력 AI 공급자로 Maven Smart System에 통합돼 있었음. Anthropic은 해당 지정이 수십억 달러 매출 손실을 초래할 수 있다며 법정에서 다투는 중. 국방부 \\"파워유저\\" 25명의 선호도를 기준으로 후보 모델을 평가.',
+   tags:['국방부','Pentagon','Claude대체','Maven','공급망리스크'],source:'https://www.techtimes.com/articles/317998/20260608/pentagon-racing-replace-anthropics-claude-because-it-was-too-safe-war.htm'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -908,6 +912,7 @@ const MM_NODES = [
   {id:'BioSecurity',label:'합성DNA\n바이오보안 서한',grp:'topic',sz:12},
   {id:'SiriGemini',label:'새 Siri\n(Gemini)',grp:'topic',sz:16},
   {id:'GPTRosalind',label:'GPT-Rosalind\n(생명과학)',grp:'topic',sz:12},
+  {id:'PentagonAI',label:'국방부\nClaude 대체',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -989,13 +994,17 @@ const MM_LINKS = [
   {s:'Apple',t:'SiriGemini',type:'WWDC 새 Siri 공개',rel:'product'},
   {s:'Google',t:'SiriGemini',type:'Gemini 1.2T 라이선스($1B/년)',rel:'partnership'},
   {s:'OpenAI',t:'GPTRosalind',type:'생명과학 모델 출시',rel:'product'},
+  {s:'Anthropic',t:'PentagonAI',type:'공급망 리스크 지정·대체 대상',rel:'regulation'},
+  {s:'OpenAI',t:'PentagonAI',type:'테스트 대상',rel:'regulation'},
+  {s:'Google',t:'PentagonAI',type:'테스트 대상',rel:'regulation'},
+  {s:'xAI',t:'PentagonAI',type:'테스트 대상',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-08 11:00';
+const BUILD_DATETIME='2026-06-09 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
