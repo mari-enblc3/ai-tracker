@@ -821,6 +821,18 @@ let EVENTS = [
    title:'美 국방부, Anthropic Claude 대체 위해 OpenAI·Google·xAI 모델 테스트',
    description:'미 국방부가 기밀 시스템 전반에서 Anthropic Claude를 대체하기 위해 OpenAI·Google·xAI 모델을 테스트 중이라는 보도가 6월 8일 다시 부각. Anthropic이 대량 감시·자율무기 사용에 대한 가드레일을 거두기를 거부하자, 국방장관 피트 헤그세스가 3월 Anthropic을 공급망 리스크로 지정한 직후 테스트가 시작됨. Claude는 기밀 네트워크의 주력 AI 공급자로 Maven Smart System에 통합돼 있었음. Anthropic은 해당 지정이 수십억 달러 매출 손실을 초래할 수 있다며 법정에서 다투는 중. 국방부 \\"파워유저\\" 25명의 선호도를 기준으로 후보 모델을 평가.',
    tags:['국방부','Pentagon','Claude대체','Maven','공급망리스크'],source:'https://www.techtimes.com/articles/317998/20260608/pentagon-racing-replace-anthropics-claude-because-it-was-too-safe-war.htm'},
+  {id:100,date:'2026-06-09',company:'Anthropic',companies:['Anthropic'],category:'model',
+   title:'Anthropic, Mythos급 최강 모델 Claude Fable 5 일반 공개',
+   description:'Anthropic이 6월 9일 일반 사용자용으로 안전성을 확보한 Mythos급 모델 Claude Fable 5를 공개. Fable 5는 소프트웨어 엔지니어링·지식노동·비전·과학연구 등 거의 모든 벤치마크에서 SOTA(최첨단)를 기록하며 회사가 일반 출시한 모델 중 최강 성능. 6월 9일~22일 Pro·Max·Team·시트형 Enterprise 플랜에 무상 포함되고 API·사용량 기반 Enterprise에서는 즉시 제공. 가격은 입력 100만 토큰당 10달러, 출력 100만 토큰당 50달러로 Claude Mythos 프리뷰의 절반 미만. 일부 민감 주제 질의는 Claude Opus 4.8 응답으로 우회하는 보수적 세이프가드가 적용되며(평균 세션의 5% 미만에서 작동), 같은 모델에서 일부 가드레일을 해제한 Claude Mythos 5는 사이버방어·인프라 사업자 대상으로 美 정부와의 Project Glasswing을 통해 초기 배포.',
+   tags:['ClaudeFable5','Mythos5','Anthropic','프런티어모델','Glasswing'],source:'https://www.anthropic.com/news/claude-fable-5-mythos-5'},
+  {id:101,date:'2026-06-09',company:'OpenAI',companies:['OpenAI'],category:'acquisition',
+   title:'OpenAI, SEC에 기밀 IPO 서류 제출 — 상장 절차 착수',
+   description:'OpenAI가 6월 8일 미국 증권거래위원회(SEC)에 기밀 IPO 등록서류(S-1)를 제출하고 6월 9일 이를 공식 발표. Anthropic·SpaceX에 이어 상장 레이스에 합류한 것으로, 약 8,500억 달러(포스트머니 8,520억 달러) 안팎의 기업가치가 거론됨. OpenAI는 유출 가능성을 이유로 제출 사실을 선제적으로 공개했으며, AI 군비경쟁 속 대규모 자본 조달을 위한 월스트리트 데뷔의 문을 연 것으로 평가.',
+   tags:['IPO','S-1','상장','OpenAI','자본조달'],source:'https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/'},
+  {id:102,date:'2026-06-09',company:'NVIDIA',companies:['NVIDIA','Naver'],category:'infrastructure',
+   title:'젠슨 황 네이버 1784 방문 — 네이버·엔비디아 기가와트급 AI 팩토리 동맹',
+   description:'엔비디아 젠슨 황 CEO가 6월 8~9일 방한해 성남 네이버 1784를 찾아 이해진 네이버 창업자와 글로벌 AI 팩토리 구축에 합의. 네이버는 엔비디아 DSX 기반 AI 팩토리를 세워 2027년 상반기 55MW 가동을 시작하고 같은 해 100MW, 2028년 200MW까지 해외로 인프라를 확장하며 에이전트 AI·피지컬 AI 구동에 활용. 황 CEO는 SK·삼성·현대차 등 한국 기업과의 회동에 이어 네이버와 기가와트급 협력을 구체화하며 한국을 AI 패권의 핵심 거점으로 지목.',
+   tags:['젠슨황','네이버','AI팩토리','엔비디아','DSX'],source:'https://zdnet.co.kr/view/?no=20260609173128'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -913,6 +925,9 @@ const MM_NODES = [
   {id:'SiriGemini',label:'새 Siri\n(Gemini)',grp:'topic',sz:16},
   {id:'GPTRosalind',label:'GPT-Rosalind\n(생명과학)',grp:'topic',sz:12},
   {id:'PentagonAI',label:'국방부\nClaude 대체',grp:'topic',sz:14},
+  {id:'Fable5',label:'Claude Fable 5\n/Mythos 5',grp:'topic',sz:18},
+  {id:'OpenAIIPO',label:'OpenAI\n$850B IPO',grp:'topic',sz:14},
+  {id:'NaverFactory',label:'네이버 기가와트\nAI 팩토리',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -998,13 +1013,18 @@ const MM_LINKS = [
   {s:'OpenAI',t:'PentagonAI',type:'테스트 대상',rel:'regulation'},
   {s:'Google',t:'PentagonAI',type:'테스트 대상',rel:'regulation'},
   {s:'xAI',t:'PentagonAI',type:'테스트 대상',rel:'regulation'},
+  {s:'Anthropic',t:'Fable5',type:'Mythos급 공개 출시',rel:'product'},
+  {s:'Fable5',t:'Glasswing',type:'Mythos 5 배포',rel:'partnership'},
+  {s:'OpenAI',t:'OpenAIIPO',type:'기밀 S-1 제출',rel:'acquisition'},
+  {s:'NVIDIA',t:'NaverFactory',type:'DSX 기반 구축',rel:'infrastructure'},
+  {s:'Naver',t:'NaverFactory',type:'55MW(2027)~200MW',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-09 11:00';
+const BUILD_DATETIME='2026-06-10 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
