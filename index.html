@@ -833,6 +833,10 @@ let EVENTS = [
    title:'젠슨 황 네이버 1784 방문 — 네이버·엔비디아 기가와트급 AI 팩토리 동맹',
    description:'엔비디아 젠슨 황 CEO가 6월 8~9일 방한해 성남 네이버 1784를 찾아 이해진 네이버 창업자와 글로벌 AI 팩토리 구축에 합의. 네이버는 엔비디아 DSX 기반 AI 팩토리를 세워 2027년 상반기 55MW 가동을 시작하고 같은 해 100MW, 2028년 200MW까지 해외로 인프라를 확장하며 에이전트 AI·피지컬 AI 구동에 활용. 황 CEO는 SK·삼성·현대차 등 한국 기업과의 회동에 이어 네이버와 기가와트급 협력을 구체화하며 한국을 AI 패권의 핵심 거점으로 지목.',
    tags:['젠슨황','네이버','AI팩토리','엔비디아','DSX'],source:'https://zdnet.co.kr/view/?no=20260609173128'},
+  {id:103,date:'2026-06-05',company:'Google',companies:['Google','SpaceX'],category:'infrastructure',
+   title:'구글, 스페이스X에 월 9.2억 달러 컴퓨트 비용 지급 계약',
+   description:'구글이 스페이스X에 2026년 10월부터 2029년 6월까지 매월 약 9억 2,000만 달러(총 약 330억 달러)를 지급하고 약 11만 개의 엔비디아 GPU와 CPU·메모리 등 컴퓨팅 자원에 접근하는 대규모 컴퓨트 계약을 맺은 것으로 6월 5일 보도됨. 빅테크가 부족한 AI 연산 능력을 확보하기 위해 일론 머스크의 스페이스X 인프라까지 끌어들이는 이례적 구도로, AI 컴퓨트 수요 폭증과 공급 병목을 단적으로 보여줌.',
+   tags:['컴퓨트계약','GPU','데이터센터','구글','스페이스X'],source:'https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1018,13 +1022,14 @@ const MM_LINKS = [
   {s:'OpenAI',t:'OpenAIIPO',type:'기밀 S-1 제출',rel:'acquisition'},
   {s:'NVIDIA',t:'NaverFactory',type:'DSX 기반 구축',rel:'infrastructure'},
   {s:'Naver',t:'NaverFactory',type:'55MW(2027)~200MW',rel:'infrastructure'},
+  {s:'Google',t:'SpaceX',type:'월 $9.2억 컴퓨트 계약',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-10 11:00';
+const BUILD_DATETIME='2026-06-10 12:36';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
