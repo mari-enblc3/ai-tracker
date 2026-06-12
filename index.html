@@ -845,6 +845,10 @@ let EVENTS = [
    title:'삼성전자 DX부문, 챗GPT·제미나이·클로드 공식 도입 — 6/12 시행·투트랙 AI 전략',
    description:'삼성전자 디바이스경험(DX)부문이 6월 12일부터 임직원 대상으로 OpenAI 챗GPT, 구글 제미나이 엔터프라이즈, 앤트로픽 클로드 등 외부 생성형 AI 3종을 공식 서비스로 개시. 4~5월 약 두 달간 임직원 2,500명 PoC 검증을 거침. 자체 모델 삼성 가우스를 고도화하면서 글로벌 빅테크 AI를 병행하는 투트랙 AI 전략을 본격화. 임직원이 업무 특성에 맞는 솔루션을 직접 선택해 조직 전반의 AI 전환(AX)을 가속하며, 보안 교육 이수자에 한해 사용 권한을 부여해 정보 유출 리스크를 관리.',
    tags:['삼성','생성형AI','AX','투트랙','삼성가우스'],source:'https://www.inews24.com/view/1975599'},
+  {id:106,date:'2026-06-12',company:'SpaceX',companies:['SpaceX'],category:'acquisition',
+   title:'SpaceX 나스닥 상장 데뷔 — 티커 SPCX, 증시 사상 최대 IPO',
+   description:'SpaceX가 6월 12일 나스닥 글로벌 셀렉트 마켓과 나스닥 텍사스에서 티커 SPCX로 거래를 개시. 공모가는 주당 135달러로 약 5억 5,560만 주를 매각해 약 750억 달러를 조달했고, 약 13.1억 주 기준 약 1조 7,700억 달러의 기업가치로 역대 최대 규모 IPO를 기록. 총수요가 2,500억 달러를 넘고 개인 청약만 1,000억 달러를 상회해 약 3.5~4배 초과 청약. Anthropic·OpenAI의 상장 행렬에 이어 AI·우주 인프라 대형 상장이 이어지는 흐름으로, 첫날 거래는 변동성에 따른 다수의 매매 정지가 예상됨.',
+   tags:['IPO','SPCX','나스닥','SpaceX','상장데뷔'],source:'https://www.tradingkey.com/analysis/stocks/us-stocks/261960721-spacex-ipo-is-live-at-135-bull-base-and-bear-cases-for-the-first-90-days-tradingkey'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -940,7 +944,7 @@ const MM_NODES = [
   {id:'Fable5',label:'Claude Fable 5\n/Mythos 5',grp:'topic',sz:18},
   {id:'OpenAIIPO',label:'OpenAI\n$850B IPO',grp:'topic',sz:14},
   {id:'NaverFactory',label:'네이버 기가와트\nAI 팩토리',grp:'topic',sz:14},
-  {id:'SpaceXIPO',label:'SpaceX\n$1.75T IPO',grp:'topic',sz:14},
+  {id:'SpaceXIPO',label:'SpaceX\n$1.77T IPO',grp:'topic',sz:16},
   {id:'SamsungAX',label:'삼성 외부AI\n도입(투트랙)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
@@ -1033,7 +1037,7 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'NaverFactory',type:'DSX 기반 구축',rel:'infrastructure'},
   {s:'Naver',t:'NaverFactory',type:'55MW(2027)~200MW',rel:'infrastructure'},
   {s:'Google',t:'SpaceX',type:'월 $9.2억 컴퓨트 계약',rel:'infrastructure'},
-  {s:'SpaceX',t:'SpaceXIPO',type:'6/11 공모가 확정($1.75T)',rel:'acquisition'},
+  {s:'SpaceX',t:'SpaceXIPO',type:'6/12 나스닥 데뷔($1.77T·SPCX)',rel:'acquisition'},
   {s:'Samsung',t:'SamsungAX',type:'DX부문 공식 도입(6/12)',rel:'product'},
   {s:'OpenAI',t:'SamsungAX',type:'챗GPT 채택',rel:'partnership'},
   {s:'Google',t:'SamsungAX',type:'제미나이 채택',rel:'partnership'},
@@ -1044,7 +1048,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-11 11:00';
+const BUILD_DATETIME='2026-06-12 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
