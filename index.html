@@ -849,6 +849,10 @@ let EVENTS = [
    title:'SpaceX 나스닥 상장 데뷔 — 티커 SPCX, 증시 사상 최대 IPO',
    description:'SpaceX가 6월 12일 나스닥 글로벌 셀렉트 마켓과 나스닥 텍사스에서 티커 SPCX로 거래를 개시. 공모가는 주당 135달러로 약 5억 5,560만 주를 매각해 약 750억 달러를 조달했고, 약 13.1억 주 기준 약 1조 7,700억 달러의 기업가치로 역대 최대 규모 IPO를 기록. 총수요가 2,500억 달러를 넘고 개인 청약만 1,000억 달러를 상회해 약 3.5~4배 초과 청약. Anthropic·OpenAI의 상장 행렬에 이어 AI·우주 인프라 대형 상장이 이어지는 흐름으로, 첫날 거래는 변동성에 따른 다수의 매매 정지가 예상됨.',
    tags:['IPO','SPCX','나스닥','SpaceX','상장데뷔'],source:'https://www.tradingkey.com/analysis/stocks/us-stocks/261960721-spacex-ipo-is-live-at-135-bull-base-and-bear-cases-for-the-first-90-days-tradingkey'},
+  {id:107,date:'2026-06-12',company:'OpenAI',companies:['OpenAI','Samsung','Naver','Kakao'],category:'partnership',
+   title:'샘 올트먼 방한 연기 — 삼성·네이버·카카오 회동 무산',
+   description:'오픈AI가 6월 12일 샘 올트먼 CEO의 6월 14~15일 방한 일정을 개인 사정을 이유로 연기한다고 밝히면서 삼성전자·네이버·카카오와 예정됐던 연쇄 회동이 모두 순연됨. 올트먼은 삼성전자 디지털시티 DX 인사이트 토크 참석과 전영현 DS부문장·노태문 DX부문장 직무대행 면담, 15일 카카오 판교아지트에서 정신아 대표와 카카오톡·챗GPT 연계 강화 협의, 네이버와의 회동을 계획했었음. 젠슨 황 엔비디아 CEO 방한(6/8~9)에 이은 빅테크 수장의 방한 행렬로 주목됐으나 8개월 만의 방한이 무산. 오픈AI는 한국이 전략적으로 매우 중요한 파트너이며 국내 파트너와의 협력은 예정대로 이어진다고 밝힘.',
+   tags:['올트먼','방한연기','OpenAI','삼성','네이버','카카오'],source:'https://www.news1.kr/it-science/internet-platform/6195987'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -946,6 +950,7 @@ const MM_NODES = [
   {id:'NaverFactory',label:'네이버 기가와트\nAI 팩토리',grp:'topic',sz:14},
   {id:'SpaceXIPO',label:'SpaceX\n$1.77T IPO',grp:'topic',sz:16},
   {id:'SamsungAX',label:'삼성 외부AI\n도입(투트랙)',grp:'topic',sz:14},
+  {id:'AltmanKR',label:'올트먼 방한\n연기',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1042,13 +1047,17 @@ const MM_LINKS = [
   {s:'OpenAI',t:'SamsungAX',type:'챗GPT 채택',rel:'partnership'},
   {s:'Google',t:'SamsungAX',type:'제미나이 채택',rel:'partnership'},
   {s:'Anthropic',t:'SamsungAX',type:'클로드 채택',rel:'partnership'},
+  {s:'OpenAI',t:'AltmanKR',type:'방한 연기(6/12)',rel:'partnership'},
+  {s:'Samsung',t:'AltmanKR',type:'회동 순연',rel:'partnership'},
+  {s:'Naver',t:'AltmanKR',type:'회동 순연',rel:'partnership'},
+  {s:'Kakao',t:'AltmanKR',type:'회동 순연',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-12 15:28';
+const BUILD_DATETIME='2026-06-13 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
