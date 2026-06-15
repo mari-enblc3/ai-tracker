@@ -853,6 +853,14 @@ let EVENTS = [
    title:'샘 올트먼 방한 연기 — 삼성·네이버·카카오 회동 무산',
    description:'오픈AI가 6월 12일 샘 올트먼 CEO의 6월 14~15일 방한 일정을 개인 사정을 이유로 연기한다고 밝히면서 삼성전자·네이버·카카오와 예정됐던 연쇄 회동이 모두 순연됨. 올트먼은 삼성전자 디지털시티 DX 인사이트 토크 참석과 전영현 DS부문장·노태문 DX부문장 직무대행 면담, 15일 카카오 판교아지트에서 정신아 대표와 카카오톡·챗GPT 연계 강화 협의, 네이버와의 회동을 계획했었음. 젠슨 황 엔비디아 CEO 방한(6/8~9)에 이은 빅테크 수장의 방한 행렬로 주목됐으나 8개월 만의 방한이 무산. 오픈AI는 한국이 전략적으로 매우 중요한 파트너이며 국내 파트너와의 협력은 예정대로 이어진다고 밝힘.',
    tags:['올트먼','방한연기','OpenAI','삼성','네이버','카카오'],source:'https://www.news1.kr/it-science/internet-platform/6195987'},
+  {id:108,date:'2026-06-14',company:'OpenAI',companies:['OpenAI'],category:'partnership',
+   title:'OpenAI, 글로벌 파트너 네트워크 출범 — 1.5억 달러 투자',
+   description:'OpenAI가 6월 14일 기업의 AI 도입·구축·확장을 지원하는 글로벌 생태계 \'OpenAI 파트너 네트워크\'를 공식 출범하고 1억 5,000만 달러를 투자한다고 발표. 외부 컨설팅·기술 기업을 끌어들여 기업의 AI 제품 채택을 가속하는 두 번째 트랙으로, Select·Advanced·Elite 3개 등급으로 운영되며 영업 실적·기술 역량·공동 영업·배포 경험에 따라 승급. 2026년 말까지 30만 명의 공인 컨설턴트 양성을 목표로 하고, Elite 파트너에는 OpenAI 엔지니어가 현장 교육하는 Forward Deployed Experts 파일럿을 제공. 출범 파트너로 액센추어·베인·BCG·맥킨지·PwC 등이 합류.',
+   tags:['파트너네트워크','엔터프라이즈AI','OpenAI','컨설팅','AX'],source:'https://openai.com/index/introducing-openai-partner-network/'},
+  {id:109,date:'2026-06-15',company:'OpenAI',companies:['OpenAI','Anthropic','Google'],category:'regulation',
+   title:'AI 3대 수장, G7 정상회의 첫 동반 참석 — AI 정책 논의',
+   description:'OpenAI 샘 올트먼, Anthropic 다리오 아모데이, 구글 딥마인드 데미스 허사비스가 6월 15~17일 프랑스 에비앙레뱅에서 열리는 G7 정상회의에 나란히 참석. 세 경쟁사 수장이 세계 정상들 앞에 함께 모습을 드러내는 것은 처음으로, 마크롱 대통령이 올트먼을 직접 초청. 정상회의는 안전하고 신속하며 효과적인 AI 배포 방안을 논의하는 별도의 비즈니스 리더 오찬을 마련하는 등 AI를 핵심 의제로 다룸. 세 CEO가 최근 합성 DNA·AI 생물학 위협 규제 강화를 촉구하는 공동 서한에 서명한 직후의 행보로, 경쟁사 간 보기 드문 정책 공조로 평가.',
+   tags:['G7','AI정책','규제','올트먼','아모데이','허사비스'],source:'https://www.bloomberg.com/news/articles/2026-06-12/anthropic-openai-google-executives-plan-to-attend-g7-summit'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -951,6 +959,8 @@ const MM_NODES = [
   {id:'SpaceXIPO',label:'SpaceX\n$1.77T IPO',grp:'topic',sz:16},
   {id:'SamsungAX',label:'삼성 외부AI\n도입(투트랙)',grp:'topic',sz:14},
   {id:'AltmanKR',label:'올트먼 방한\n연기',grp:'topic',sz:12},
+  {id:'OpenAIPartnerNet',label:'OpenAI\n파트너\n네트워크',grp:'topic',sz:13},
+  {id:'G7Summit2026',label:'G7 정상회의\nAI 의제',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1051,13 +1061,17 @@ const MM_LINKS = [
   {s:'Samsung',t:'AltmanKR',type:'회동 순연',rel:'partnership'},
   {s:'Naver',t:'AltmanKR',type:'회동 순연',rel:'partnership'},
   {s:'Kakao',t:'AltmanKR',type:'회동 순연',rel:'partnership'},
+  {s:'OpenAI',t:'OpenAIPartnerNet',type:'$1.5억 투자·출범',rel:'partnership'},
+  {s:'OpenAI',t:'G7Summit2026',type:'올트먼 참석',rel:'regulation'},
+  {s:'Anthropic',t:'G7Summit2026',type:'아모데이 참석',rel:'regulation'},
+  {s:'Google',t:'G7Summit2026',type:'허사비스 참석',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-13 19:58';
+const BUILD_DATETIME='2026-06-16 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
