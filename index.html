@@ -861,6 +861,10 @@ let EVENTS = [
    title:'AI 3대 수장, G7 정상회의 첫 동반 참석 — AI 정책 논의',
    description:'OpenAI 샘 올트먼, Anthropic 다리오 아모데이, 구글 딥마인드 데미스 허사비스가 6월 15~17일 프랑스 에비앙레뱅에서 열리는 G7 정상회의에 나란히 참석. 세 경쟁사 수장이 세계 정상들 앞에 함께 모습을 드러내는 것은 처음으로, 마크롱 대통령이 올트먼을 직접 초청. 정상회의는 안전하고 신속하며 효과적인 AI 배포 방안을 논의하는 별도의 비즈니스 리더 오찬을 마련하는 등 AI를 핵심 의제로 다룸. 세 CEO가 최근 합성 DNA·AI 생물학 위협 규제 강화를 촉구하는 공동 서한에 서명한 직후의 행보로, 경쟁사 간 보기 드문 정책 공조로 평가.',
    tags:['G7','AI정책','규제','올트먼','아모데이','허사비스'],source:'https://www.bloomberg.com/news/articles/2026-06-12/anthropic-openai-google-executives-plan-to-attend-g7-summit'},
+  {id:110,date:'2026-06-08',company:'SK',companies:['SK','NVIDIA'],category:'partnership',
+   title:'SK텔레콤·엔비디아, 글로벌 \'풀스택 AI 클라우드\' 동맹 — GW급 AI 팩토리',
+   description:'최태원 SK그룹 회장과 젠슨 황 엔비디아 CEO가 6월 8일 서울 서린사옥에서 만나 AI 인프라 전방위 협력에 합의. SK텔레콤이 엔비디아의 풀스택 레퍼런스 아키텍처 \'DSX 플랫폼\'(소프트웨어·하드웨어·운영 통합)을 채택해 글로벌 시장을 겨냥한 대규모 AI 클라우드를 구축하기로 함. SKT는 엔비디아 클라우드 파트너 프로그램에 합류해 블랙웰 GPU와 차세대 베라 루빈 플랫폼 기반 AI 학습·추론 서비스를 제공하고, 2027년 국내 첫 기가와트급 AI 팩토리를 가동한 뒤 아시아 전역으로 사업을 확장할 계획. 칩부터 데이터센터 운영까지 아우르는 풀스택 동맹으로 SK는 아시아 AI 인프라 주도권 확보를 노림.',
+   tags:['SK텔레콤','엔비디아','풀스택AI클라우드','DSX','AI팩토리'],source:'https://www.fnnews.com/news/202606080835426323'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -961,6 +965,7 @@ const MM_NODES = [
   {id:'AltmanKR',label:'올트먼 방한\n연기',grp:'topic',sz:12},
   {id:'OpenAIPartnerNet',label:'OpenAI\n파트너\n네트워크',grp:'topic',sz:13},
   {id:'G7Summit2026',label:'G7 정상회의\nAI 의제',grp:'topic',sz:13},
+  {id:'SKTNvCloud',label:'SKT·엔비디아\n풀스택 AI클라우드',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1065,6 +1070,8 @@ const MM_LINKS = [
   {s:'OpenAI',t:'G7Summit2026',type:'올트먼 참석',rel:'regulation'},
   {s:'Anthropic',t:'G7Summit2026',type:'아모데이 참석',rel:'regulation'},
   {s:'Google',t:'G7Summit2026',type:'허사비스 참석',rel:'regulation'},
+  {s:'SK',t:'SKTNvCloud',type:'DSX 채택·구축',rel:'infrastructure'},
+  {s:'NVIDIA',t:'SKTNvCloud',type:'풀스택 동맹',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
