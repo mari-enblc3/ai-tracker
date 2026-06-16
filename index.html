@@ -865,6 +865,10 @@ let EVENTS = [
    title:'SK텔레콤·엔비디아, 글로벌 \'풀스택 AI 클라우드\' 동맹 — GW급 AI 팩토리',
    description:'최태원 SK그룹 회장과 젠슨 황 엔비디아 CEO가 6월 8일 서울 서린사옥에서 만나 AI 인프라 전방위 협력에 합의. SK텔레콤이 엔비디아의 풀스택 레퍼런스 아키텍처 \'DSX 플랫폼\'(소프트웨어·하드웨어·운영 통합)을 채택해 글로벌 시장을 겨냥한 대규모 AI 클라우드를 구축하기로 함. SKT는 엔비디아 클라우드 파트너 프로그램에 합류해 블랙웰 GPU와 차세대 베라 루빈 플랫폼 기반 AI 학습·추론 서비스를 제공하고, 2027년 국내 첫 기가와트급 AI 팩토리를 가동한 뒤 아시아 전역으로 사업을 확장할 계획. 칩부터 데이터센터 운영까지 아우르는 풀스택 동맹으로 SK는 아시아 AI 인프라 주도권 확보를 노림.',
    tags:['SK텔레콤','엔비디아','풀스택AI클라우드','DSX','AI팩토리'],source:'https://www.fnnews.com/news/202606080835426323'},
+  {id:111,date:'2026-06-15',company:'Samsung',companies:['Samsung','Tesla'],category:'partnership',
+   title:'삼성 파운드리, 머스크 뉴럴링크 차세대 뇌이식칩 첫 수주',
+   description:'삼성전자 파운드리 사업부가 일론 머스크의 뉴럴링크 4세대 뇌-컴퓨터 인터페이스(BCI) 이식용 칩을 4나노 공정으로 개발 중인 것으로 6월 15일 확인됨. 뉴럴링크 칩 수주는 이번이 처음으로, 2027년 상반기 테스트 칩 출하 후 이르면 2027년 말 양산이 가능할 전망. 삼성은 이미 테슬라(차세대 자율주행 칩)·엔비디아(HBM4·4나노 추론칩)·구글 물량을 확보한 데 이어 머스크 생태계와의 협력을 BCI 영역까지 확대하며, 적자에 빠진 파운드리 사업의 2028년 흑자 전환 발판으로 삼으려는 행보로 평가됨.',
+   tags:['삼성파운드리','뉴럴링크','BCI','4나노','머스크','테슬라'],source:'https://www.hankyung.com/article/2026061577071'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -966,6 +970,8 @@ const MM_NODES = [
   {id:'OpenAIPartnerNet',label:'OpenAI\n파트너\n네트워크',grp:'topic',sz:13},
   {id:'G7Summit2026',label:'G7 정상회의\nAI 의제',grp:'topic',sz:13},
   {id:'SKTNvCloud',label:'SKT·엔비디아\n풀스택 AI클라우드',grp:'topic',sz:14},
+  {id:'Neuralink',label:'Neuralink',grp:'other',sz:12},
+  {id:'SamsungBCI',label:'뉴럴링크\n뇌이식칩(4nm)',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1072,13 +1078,17 @@ const MM_LINKS = [
   {s:'Google',t:'G7Summit2026',type:'허사비스 참석',rel:'regulation'},
   {s:'SK',t:'SKTNvCloud',type:'DSX 채택·구축',rel:'infrastructure'},
   {s:'NVIDIA',t:'SKTNvCloud',type:'풀스택 동맹',rel:'infrastructure'},
+  {s:'Samsung',t:'Neuralink',type:'파운드리 칩 첫 수주(6/15)',rel:'partnership'},
+  {s:'Samsung',t:'SamsungBCI',type:'4나노 개발',rel:'product'},
+  {s:'Neuralink',t:'SamsungBCI',type:'4세대 뇌이식칩',rel:'product'},
+  {s:'Tesla',t:'Neuralink',type:'머스크 생태계',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-16 11:11';
+const BUILD_DATETIME='2026-06-16 23:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
