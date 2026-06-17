@@ -869,6 +869,10 @@ let EVENTS = [
    title:'삼성 파운드리, 머스크 뉴럴링크 차세대 뇌이식칩 첫 수주',
    description:'삼성전자 파운드리 사업부가 일론 머스크의 뉴럴링크 4세대 뇌-컴퓨터 인터페이스(BCI) 이식용 칩을 4나노 공정으로 개발 중인 것으로 6월 15일 확인됨. 뉴럴링크 칩 수주는 이번이 처음으로, 2027년 상반기 테스트 칩 출하 후 이르면 2027년 말 양산이 가능할 전망. 삼성은 이미 테슬라(차세대 자율주행 칩)·엔비디아(HBM4·4나노 추론칩)·구글 물량을 확보한 데 이어 머스크 생태계와의 협력을 BCI 영역까지 확대하며, 적자에 빠진 파운드리 사업의 2028년 흑자 전환 발판으로 삼으려는 행보로 평가됨.',
    tags:['삼성파운드리','뉴럴링크','BCI','4나노','머스크','테슬라'],source:'https://www.hankyung.com/article/2026061577071'},
+  {id:112,date:'2026-06-11',company:'OpenAI',companies:['OpenAI'],category:'acquisition',
+   title:'OpenAI, 클라우드 실행 플랫폼 Ona 인수 — Codex 강화',
+   description:'OpenAI가 6월 11일 AI 에이전트용 클라우드 실행·오케스트레이션 플랫폼 Ona(구 Gitpod)를 인수한다고 발표. Ona의 보안 클라우드 실행 기술을 코딩 어시스턴트 Codex 생태계에 통합해, 장시간 지속되는 영구 작업 수행과 기업의 에이전트 프로덕션 배포를 지원. Codex 주간 사용자는 500만 명을 돌파하며 연초 대비 400% 증가. 인수 금액은 비공개이며 통상적 종결 조건 충족 시 마무리될 예정.',
+   tags:['인수','Ona','Codex','AI에이전트','클라우드','OpenAI'],source:'https://openai.com/index/openai-to-acquire-ona/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -972,6 +976,7 @@ const MM_NODES = [
   {id:'SKTNvCloud',label:'SKT·엔비디아\n풀스택 AI클라우드',grp:'topic',sz:14},
   {id:'Neuralink',label:'Neuralink',grp:'other',sz:12},
   {id:'SamsungBCI',label:'뉴럴링크\n뇌이식칩(4nm)',grp:'topic',sz:12},
+  {id:'Ona',label:'Ona\n(클라우드실행)',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1082,13 +1087,15 @@ const MM_LINKS = [
   {s:'Samsung',t:'SamsungBCI',type:'4나노 개발',rel:'product'},
   {s:'Neuralink',t:'SamsungBCI',type:'4세대 뇌이식칩',rel:'product'},
   {s:'Tesla',t:'Neuralink',type:'머스크 생태계',rel:'partnership'},
+  {s:'OpenAI',t:'Ona',type:'인수 (Codex 강화)',rel:'acquisition'},
+  {s:'Ona',t:'CodexBiz',type:'클라우드 실행 통합',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-16 23:00';
+const BUILD_DATETIME='2026-06-17 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
