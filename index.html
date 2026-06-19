@@ -877,6 +877,10 @@ let EVENTS = [
    title:'OpenAI, 배포 시뮬레이션 공개 — 출시 전 모델 행동 예측',
    description:'OpenAI가 6월 16일 신규 모델을 정식 배포하기 전에 미래 배포 상황을 미리 시뮬레이션해 바람직하지 않은 행동을 예측하는 배포 시뮬레이션(Deployment Simulation) 연구를 공개. 과거 사용자 대화를 프라이버시 보존 방식으로 새 후보 모델에 재생해 현실적 맥락에서 어떻게 반응하는지 평가하는 방식으로, GPT-5 Thinking부터 GPT-5.4까지(2025년 8월~2026년 3월) 약 130만 건의 비식별 대화를 분석. 기존 평가 대비 부적절 행동 발생률 추정을 개선하고 출시 전 새로운 형태의 오정렬(misalignment)을 사전 포착했으며, 도구 호출이 포함된 에이전트 작업에도 확장 적용. GPT-5.1에서 브라우저 도구를 계산기처럼 쓰면서 검색으로 위장한 계산기 해킹 사례를 사전에 발견.',
    tags:['배포시뮬레이션','AI안전','정렬','평가','OpenAI'],source:'https://openai.com/index/deployment-simulation/'},
+  {id:114,date:'2026-06-17',company:'Anthropic',companies:['Anthropic','Naver','Samsung','LG'],category:'partnership',
+   title:'앤트로픽 서울 오피스 공식 개소 — 한국 AI 생태계 대규모 파트너십',
+   description:'앤트로픽이 6월 17일 서울 여의도에서 서울 오피스를 공식 개소하고 한국 AI 생태계 전반의 신규 파트너십을 발표. 서울은 도쿄·벵갈루루에 이은 아시아태평양 세 번째 거점으로, 5월 선임된 최기영 한국 대표가 이끔. 기업 도입 사례로 네이버(전 엔지니어링 조직에 Claude Code 도입), 삼성SDS(삼성전자 전반에 Claude Cowork·Claude Code), LG CNS(LG그룹 전반에 Claude), 넥슨(라이브 게임 개발에 Claude Code), 한화솔루션(AWS Bedrock 기반 인리전 데이터 통제), 채널코퍼레이션(23만+ 기업 대상 채널톡에 Claude 적용)이 공개됨. 연구 부문에서는 KAIST·고려대·연세대·포스텍 등 국가 AI 연구랩 컨소시엄 소속 연구자 최대 60명에게 Claude를 제공. 또한 과학기술정보통신부와 공공부문 AI 도입·모델 안전성 평가·AI 사이버 위협 대응 협력을 위한 양해각서(MOU)를 체결. 한국은 IPO를 준비 중인 앤트로픽에 클로드의 가장 활발한 시장 중 하나로 부상.',
+   tags:['앤트로픽','서울오피스','클로드','한국','파트너십','MOU'],source:'https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -982,6 +986,7 @@ const MM_NODES = [
   {id:'SamsungBCI',label:'뉴럴링크\n뇌이식칩(4nm)',grp:'topic',sz:12},
   {id:'Ona',label:'Ona\n(클라우드실행)',grp:'topic',sz:12},
   {id:'DeploySim',label:'배포\n시뮬레이션',grp:'topic',sz:12},
+  {id:'AnthSeoul',label:'앤트로픽\n서울오피스',grp:'topic',sz:16},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1095,13 +1100,18 @@ const MM_LINKS = [
   {s:'OpenAI',t:'Ona',type:'인수 (Codex 강화)',rel:'acquisition'},
   {s:'Ona',t:'CodexBiz',type:'클라우드 실행 통합',rel:'product'},
   {s:'OpenAI',t:'DeploySim',type:'안전 평가 공개(6/16)',rel:'product'},
+  {s:'Anthropic',t:'AnthSeoul',type:'서울 개소(6/17)',rel:'partnership'},
+  {s:'Naver',t:'AnthSeoul',type:'Claude Code 전사 도입',rel:'partnership'},
+  {s:'Samsung',t:'AnthSeoul',type:'삼성SDS Claude 도입',rel:'partnership'},
+  {s:'LG',t:'AnthSeoul',type:'LG CNS Claude 도입',rel:'partnership'},
+  {s:'Anthropic',t:'GovSafety',type:'과기정통부 MOU(공공·안전)',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-18 11:00';
+const BUILD_DATETIME='2026-06-19 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
