@@ -881,6 +881,10 @@ let EVENTS = [
    title:'앤트로픽 서울 오피스 공식 개소 — 한국 AI 생태계 대규모 파트너십',
    description:'앤트로픽이 6월 17일 서울 여의도에서 서울 오피스를 공식 개소하고 한국 AI 생태계 전반의 신규 파트너십을 발표. 서울은 도쿄·벵갈루루에 이은 아시아태평양 세 번째 거점으로, 5월 선임된 최기영 한국 대표가 이끔. 기업 도입 사례로 네이버(전 엔지니어링 조직에 Claude Code 도입), 삼성SDS(삼성전자 전반에 Claude Cowork·Claude Code), LG CNS(LG그룹 전반에 Claude), 넥슨(라이브 게임 개발에 Claude Code), 한화솔루션(AWS Bedrock 기반 인리전 데이터 통제), 채널코퍼레이션(23만+ 기업 대상 채널톡에 Claude 적용)이 공개됨. 연구 부문에서는 KAIST·고려대·연세대·포스텍 등 국가 AI 연구랩 컨소시엄 소속 연구자 최대 60명에게 Claude를 제공. 또한 과학기술정보통신부와 공공부문 AI 도입·모델 안전성 평가·AI 사이버 위협 대응 협력을 위한 양해각서(MOU)를 체결. 한국은 IPO를 준비 중인 앤트로픽에 클로드의 가장 활발한 시장 중 하나로 부상.',
    tags:['앤트로픽','서울오피스','클로드','한국','파트너십','MOU'],source:'https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem'},
+  {id:115,date:'2026-06-18',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'OpenAI o3, 보스턴 아동병원과 난치성 소아 희귀질환 18건 새 진단',
+   description:'NEJM AI에 6월 18일 게재된 연구에서 OpenAI o3 Deep Research가 보스턴 아동병원 연구진과 함께 미진단 희귀질환 아동 376명의 게놈·임상 기록·증상·후보 유전자 목록을 분석해 기존에 풀리지 않던 18건의 새 진단 단서를 찾아냄. 신경발달질환 10명, 신경근육질환 4명, 돌연사 2명, 영유아 정신증 2명 등이 포함됨. AI는 진단이나 임상 결정을 직접 내리지 않고 전문가가 기존 임상 절차로 검증할 리드를 제시하는 보조 역할만 수행. 병원은 AI 활용으로 40건 이상의 미해결 희귀질환을 진단하고 약 6만 시간의 업무 시간과 700만 달러 이상의 인건비를 절감한 것으로 집계됨.',
+   tags:['o3','희귀질환','헬스케어','NEJM','보스턴아동병원'],source:'https://openai.com/index/diagnose-rare-childhood-diseases/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -987,6 +991,7 @@ const MM_NODES = [
   {id:'Ona',label:'Ona\n(클라우드실행)',grp:'topic',sz:12},
   {id:'DeploySim',label:'배포\n시뮬레이션',grp:'topic',sz:12},
   {id:'AnthSeoul',label:'앤트로픽\n서울오피스',grp:'topic',sz:16},
+  {id:'RareDx',label:'희귀질환\nAI진단(o3)',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
@@ -1105,13 +1110,14 @@ const MM_LINKS = [
   {s:'Samsung',t:'AnthSeoul',type:'삼성SDS Claude 도입',rel:'partnership'},
   {s:'LG',t:'AnthSeoul',type:'LG CNS Claude 도입',rel:'partnership'},
   {s:'Anthropic',t:'GovSafety',type:'과기정통부 MOU(공공·안전)',rel:'regulation'},
+  {s:'OpenAI',t:'RareDx',type:'NEJM 연구·보스턴 아동병원(6/18)',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-19 11:00';
+const BUILD_DATETIME='2026-06-20 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
