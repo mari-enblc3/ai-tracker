@@ -885,6 +885,10 @@ let EVENTS = [
    title:'OpenAI o3, 보스턴 아동병원과 난치성 소아 희귀질환 18건 새 진단',
    description:'NEJM AI에 6월 18일 게재된 연구에서 OpenAI o3 Deep Research가 보스턴 아동병원 연구진과 함께 미진단 희귀질환 아동 376명의 게놈·임상 기록·증상·후보 유전자 목록을 분석해 기존에 풀리지 않던 18건의 새 진단 단서를 찾아냄. 신경발달질환 10명, 신경근육질환 4명, 돌연사 2명, 영유아 정신증 2명 등이 포함됨. AI는 진단이나 임상 결정을 직접 내리지 않고 전문가가 기존 임상 절차로 검증할 리드를 제시하는 보조 역할만 수행. 병원은 AI 활용으로 40건 이상의 미해결 희귀질환을 진단하고 약 6만 시간의 업무 시간과 700만 달러 이상의 인건비를 절감한 것으로 집계됨.',
    tags:['o3','희귀질환','헬스케어','NEJM','보스턴아동병원'],source:'https://openai.com/index/diagnose-rare-childhood-diseases/'},
+  {id:116,date:'2026-06-19',company:'Anthropic',companies:['Anthropic','Google'],category:'leadership',
+   title:'노벨화학상 존 점퍼, 구글 딥마인드 떠나 앤트로픽 합류 — AI 인재 쟁탈전 격화',
+   description:'알파폴드(AlphaFold)로 2024년 노벨 화학상을 받은 존 점퍼(John Jumper) 구글 딥마인드 부사장이 약 9년간 몸담은 딥마인드를 떠나 앤트로픽에 합류한다고 6월 19일 밝힘. 점퍼는 단백질 구조 예측 AI 알파폴드 팀을 이끈 딥마인드 핵심 연구자로, 그의 이탈은 가장 강력한 AI 모델 경쟁에서 앤트로픽·오픈AI에 맞서려는 구글의 인재 전략에 타격으로 평가됨. IPO를 준비 중인 앤트로픽이 최정상급 연구 인재를 잇따라 흡수하며 빅테크 간 AI 인재 쟁탈전이 한층 격화되는 흐름.',
+   tags:['앤트로픽','존점퍼','딥마인드','인재영입','노벨상','알파폴드'],source:'https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -992,8 +996,11 @@ const MM_NODES = [
   {id:'DeploySim',label:'배포\n시뮬레이션',grp:'topic',sz:12},
   {id:'AnthSeoul',label:'앤트로픽\n서울오피스',grp:'topic',sz:16},
   {id:'RareDx',label:'희귀질환\nAI진단(o3)',grp:'topic',sz:12},
+  {id:'JumperAnth',label:'존 점퍼\n앤트로픽 합류',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
+  {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
+  {s:'Google',t:'JumperAnth',type:'딥마인드 이탈',rel:'partnership'},
   {s:'Anthropic',t:'Stainless',type:'인수 ($3억+)',rel:'acquisition'},
   {s:'Anthropic',t:'MCP',type:'개발/출시',rel:'product'},
   {s:'Stainless',t:'MCP',type:'SDK 생성',rel:'partnership'},
@@ -1117,7 +1124,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-20 11:00';
+const BUILD_DATETIME='2026-06-21 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
