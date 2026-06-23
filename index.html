@@ -889,6 +889,18 @@ let EVENTS = [
    title:'노벨화학상 존 점퍼, 구글 딥마인드 떠나 앤트로픽 합류 — AI 인재 쟁탈전 격화',
    description:'알파폴드(AlphaFold)로 2024년 노벨 화학상을 받은 존 점퍼(John Jumper) 구글 딥마인드 부사장이 약 9년간 몸담은 딥마인드를 떠나 앤트로픽에 합류한다고 6월 19일 밝힘. 점퍼는 단백질 구조 예측 AI 알파폴드 팀을 이끈 딥마인드 핵심 연구자로, 그의 이탈은 가장 강력한 AI 모델 경쟁에서 앤트로픽·오픈AI에 맞서려는 구글의 인재 전략에 타격으로 평가됨. IPO를 준비 중인 앤트로픽이 최정상급 연구 인재를 잇따라 흡수하며 빅테크 간 AI 인재 쟁탈전이 한층 격화되는 흐름.',
    tags:['앤트로픽','존점퍼','딥마인드','인재영입','노벨상','알파폴드'],source:'https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/'},
+  {id:117,date:'2026-06-18',company:'OpenAI',companies:['OpenAI','Google'],category:'leadership',
+   title:'트랜스포머 공동저자 노엄 셰이저, 구글 떠나 OpenAI 합류 — 아키텍처 연구 총괄',
+   description:'구글 엔지니어링 부사장이자 Gemini 모델 공동 리드였던 노엄 셰이저(Noam Shazeer)가 구글을 떠나 OpenAI에 "아키텍처 연구 총괄(Lead for Architecture Research)"로 합류한다고 6월 18일 발표. 셰이저는 현대 LLM의 근간인 트랜스포머를 제안한 2017년 "Attention Is All You Need" 논문 공동저자이자 Mixture-of-Experts 연구를 주도한 인물. 샘 올트먼은 "10년을 기다린 영입"이라 평가. 차세대 모델 아키텍처 경쟁과 IPO 준비 국면에서 OpenAI가 확보한 핵심 인재로, 존 점퍼의 앤트로픽 이적과 맞물려 구글의 인재 유출 우려를 키움.',
+   tags:['노엄셰이저','트랜스포머','인재영입','아키텍처','OpenAI'],source:'https://www.citybiz.co/article/862235/noam-shazeer-joins-openai-delivering-major-talent-win-over-google/'},
+  {id:118,date:'2026-06-12',company:'Anthropic',companies:['Anthropic'],category:'regulation',
+   title:'美 정부 수출통제 발동 — 앤트로픽 Fable 5·Mythos 5 전 사용자 접근 중단',
+   description:'미 상무부가 국가안보 권한을 들어 6월 12일 오후 5시 21분(ET) Fable 5·Mythos 5에 대한 모든 외국인(미국 내외 외국인 직원 포함) 접근을 차단하는 수출통제 지시를 발동(2018년 수출통제개혁법 근거, 러트닉 상무장관 서한). 정부는 Fable 5의 "제일브레이크"로 보안 취약점 발견을 들었으나, 앤트로픽은 해당 방식이 공개 모델로도 발견 가능한 "이미 알려진 경미한" 결함에 불과하다며 오해라고 반박. 지시 범위상 전 고객 대상으로 두 모델을 즉시 비활성화했고, 6월 중순 상무부와 매일 협상하며 "수일 내" 접근 복구를 추진. 6월 22일 Fable 5 무료 체험 종료와 맞물려 규제 리스크 부각.',
+   tags:['수출통제','Fable5','Mythos5','국가안보','규제'],source:'https://www.anthropic.com/news/fable-mythos-access'},
+  {id:119,date:'2026-06-22',company:'Google',companies:['Google','OpenAI','Anthropic'],category:'leadership',
+   title:'알파벳 주가 7% 급락 — AI 인재 잇단 이탈로 시총 약 2,500억 달러 증발',
+   description:'알파벳 주가가 6월 22일(월) 약 7% 급락하며 약 1년 만에 최악의 하루를 기록, 시가총액 약 2,500억 달러가 증발. 트랜스포머 공동저자 노엄 셰이저가 OpenAI로, 이틀 뒤 노벨화학상 수상자 존 점퍼가 앤트로픽으로 잇따라 이적한 것이 직접적 계기. D.A. Davidson의 길 루리아 애널리스트는 "구글이 프런티어 AI 인재 전쟁에서 밀리고 있다는 우려"를 지적. AI 자본지출 부담과 SpaceX 관련 약세까지 겹치며 빅테크 인재 쟁탈전이 주가에 직접 반영된 사례.',
+   tags:['알파벳','주가급락','AI인재전쟁','셰이저','점퍼'],source:'https://www.bloomberg.com/news/articles/2026-06-22/alphabet-shares-drop-after-second-ai-star-departs-for-a-rival'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -997,6 +1009,9 @@ const MM_NODES = [
   {id:'AnthSeoul',label:'앤트로픽\n서울오피스',grp:'topic',sz:16},
   {id:'RareDx',label:'희귀질환\nAI진단(o3)',grp:'topic',sz:12},
   {id:'JumperAnth',label:'존 점퍼\n앤트로픽 합류',grp:'topic',sz:14},
+  {id:'Shazeer',label:'노엄 셰이저\nOpenAI 합류',grp:'topic',sz:14},
+  {id:'ExportBan',label:'Fable5·Mythos5\n수출통제 중단',grp:'topic',sz:14},
+  {id:'GoogTalent',label:'구글 AI인재\n유출·주가급락',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1118,13 +1133,20 @@ const MM_LINKS = [
   {s:'LG',t:'AnthSeoul',type:'LG CNS Claude 도입',rel:'partnership'},
   {s:'Anthropic',t:'GovSafety',type:'과기정통부 MOU(공공·안전)',rel:'regulation'},
   {s:'OpenAI',t:'RareDx',type:'NEJM 연구·보스턴 아동병원(6/18)',rel:'product'},
+  {s:'OpenAI',t:'Shazeer',type:'영입(트랜스포머 공동저자)',rel:'partnership'},
+  {s:'Google',t:'Shazeer',type:'Gemini 리드 이탈',rel:'partnership'},
+  {s:'Anthropic',t:'ExportBan',type:'전 사용자 비활성화(6/12)',rel:'regulation'},
+  {s:'Fable5',t:'ExportBan',type:'수출통제 대상',rel:'regulation'},
+  {s:'Google',t:'GoogTalent',type:'주가 7%↓·시총 $250B 증발',rel:'regulation'},
+  {s:'Shazeer',t:'GoogTalent',type:'이탈 원인',rel:'partnership'},
+  {s:'JumperAnth',t:'GoogTalent',type:'이탈 원인',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-22 11:00';
+const BUILD_DATETIME='2026-06-23 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
