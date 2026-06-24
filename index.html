@@ -901,6 +901,14 @@ let EVENTS = [
    title:'알파벳 주가 7% 급락 — AI 인재 잇단 이탈로 시총 약 2,500억 달러 증발',
    description:'알파벳 주가가 6월 22일(월) 약 7% 급락하며 약 1년 만에 최악의 하루를 기록, 시가총액 약 2,500억 달러가 증발. 트랜스포머 공동저자 노엄 셰이저가 OpenAI로, 이틀 뒤 노벨화학상 수상자 존 점퍼가 앤트로픽으로 잇따라 이적한 것이 직접적 계기. D.A. Davidson의 길 루리아 애널리스트는 "구글이 프런티어 AI 인재 전쟁에서 밀리고 있다는 우려"를 지적. AI 자본지출 부담과 SpaceX 관련 약세까지 겹치며 빅테크 인재 쟁탈전이 주가에 직접 반영된 사례.',
    tags:['알파벳','주가급락','AI인재전쟁','셰이저','점퍼'],source:'https://www.bloomberg.com/news/articles/2026-06-22/alphabet-shares-drop-after-second-ai-star-departs-for-a-rival'},
+  {id:120,date:'2026-06-23',company:'Anthropic',companies:['Anthropic'],category:'product',
+   title:'Claude Fable 5, 구독 플랜서 제외 — 사용량 크레딧 과금 전환',
+   description:'앤트로픽이 6월 23일부터 최강 프런티어 모델 Claude Fable 5를 Pro·Max·Team·Enterprise 구독 플랜 기본 한도에서 제외하고, 추가 사용은 API 요율 기반 사용량 크레딧(선불 오버리지)으로 과금하도록 전환. Fable 5는 입력 100만 토큰당 $10, 출력 100만 토큰당 $50로 Opus 4.8의 두 배에 달하는 현존 최고가 일반 출시 모델. 6월 9~22일 구독 무료 제공 종료 직후 조치로, 앤트로픽은 "용량이 확보되면 Fable 5를 다시 구독 플랜 표준 기능으로 복원하겠다"고 밝혔으나 복원 시점은 미정. 6/12 수출통제 접근 중단 사태에 이은 Fable 5 접근성 변화.',
+   tags:['Fable5','사용량크레딧','과금','앤트로픽','구독플랜'],source:'https://www.anthropic.com/news/claude-fable-5-mythos-5'},
+  {id:121,date:'2026-06-21',company:'Kakao',companies:['Kakao','NVIDIA'],category:'infrastructure',
+   title:'카카오, 세계 40위권 AI 슈퍼컴 가동 — 255노드·69.1 PFLOPS',
+   description:'카카오클라우드가 과기정통부 "GPU 확보·구축·운용 지원 사업"으로 확보한 엔비디아 최신 GPU HGX B200(블랙웰) 기반 슈퍼컴퓨터 구축을 완료하고 5월 말부터 시험 가동에 착수. 255개 노드 규모로 실측 성능 69.1페타플롭스(PFLOPS)를 기록, 6월 기준 세계 40위권 진입이 예상됨. 확보한 컴퓨팅 자원은 OpenAI 협업 프로젝트, 자체 AI 서비스 카나나(Kanana), AI 에이전트 개발, 사내 업무 혁신에 활용될 예정. 삼성전자·NHN 등 국내 기업들의 AI 슈퍼컴 성능도 6월 넷째 주 잇따라 공개될 전망.',
+   tags:['카카오','슈퍼컴퓨터','HGX B200','GPU','한국AI인프라'],source:'https://www.ajunews.com/view/20260621111115931'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1012,6 +1020,8 @@ const MM_NODES = [
   {id:'Shazeer',label:'노엄 셰이저\nOpenAI 합류',grp:'topic',sz:14},
   {id:'ExportBan',label:'Fable5·Mythos5\n수출통제 중단',grp:'topic',sz:14},
   {id:'GoogTalent',label:'구글 AI인재\n유출·주가급락',grp:'topic',sz:14},
+  {id:'Fable5Bill',label:'Fable5\n사용량 과금',grp:'topic',sz:12},
+  {id:'KakaoSC',label:'카카오 슈퍼컴\n69.1 PFLOPS',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1140,13 +1150,17 @@ const MM_LINKS = [
   {s:'Google',t:'GoogTalent',type:'주가 7%↓·시총 $250B 증발',rel:'regulation'},
   {s:'Shazeer',t:'GoogTalent',type:'이탈 원인',rel:'partnership'},
   {s:'JumperAnth',t:'GoogTalent',type:'이탈 원인',rel:'partnership'},
+  {s:'Anthropic',t:'Fable5Bill',type:'구독 제외·크레딧 과금(6/23)',rel:'product'},
+  {s:'Fable5',t:'Fable5Bill',type:'과금 전환',rel:'product'},
+  {s:'Kakao',t:'KakaoSC',type:'255노드 슈퍼컴 가동',rel:'infrastructure'},
+  {s:'NVIDIA',t:'KakaoSC',type:'HGX B200 GPU 공급',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-23 11:00';
+const BUILD_DATETIME='2026-06-24 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
