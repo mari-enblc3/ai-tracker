@@ -909,6 +909,14 @@ let EVENTS = [
    title:'카카오, 세계 40위권 AI 슈퍼컴 가동 — 255노드·69.1 PFLOPS',
    description:'카카오클라우드가 과기정통부 "GPU 확보·구축·운용 지원 사업"으로 확보한 엔비디아 최신 GPU HGX B200(블랙웰) 기반 슈퍼컴퓨터 구축을 완료하고 5월 말부터 시험 가동에 착수. 255개 노드 규모로 실측 성능 69.1페타플롭스(PFLOPS)를 기록, 6월 기준 세계 40위권 진입이 예상됨. 확보한 컴퓨팅 자원은 OpenAI 협업 프로젝트, 자체 AI 서비스 카나나(Kanana), AI 에이전트 개발, 사내 업무 혁신에 활용될 예정. 삼성전자·NHN 등 국내 기업들의 AI 슈퍼컴 성능도 6월 넷째 주 잇따라 공개될 전망.',
    tags:['카카오','슈퍼컴퓨터','HGX B200','GPU','한국AI인프라'],source:'https://www.ajunews.com/view/20260621111115931'},
+  {id:122,date:'2026-06-23',company:'SpaceX',companies:['SpaceX','Anthropic','xAI','Google'],category:'infrastructure',
+   title:'SpaceX IPO 서류로 드러난 컴퓨트 임대 — 앤트로픽 월 $12.5억·구글 월 $9.2억',
+   description:'SpaceX가 IPO(S-1) 서류 수정본에서 xAI 데이터센터 컴퓨트 임대 계약 규모를 공개. 앤트로픽은 xAI의 Colossus 1(엔비디아 GPU 22만+개, 300MW)을 월 12.5억 달러에 2029년 5월까지 임대하며, 사용량이 아닌 300MW 가용용량 예약 방식으로 앤트로픽은 모델·데이터 소유권을 유지하고 양측 모두 90일 통보로 해지 가능. 구글도 2026년 10월~2029년 6월 약 11만 개 GPU 등 접근에 월 9.2억 달러를 지급할 예정으로, 두 계약 합산 연 환산 약 260억 달러 규모. xAI가 혼합 GPU 구조로 Colossus 1을 약 11%만 활용하던 상황에서 경쟁사 앤트로픽에 임대한 이례적 거래.',
+   tags:['SpaceX','xAI','Colossus','컴퓨트임대','데이터센터'],source:'https://www.datacenterdynamics.com/en/news/spacex-ipo-filing-reveals-anthropic-set-to-pay-musks-firm-125bn-a-month-to-rent-xai-data-center-space/'},
+  {id:123,date:'2026-06-24',company:'Samsung',companies:['Samsung','SK'],category:'infrastructure',
+   title:'삼성전자·SK하이닉스 급락이 글로벌 반도체 매도세로 확산 — 한국, AI 랠리 핵심 시장 부상',
+   description:'6월 24일 외신들이 삼성전자·SK하이닉스 급락으로 촉발된 한국 증시 조정이 미국·유럽 반도체주 매도세로 번진 점을 주목. AI 투자 열풍의 최대 수혜 시장으로 떠오른 한국(코스피)이 글로벌 기술주 랠리의 방향을 좌우하는 핵심 시장으로 부상했다는 분석. HBM·AI 메모리 수요 사이클과 맞물려 삼성·SK의 주가 변동성이 글로벌 AI 반도체 투자 심리의 바로미터 역할을 하고 있다는 평가.',
+   tags:['삼성전자','SK하이닉스','코스피','반도체','HBM'],source:'https://www.fnnews.com/news/202606241103029929'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1022,6 +1030,8 @@ const MM_NODES = [
   {id:'GoogTalent',label:'구글 AI인재\n유출·주가급락',grp:'topic',sz:14},
   {id:'Fable5Bill',label:'Fable5\n사용량 과금',grp:'topic',sz:12},
   {id:'KakaoSC',label:'카카오 슈퍼컴\n69.1 PFLOPS',grp:'topic',sz:12},
+  {id:'AnthColossus',label:'앤트로픽\nColossus 임대',grp:'topic',sz:14},
+  {id:'KospiAI',label:'코스피\nAI 반도체 영향력',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1154,6 +1164,12 @@ const MM_LINKS = [
   {s:'Fable5',t:'Fable5Bill',type:'과금 전환',rel:'product'},
   {s:'Kakao',t:'KakaoSC',type:'255노드 슈퍼컴 가동',rel:'infrastructure'},
   {s:'NVIDIA',t:'KakaoSC',type:'HGX B200 GPU 공급',rel:'infrastructure'},
+  {s:'Anthropic',t:'AnthColossus',type:'월 $12.5억 임대(~2029.5)',rel:'infrastructure'},
+  {s:'xAI',t:'AnthColossus',type:'Colossus 1 300MW 제공',rel:'infrastructure'},
+  {s:'SpaceX',t:'AnthColossus',type:'S-1 서류 공개',rel:'infrastructure'},
+  {s:'Google',t:'AnthColossus',type:'월 $9.2억 별도 계약',rel:'infrastructure'},
+  {s:'Samsung',t:'KospiAI',type:'급락·글로벌 매도세 촉발',rel:'infrastructure'},
+  {s:'SK',t:'KospiAI',type:'HBM 사이클 변동성',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
