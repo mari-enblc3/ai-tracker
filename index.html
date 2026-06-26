@@ -917,6 +917,10 @@ let EVENTS = [
    title:'삼성전자·SK하이닉스 급락이 글로벌 반도체 매도세로 확산 — 한국, AI 랠리 핵심 시장 부상',
    description:'6월 24일 외신들이 삼성전자·SK하이닉스 급락으로 촉발된 한국 증시 조정이 미국·유럽 반도체주 매도세로 번진 점을 주목. AI 투자 열풍의 최대 수혜 시장으로 떠오른 한국(코스피)이 글로벌 기술주 랠리의 방향을 좌우하는 핵심 시장으로 부상했다는 분석. HBM·AI 메모리 수요 사이클과 맞물려 삼성·SK의 주가 변동성이 글로벌 AI 반도체 투자 심리의 바로미터 역할을 하고 있다는 평가.',
    tags:['삼성전자','SK하이닉스','코스피','반도체','HBM'],source:'https://www.fnnews.com/news/202606241103029929'},
+  {id:124,date:'2026-06-24',company:'OpenAI',companies:['OpenAI','NVIDIA'],category:'infrastructure',
+   title:'OpenAI·브로드컴, 첫 자체 추론칩 \'할라피뇨(Jalapeño)\' 공개',
+   description:'OpenAI가 브로드컴과 공동 개발한 첫 자체 AI 추론(inference) 가속기 \'Jalapeño\'를 공개. LLM 추론에 최적화된 레티클 크기의 대형 ASIC으로, 설계부터 테이프아웃까지 약 9개월이라는 초고속 개발 사이클(고성능 반도체 사상 최단 수준)을 기록. OpenAI 자체 모델을 설계·최적화 과정에 활용해 개발을 가속했으며, 초기 테스트에서 현존 최첨단 대비 와트당 성능이 크게 앞선다고 밝힘. 다세대(multi-generation) 컴퓨트 플랫폼의 첫 단계로 2026년 말 초기 배치를 목표로 하며, MS 등 파트너와 기가와트급 데이터센터 전개로 확장 예정. 엔비디아 의존도를 낮추고 \'풀스택\' 구축에 나선 행보.',
+   tags:['OpenAI','Broadcom','Jalapeño','추론칩','ASIC'],source:'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1032,6 +1036,7 @@ const MM_NODES = [
   {id:'KakaoSC',label:'카카오 슈퍼컴\n69.1 PFLOPS',grp:'topic',sz:12},
   {id:'AnthColossus',label:'앤트로픽\nColossus 임대',grp:'topic',sz:14},
   {id:'KospiAI',label:'코스피\nAI 반도체 영향력',grp:'topic',sz:12},
+  {id:'Jalapeno',label:'Jalapeño\n자체 추론칩',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1170,13 +1175,15 @@ const MM_LINKS = [
   {s:'Google',t:'AnthColossus',type:'월 $9.2억 별도 계약',rel:'infrastructure'},
   {s:'Samsung',t:'KospiAI',type:'급락·글로벌 매도세 촉발',rel:'infrastructure'},
   {s:'SK',t:'KospiAI',type:'HBM 사이클 변동성',rel:'infrastructure'},
+  {s:'OpenAI',t:'Jalapeno',type:'브로드컴과 공동 개발',rel:'product'},
+  {s:'NVIDIA',t:'Jalapeno',type:'의존도 축소 대상',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-24 11:00';
+const BUILD_DATETIME='2026-06-26 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
