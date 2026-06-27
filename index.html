@@ -921,6 +921,14 @@ let EVENTS = [
    title:'OpenAI·브로드컴, 첫 자체 추론칩 \'할라피뇨(Jalapeño)\' 공개',
    description:'OpenAI가 브로드컴과 공동 개발한 첫 자체 AI 추론(inference) 가속기 \'Jalapeño\'를 공개. LLM 추론에 최적화된 레티클 크기의 대형 ASIC으로, 설계부터 테이프아웃까지 약 9개월이라는 초고속 개발 사이클(고성능 반도체 사상 최단 수준)을 기록. OpenAI 자체 모델을 설계·최적화 과정에 활용해 개발을 가속했으며, 초기 테스트에서 현존 최첨단 대비 와트당 성능이 크게 앞선다고 밝힘. 다세대(multi-generation) 컴퓨트 플랫폼의 첫 단계로 2026년 말 초기 배치를 목표로 하며, MS 등 파트너와 기가와트급 데이터센터 전개로 확장 예정. 엔비디아 의존도를 낮추고 \'풀스택\' 구축에 나선 행보.',
    tags:['OpenAI','Broadcom','Jalapeño','추론칩','ASIC'],source:'https://openai.com/index/openai-broadcom-jalapeno-inference-chip/'},
+  {id:125,date:'2026-06-26',company:'OpenAI',companies:['OpenAI'],category:'model',
+   title:'OpenAI, 차세대 \'GPT-5.6\' 프리뷰 공개 — Sol·Terra·Luna 3종 패밀리',
+   description:'OpenAI가 6월 26일 GPT-5.6 프리뷰 시스템 카드를 공개. GPT-5.6은 플래그십 \'Sol\', 저비용 \'Terra\', 최고 효율 \'Luna\' 3종으로 구성되며, 150만 토큰 컨텍스트 윈도우를 지원해 멀티파일 코드베이스·장시간 오디오 로그·방대한 법률 문서 등을 한 번에 처리. Sol은 명령줄 워크플로 벤치마크 Terminal-Bench 2.1에서 신기록을 세우는 등 에이전트 코딩에서 최첨단 성능을 기록. 단일 릴리스에서 처음으로 3종 모두 생물학·사이버보안 역량 평가에서 \'High\' 등급을 받아 가장 강력한 안전 스택을 적용. 향후 수 주 내 정식 출시 예정.',
+   tags:['OpenAI','GPT-5.6','Sol','Terra','Luna'],source:'https://openai.com/index/previewing-gpt-5-6-sol/'},
+  {id:126,date:'2026-06-26',company:'OpenAI',companies:['OpenAI','Anthropic','Microsoft','Google'],category:'infrastructure',
+   title:'\'토큰맥싱\'에서 \'효율성\'으로 — OpenAI·앤트로픽, AI 지출 새 국면 직면',
+   description:'6월 26일 CNBC 보도에 따르면, 기업 고객들이 토큰을 무제한 소비하던 \'토큰맥싱\'에서 비용 대비 효율성을 중시하는 방향으로 빠르게 전환하면서 OpenAI·앤트로픽이 성장 둔화 우려에 직면. 오픈웨이트·저비용 모델이 값싼 대안으로 부상했고, 마이크로소프트·아마존·구글 등 빅테크가 효율성 중심의 저가형 모델 제품군을 잇따라 내놓으며 경쟁이 심화. 일부 스타트업은 클로드에서 더 저렴한 오픈웨이트 모델로 트래픽을 전환하는 사례도 등장. 마이크로소프트는 이달 초 저비용 모델군을 공개한 바 있음.',
+   tags:['효율성','토큰맥싱','AI지출','저비용모델','오픈웨이트'],source:'https://www.cnbc.com/2026/06/26/openai-anthropic-new-ai-spending-reality-as-users-shift-to-efficiency.html'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1037,6 +1045,8 @@ const MM_NODES = [
   {id:'AnthColossus',label:'앤트로픽\nColossus 임대',grp:'topic',sz:14},
   {id:'KospiAI',label:'코스피\nAI 반도체 영향력',grp:'topic',sz:12},
   {id:'Jalapeno',label:'Jalapeño\n자체 추론칩',grp:'topic',sz:13},
+  {id:'GPT56',label:'GPT-5.6\nSol/Terra/Luna',grp:'topic',sz:16},
+  {id:'EffShift',label:'효율성 전환\n(토큰맥싱 탈피)',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1177,13 +1187,18 @@ const MM_LINKS = [
   {s:'SK',t:'KospiAI',type:'HBM 사이클 변동성',rel:'infrastructure'},
   {s:'OpenAI',t:'Jalapeno',type:'브로드컴과 공동 개발',rel:'product'},
   {s:'NVIDIA',t:'Jalapeno',type:'의존도 축소 대상',rel:'infrastructure'},
+  {s:'OpenAI',t:'GPT56',type:'프리뷰 공개(6/26)',rel:'product'},
+  {s:'OpenAI',t:'EffShift',type:'성장 둔화 우려',rel:'infrastructure'},
+  {s:'Anthropic',t:'EffShift',type:'성장 둔화 우려',rel:'infrastructure'},
+  {s:'Microsoft',t:'EffShift',type:'저비용 모델군 출시',rel:'infrastructure'},
+  {s:'Google',t:'EffShift',type:'효율성 모델 경쟁',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-26 11:00';
+const BUILD_DATETIME='2026-06-27 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=5,selDate=null;
