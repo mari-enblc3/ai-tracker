@@ -929,6 +929,14 @@ let EVENTS = [
    title:'\'토큰맥싱\'에서 \'효율성\'으로 — OpenAI·앤트로픽, AI 지출 새 국면 직면',
    description:'6월 26일 CNBC 보도에 따르면, 기업 고객들이 토큰을 무제한 소비하던 \'토큰맥싱\'에서 비용 대비 효율성을 중시하는 방향으로 빠르게 전환하면서 OpenAI·앤트로픽이 성장 둔화 우려에 직면. 오픈웨이트·저비용 모델이 값싼 대안으로 부상했고, 마이크로소프트·아마존·구글 등 빅테크가 효율성 중심의 저가형 모델 제품군을 잇따라 내놓으며 경쟁이 심화. 일부 스타트업은 클로드에서 더 저렴한 오픈웨이트 모델로 트래픽을 전환하는 사례도 등장. 마이크로소프트는 이달 초 저비용 모델군을 공개한 바 있음.',
    tags:['효율성','토큰맥싱','AI지출','저비용모델','오픈웨이트'],source:'https://www.cnbc.com/2026/06/26/openai-anthropic-new-ai-spending-reality-as-users-shift-to-efficiency.html'},
+  {id:127,date:'2026-06-30',company:'Anthropic',companies:['Anthropic'],category:'model',
+   title:'앤트로픽, \'Claude Sonnet 5\' 출시 — Opus급 성능을 낮은 가격에',
+   description:'앤트로픽이 6월 30일 Claude Sonnet 5를 공식 출시. 코딩·에이전트·전문 업무 전반에서 프런티어급 성능을 제공하면서도 최상위 Opus 대비 크게 낮은 가격으로 대규모 배포에 최적화됐다고 강조. 기업용 워크로드에서 비용 대비 성능(효율성)을 중시하는 최근 시장 흐름에 대응한 라인업으로, Sonnet 계열의 세대 교체를 알림.',
+   tags:['Anthropic','Claude','Sonnet 5','모델','효율성'],source:'https://www.anthropic.com/news/claude-sonnet-5'},
+  {id:128,date:'2026-07-01',company:'Anthropic',companies:['Anthropic','Microsoft','Google'],category:'regulation',
+   title:'美, Fable 5·Mythos 5 수출통제 해제 — 앤트로픽, 7/1 글로벌 재배포',
+   description:'6월 12일 미국 정부가 Claude Fable 5·Mythos 5에 적용했던 수출통제가 6월 30일 해제되면서, 앤트로픽이 7월 1일부터 Claude Platform·Claude.ai·Claude Code·Claude Cowork에서 전 세계 사용자에게 Fable 5를 다시 제공. 사이버보안 작업을 더 강하게 탐지·차단하는 신규 분류기(classifier)를 적용해 재배포했으며, 일부 민감 주제 질의는 Opus 4.8로 우회 응답. AWS·Google Cloud·Microsoft Foundry에서도 순차 재개 예정. 아마존·MS·구글 등 Glasswing 파트너와 AI 탈옥(jailbreak) 심각도 평가 합의 프레임워크도 함께 추진.',
+   tags:['Anthropic','Fable 5','수출통제','규제','Glasswing'],source:'https://www.anthropic.com/news/redeploying-fable-5'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1047,6 +1055,8 @@ const MM_NODES = [
   {id:'Jalapeno',label:'Jalapeño\n자체 추론칩',grp:'topic',sz:13},
   {id:'GPT56',label:'GPT-5.6\nSol/Terra/Luna',grp:'topic',sz:16},
   {id:'EffShift',label:'효율성 전환\n(토큰맥싱 탈피)',grp:'topic',sz:13},
+  {id:'Sonnet5',label:'Claude Sonnet 5\n(6/30)',grp:'topic',sz:15},
+  {id:'ExportLift',label:'Fable5·Mythos5\n수출통제 해제(6/30)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1192,16 +1202,22 @@ const MM_LINKS = [
   {s:'Anthropic',t:'EffShift',type:'성장 둔화 우려',rel:'infrastructure'},
   {s:'Microsoft',t:'EffShift',type:'저비용 모델군 출시',rel:'infrastructure'},
   {s:'Google',t:'EffShift',type:'효율성 모델 경쟁',rel:'infrastructure'},
+  {s:'Anthropic',t:'Sonnet5',type:'출시(6/30)',rel:'product'},
+  {s:'Sonnet5',t:'EffShift',type:'저가·고효율 대응',rel:'product'},
+  {s:'Anthropic',t:'ExportLift',type:'글로벌 재배포(7/1)',rel:'regulation'},
+  {s:'Fable5',t:'ExportLift',type:'통제 해제·복귀',rel:'regulation'},
+  {s:'ExportLift',t:'ExportBan',type:'6/12 통제 해소',rel:'regulation'},
+  {s:'ExportLift',t:'Glasswing',type:'신규 분류기 적용',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-06-27 11:00';
+const BUILD_DATETIME='2026-07-02 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
-let cy=2026,cm=5,selDate=null;
+let cy=2026,cm=6,selDate=null;
 let selCoFilter=null;
 let actCos=new Set(Object.keys(CO_COLORS));
 let actCats=new Set(Object.keys(CAT_INFO));
