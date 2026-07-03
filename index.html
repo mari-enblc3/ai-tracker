@@ -937,6 +937,10 @@ let EVENTS = [
    title:'美, Fable 5·Mythos 5 수출통제 해제 — 앤트로픽, 7/1 글로벌 재배포',
    description:'6월 12일 미국 정부가 Claude Fable 5·Mythos 5에 적용했던 수출통제가 6월 30일 해제되면서, 앤트로픽이 7월 1일부터 Claude Platform·Claude.ai·Claude Code·Claude Cowork에서 전 세계 사용자에게 Fable 5를 다시 제공. 사이버보안 작업을 더 강하게 탐지·차단하는 신규 분류기(classifier)를 적용해 재배포했으며, 일부 민감 주제 질의는 Opus 4.8로 우회 응답. AWS·Google Cloud·Microsoft Foundry에서도 순차 재개 예정. 아마존·MS·구글 등 Glasswing 파트너와 AI 탈옥(jailbreak) 심각도 평가 합의 프레임워크도 함께 추진.',
    tags:['Anthropic','Fable 5','수출통제','규제','Glasswing'],source:'https://www.anthropic.com/news/redeploying-fable-5'},
+  {id:129,date:'2026-07-02',company:'Google',companies:['Google'],category:'product',
+   title:'구글, \'나노 바나나 2 라이트\'·\'제미나이 옴니 플래시\' 출시 — 초저가·초고속 생성형 미디어',
+   description:'구글이 7월 2일 Gemini API와 AI 스튜디오에 신규 생성형 미디어 모델 Nano Banana 2 Lite와 Gemini Omni Flash를 공개. Nano Banana 2 Lite는 텍스트 프롬프트로 약 4초 만에 이미지를 생성하고 이미지 1,000장당 $0.034의 초저가로, 프롬프트 준수·캐릭터 일관성·텍스트 렌더링 신뢰도를 높여 대량(high-volume) 워크플로를 겨냥. 검색·제미나이 앱·구글 포토 등 소비자 플랫폼에도 순차 통합 예정. Gemini Omni Flash는 텍스트·이미지·영상을 혼합한 대화형 편집과 영상 합성을 지원하며, 생성 영상 1초당 $0.10(Veo 3.1 Fast와 동일)로 책정. 두 모델 모두 SynthID 워터마크를 적용해 콘텐츠 출처를 검증. 효율성 중심 시장 흐름에 대응한 저가형 생성 미디어 라인업 확장.',
+   tags:['Google','Nano Banana 2 Lite','Gemini Omni Flash','생성형미디어','저비용모델'],source:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1057,6 +1061,7 @@ const MM_NODES = [
   {id:'EffShift',label:'효율성 전환\n(토큰맥싱 탈피)',grp:'topic',sz:13},
   {id:'Sonnet5',label:'Claude Sonnet 5\n(6/30)',grp:'topic',sz:15},
   {id:'ExportLift',label:'Fable5·Mythos5\n수출통제 해제(6/30)',grp:'topic',sz:14},
+  {id:'NanoBanana2L',label:'나노바나나2 라이트\n·옴니 플래시(7/2)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1208,13 +1213,15 @@ const MM_LINKS = [
   {s:'Fable5',t:'ExportLift',type:'통제 해제·복귀',rel:'regulation'},
   {s:'ExportLift',t:'ExportBan',type:'6/12 통제 해소',rel:'regulation'},
   {s:'ExportLift',t:'Glasswing',type:'신규 분류기 적용',rel:'regulation'},
+  {s:'Google',t:'NanoBanana2L',type:'출시(7/2)',rel:'product'},
+  {s:'NanoBanana2L',t:'EffShift',type:'저가·고속 미디어 대응',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-02 11:00';
+const BUILD_DATETIME='2026-07-03 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
