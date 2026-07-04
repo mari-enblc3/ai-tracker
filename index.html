@@ -941,6 +941,18 @@ let EVENTS = [
    title:'구글, \'나노 바나나 2 라이트\'·\'제미나이 옴니 플래시\' 출시 — 초저가·초고속 생성형 미디어',
    description:'구글이 7월 2일 Gemini API와 AI 스튜디오에 신규 생성형 미디어 모델 Nano Banana 2 Lite와 Gemini Omni Flash를 공개. Nano Banana 2 Lite는 텍스트 프롬프트로 약 4초 만에 이미지를 생성하고 이미지 1,000장당 $0.034의 초저가로, 프롬프트 준수·캐릭터 일관성·텍스트 렌더링 신뢰도를 높여 대량(high-volume) 워크플로를 겨냥. 검색·제미나이 앱·구글 포토 등 소비자 플랫폼에도 순차 통합 예정. Gemini Omni Flash는 텍스트·이미지·영상을 혼합한 대화형 편집과 영상 합성을 지원하며, 생성 영상 1초당 $0.10(Veo 3.1 Fast와 동일)로 책정. 두 모델 모두 SynthID 워터마크를 적용해 콘텐츠 출처를 검증. 효율성 중심 시장 흐름에 대응한 저가형 생성 미디어 라인업 확장.',
    tags:['Google','Nano Banana 2 Lite','Gemini Omni Flash','생성형미디어','저비용모델'],source:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/'},
+  {id:130,date:'2026-07-02',company:'Samsung',companies:['Samsung','SK'],category:'infrastructure',
+   title:'삼성·SK하이닉스, 충청권에 240조원 AI·반도체 투자 청사진',
+   description:'삼성전자와 SK하이닉스가 충청권을 AI·반도체 핵심 생산기지로 육성하기 위해 총 240조원 투자 계획을 발표. 삼성전자는 140조원을 투입해 온양·천안에 차세대 HBM 거점(온양 HBM 팹 5개 라인 등 56조원)을 구축하고, SK하이닉스는 청주를 중심으로 100조원을 투자해 낸드·첨단 패키징 생산능력을 선제 확충(M17 내년 착공·2029년 상반기 가동, P&T7 2027년 말 완공 목표). SK그룹은 전국 15GW 규모 AI 데이터센터 중 1GW를 충청권에 배정.',
+   tags:['Samsung','SK하이닉스','HBM','AI반도체','충청권투자'],source:'https://www.etnews.com/20260702000269'},
+  {id:131,date:'2026-07-02',company:'Microsoft',companies:['Microsoft'],category:'product',
+   title:'마이크로소프트, \'프론티어 컴퍼니\' 신설 — 25억 달러·전문가 6,000명 투입',
+   description:'마이크로소프트가 기업용 AI 배포 전담 조직 Microsoft Frontier Company를 신설하고 25억 달러를 투자. 산업·엔지니어링 전문가 6,000명을 고객사에 상주시켜 AI 시스템을 공동 설계·배포·개선하는, \'포워드 디플로이드 엔지니어링(FDE)\'을 넘어선 최대 규모의 성과중심 조직을 표방. MIT NANDA 연구가 지적한 \'기업 생성형 AI 파일럿 95%가 손익 기여 없음\' 문제 해결을 겨냥. 초대 사장에 로드리고 케데 리마 선임.',
+   tags:['Microsoft','Frontier Company','기업AI','FDE','AI배포'],source:'https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/'},
+  {id:132,date:'2026-07-02',company:'NVIDIA',companies:['NVIDIA'],category:'infrastructure',
+   title:'엔비디아, \'매출 공유형 AI 팩토리\' 모델 공개 — 스타트업에 대규모 컴퓨팅 개방',
+   description:'엔비디아가 AI 클라우드 사업자와 손잡고 대규모 멀티테넌트 \'AI 팩토리\'를 구축하는 매출 공유 방식의 신규 상용 모델을 발표. 클라우드 운영사가 신용 지원을 받아 엔비디아 인프라를 조달하고, 판매된 클라우드 서비스 매출을 엔비디아와 공유. 자본력이 부족한 스타트업·모델 개발사·연구기관·지역 사업자에 가속 컴퓨팅 접근성을 확대. 첫 파트너로 Sharon AI·Firmus Technologies가 참여해 합산 약 21만 개 GPU 규모로 확장 가능(Sharon AI는 GB300 최대 4만 개 배치 약정).',
+   tags:['NVIDIA','AI팩토리','매출공유','GPU','클라우드'],source:'https://www.bloomberg.com/news/articles/2026-07-02/nvidia-offers-revenue-sharing-model-for-aspiring-ai-startups'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1062,6 +1074,9 @@ const MM_NODES = [
   {id:'Sonnet5',label:'Claude Sonnet 5\n(6/30)',grp:'topic',sz:15},
   {id:'ExportLift',label:'Fable5·Mythos5\n수출통제 해제(6/30)',grp:'topic',sz:14},
   {id:'NanoBanana2L',label:'나노바나나2 라이트\n·옴니 플래시(7/2)',grp:'topic',sz:14},
+  {id:'ChungcheongInv',label:'충청 240조\n반도체투자',grp:'topic',sz:14},
+  {id:'MSFrontier',label:'MS Frontier\nCompany',grp:'topic',sz:13},
+  {id:'NvAIFactory',label:'AI 팩토리\n매출공유',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1215,13 +1230,17 @@ const MM_LINKS = [
   {s:'ExportLift',t:'Glasswing',type:'신규 분류기 적용',rel:'regulation'},
   {s:'Google',t:'NanoBanana2L',type:'출시(7/2)',rel:'product'},
   {s:'NanoBanana2L',t:'EffShift',type:'저가·고속 미디어 대응',rel:'product'},
+  {s:'Samsung',t:'ChungcheongInv',type:'140조 투자',rel:'infrastructure'},
+  {s:'SK',t:'ChungcheongInv',type:'100조 투자',rel:'infrastructure'},
+  {s:'Microsoft',t:'MSFrontier',type:'$2.5B 신설',rel:'product'},
+  {s:'NVIDIA',t:'NvAIFactory',type:'매출공유 모델',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-03 11:00';
+const BUILD_DATETIME='2026-07-04 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
