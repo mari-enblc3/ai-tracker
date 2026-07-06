@@ -953,6 +953,14 @@ let EVENTS = [
    title:'엔비디아, \'매출 공유형 AI 팩토리\' 모델 공개 — 스타트업에 대규모 컴퓨팅 개방',
    description:'엔비디아가 AI 클라우드 사업자와 손잡고 대규모 멀티테넌트 \'AI 팩토리\'를 구축하는 매출 공유 방식의 신규 상용 모델을 발표. 클라우드 운영사가 신용 지원을 받아 엔비디아 인프라를 조달하고, 판매된 클라우드 서비스 매출을 엔비디아와 공유. 자본력이 부족한 스타트업·모델 개발사·연구기관·지역 사업자에 가속 컴퓨팅 접근성을 확대. 첫 파트너로 Sharon AI·Firmus Technologies가 참여해 합산 약 21만 개 GPU 규모로 확장 가능(Sharon AI는 GB300 최대 4만 개 배치 약정).',
    tags:['NVIDIA','AI팩토리','매출공유','GPU','클라우드'],source:'https://www.bloomberg.com/news/articles/2026-07-02/nvidia-offers-revenue-sharing-model-for-aspiring-ai-startups'},
+  {id:133,date:'2026-07-03',company:'Tesla',companies:['Tesla'],category:'product',
+   title:'테슬라, 마이애미서 완전무인 로보택시 출시 — 5번째 도시',
+   description:'테슬라가 7월 3일 플로리다 마이애미에서 로보택시(Robotaxi) 상용 서비스를 시작하며 오스틴·댈러스·휴스턴에 이어 다섯 번째 미국 도시로 확장. 마이애미 운행은 출시 첫날부터 앞좌석 안전요원 없이 완전 무인(unsupervised)으로 제공되며, 카메라 전용 FSD가 급작스러운 열대성 폭우·강한 햇빛 반사 등 까다로운 기후에서 상업 운행에 나선 첫 사례로 평가. 웨이모가 선점한 시장에 정면 진입하는 행보로, 테슬라는 연말까지 약 12개 주로 확대하는 것을 목표로 제시.',
+   tags:['Tesla','로보택시','FSD','무인주행','마이애미'],source:'https://electrek.co/2026/07/03/tesla-robotaxi-miami-service-area-map/'},
+  {id:134,date:'2026-07-03',company:'Anthropic',companies:['Anthropic','Samsung'],category:'infrastructure',
+   title:'앤트로픽, 삼성과 2nm 커스텀 AI칩 제조 협의 공식 확인',
+   description:'디 인포메이션·블룸버그 등이 7월 2일 앤트로픽이 삼성전자와 자체 커스텀 AI 칩을 삼성 2nm 공정·첨단 패키징으로 제조하는 방안을 초기 단계에서 논의 중이라고 보도. 앤트로픽은 오픈AI 커스텀 칩 초기 멤버였던 클라이브 챈(Clive Chan)을 영입하며 자체 실리콘 의지를 드러냈고, 이는 오픈AI가 브로드컴과 9개월 만에 공개한 추론칩 재플리뇨(Jalapeño)에 대응하는 흐름. 다만 칩의 용도·성능·서버 통합 방식은 미정이며 협의가 무산될 수도 있다고 밝힘. 앤트로픽은 AWS 트레이니엄·구글 TPU·엔비디아 GPU가 여전히 핵심 전략이라며 MS·영국 스타트업 프랙타일(Fractile)과도 논의 중. 삼성은 5월 앤트로픽 650억 달러 시리즈H에 전략적 파트너로 참여한 바 있어 이번 협력의 토대가 됨.',
+   tags:['Anthropic','Samsung','2nm','커스텀칩','Clive Chan'],source:'https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1077,6 +1085,7 @@ const MM_NODES = [
   {id:'ChungcheongInv',label:'충청 240조\n반도체투자',grp:'topic',sz:14},
   {id:'MSFrontier',label:'MS Frontier\nCompany',grp:'topic',sz:13},
   {id:'NvAIFactory',label:'AI 팩토리\n매출공유',grp:'topic',sz:13},
+  {id:'RobotaxiMIA',label:'로보택시\n마이애미(무인)',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1148,7 +1157,8 @@ const MM_LINKS = [
   {s:'Meta',t:'MetaBizAgent',type:'글로벌 출시',rel:'product'},
   {s:'Samsung',t:'SamsungFab',type:'2nm 파운드리',rel:'infrastructure'},
   {s:'OpenAI',t:'SamsungFab',type:'커스텀칩 협상 중단',rel:'infrastructure'},
-  {s:'Anthropic',t:'SamsungFab',type:'고객 선회 추진',rel:'partnership'},
+  {s:'Anthropic',t:'SamsungFab',type:'2nm 커스텀칩 협의 확인(7월)',rel:'infrastructure'},
+  {s:'Tesla',t:'RobotaxiMIA',type:'5번째 도시·완전무인 출시(7/3)',rel:'product'},
   {s:'NVIDIA',t:'NvKoreaRD',type:'설립·채용 발표',rel:'infrastructure'},
   {s:'SK',t:'NvKoreaRD',type:'삼소맥 회동',rel:'partnership'},
   {s:'LG',t:'NvKoreaRD',type:'삼소맥 회동',rel:'partnership'},
@@ -1240,7 +1250,7 @@ const MM_LINKS = [
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-04 11:00';
+const BUILD_DATETIME='2026-07-06 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
