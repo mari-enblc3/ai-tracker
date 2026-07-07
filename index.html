@@ -961,6 +961,14 @@ let EVENTS = [
    title:'앤트로픽, 삼성과 2nm 커스텀 AI칩 제조 협의 공식 확인',
    description:'디 인포메이션·블룸버그 등이 7월 2일 앤트로픽이 삼성전자와 자체 커스텀 AI 칩을 삼성 2nm 공정·첨단 패키징으로 제조하는 방안을 초기 단계에서 논의 중이라고 보도. 앤트로픽은 오픈AI 커스텀 칩 초기 멤버였던 클라이브 챈(Clive Chan)을 영입하며 자체 실리콘 의지를 드러냈고, 이는 오픈AI가 브로드컴과 9개월 만에 공개한 추론칩 재플리뇨(Jalapeño)에 대응하는 흐름. 다만 칩의 용도·성능·서버 통합 방식은 미정이며 협의가 무산될 수도 있다고 밝힘. 앤트로픽은 AWS 트레이니엄·구글 TPU·엔비디아 GPU가 여전히 핵심 전략이라며 MS·영국 스타트업 프랙타일(Fractile)과도 논의 중. 삼성은 5월 앤트로픽 650억 달러 시리즈H에 전략적 파트너로 참여한 바 있어 이번 협력의 토대가 됨.',
    tags:['Anthropic','Samsung','2nm','커스텀칩','Clive Chan'],source:'https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/'},
+  {id:135,date:'2026-07-01',company:'Meta',companies:['Meta'],category:'infrastructure',
+   title:'메타, Meta Compute 클라우드 사업 출범 — 잉여 AI 인프라 외부 판매',
+   description:'메타가 7월 1일 자체 보유한 대규모 AI 인프라의 잉여 컴퓨팅을 외부 기업에 판매하는 신규 클라우드 사업 Meta Compute를 발표. AWS·마이크로소프트 애저·구글 클라우드와 정면 경쟁하는 행보로, 그동안 자사 AI 학습·추론용으로만 쓰던 GPU 인프라를 수익화. 발표 직후 일부 반도체주가 하락하고 메타 주가는 사상 처음 600달러를 돌파. 잉여 설비를 매출로 전환해 막대한 AI 투자비를 회수하려는 전략으로 해석.',
+   tags:['Meta','Meta Compute','클라우드','AI인프라','수익화'],source:'https://www.forbes.com/sites/johnwerner/2026/07/02/meta-makes-cloud-play-to-sell-excess-ai/'},
+  {id:136,date:'2026-07-02',company:'Apple',companies:['Apple'],category:'infrastructure',
+   title:'애플, 美 블랙리스트 中 메모리(CXMT·YMTC)와 구매 협상 — AI발 메모리 대란',
+   description:'블룸버그는 7월 2일 애플이 중국 창신메모리(CXMT)·양쯔메모리(YMTC)로부터 메모리 칩을 구매하기 위해 협상 중이라고 보도. 두 업체는 美 국방부 블랙리스트(1260H)에 올라 있어 정치적 논란이 커지는 가운데, 팀 쿡 CEO가 트럼프 행정부에 정치적 부담 완화를 요청했다고 전함. 삼성·SK하이닉스·마이크론이 표준 D램 생산을 AI용 HBM으로 돌리며 소비자용 메모리 공급이 급감(계약가 상반기 55~60% 급등)하자, 애플이 중국 내 판매 기기에 한해 공급망을 다변화하려는 시도. 성사 시 애플 메모리 공급사는 기존 3곳에서 5곳으로 확대.',
+   tags:['Apple','CXMT','YMTC','메모리대란','공급망'],source:'https://www.khan.co.kr/article/202607021702021'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1086,6 +1094,8 @@ const MM_NODES = [
   {id:'MSFrontier',label:'MS Frontier\nCompany',grp:'topic',sz:13},
   {id:'NvAIFactory',label:'AI 팩토리\n매출공유',grp:'topic',sz:13},
   {id:'RobotaxiMIA',label:'로보택시\n마이애미(무인)',grp:'topic',sz:12},
+  {id:'MetaCompute',label:'Meta Compute\n(클라우드 진출)',grp:'topic',sz:13},
+  {id:'AppleCNMem',label:'애플-中메모리\n구매협상',grp:'topic',sz:12},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1244,13 +1254,15 @@ const MM_LINKS = [
   {s:'SK',t:'ChungcheongInv',type:'100조 투자',rel:'infrastructure'},
   {s:'Microsoft',t:'MSFrontier',type:'$2.5B 신설',rel:'product'},
   {s:'NVIDIA',t:'NvAIFactory',type:'매출공유 모델',rel:'infrastructure'},
+  {s:'Meta',t:'MetaCompute',type:'클라우드 사업 출범',rel:'infrastructure'},
+  {s:'Apple',t:'AppleCNMem',type:'메모리 구매 협상',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-06 11:00';
+const BUILD_DATETIME='2026-07-07 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
