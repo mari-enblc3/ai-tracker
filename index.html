@@ -969,6 +969,10 @@ let EVENTS = [
    title:'애플, 美 블랙리스트 中 메모리(CXMT·YMTC)와 구매 협상 — AI발 메모리 대란',
    description:'블룸버그는 7월 2일 애플이 중국 창신메모리(CXMT)·양쯔메모리(YMTC)로부터 메모리 칩을 구매하기 위해 협상 중이라고 보도. 두 업체는 美 국방부 블랙리스트(1260H)에 올라 있어 정치적 논란이 커지는 가운데, 팀 쿡 CEO가 트럼프 행정부에 정치적 부담 완화를 요청했다고 전함. 삼성·SK하이닉스·마이크론이 표준 D램 생산을 AI용 HBM으로 돌리며 소비자용 메모리 공급이 급감(계약가 상반기 55~60% 급등)하자, 애플이 중국 내 판매 기기에 한해 공급망을 다변화하려는 시도. 성사 시 애플 메모리 공급사는 기존 3곳에서 5곳으로 확대.',
    tags:['Apple','CXMT','YMTC','메모리대란','공급망'],source:'https://www.khan.co.kr/article/202607021702021'},
+  {id:137,date:'2026-07-07',company:'Samsung',companies:['Samsung','NVIDIA'],category:'infrastructure',
+   title:'삼성전자, 2분기 영업이익 89.4조원 역대 최대 — AI 메모리 특수로 엔비디아도 넘어',
+   description:'삼성전자가 7월 7일 2026년 2분기 잠정실적으로 매출 171조원·영업이익 89.4조원을 발표. 전년 동기 대비 영업이익이 약 19배(1810%) 급증한 역대 최대치로, 엔비디아 직전 분기 영업이익 535억 달러(약 81.9조원)마저 넘어섰다. AI 서버향 HBM·고부가 메모리 수요 폭증에 따른 반도체 수익성 개선이 핵심 동력. 다만 실적 발표 직후 기대선 반영·차익실현으로 주가는 장중 6% 이상 하락했다. 부문별 확정 실적은 7월 30일 공개 예정.',
+   tags:['Samsung','실적','HBM','AI메모리','반도체'],source:'https://www.hankookilbo.com/news/article/A2026070707400004305'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1096,6 +1100,7 @@ const MM_NODES = [
   {id:'RobotaxiMIA',label:'로보택시\n마이애미(무인)',grp:'topic',sz:12},
   {id:'MetaCompute',label:'Meta Compute\n(클라우드 진출)',grp:'topic',sz:13},
   {id:'AppleCNMem',label:'애플-中메모리\n구매협상',grp:'topic',sz:12},
+  {id:'Samsung2Q26',label:'2Q26 실적\n89.4조(역대최대)',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1256,13 +1261,15 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'NvAIFactory',type:'매출공유 모델',rel:'infrastructure'},
   {s:'Meta',t:'MetaCompute',type:'클라우드 사업 출범',rel:'infrastructure'},
   {s:'Apple',t:'AppleCNMem',type:'메모리 구매 협상',rel:'infrastructure'},
+  {s:'Samsung',t:'Samsung2Q26',type:'AI 메모리 특수로 역대 최대 실적',rel:'infrastructure'},
+  {s:'Samsung2Q26',t:'NVIDIA',type:'분기 영업이익 추월',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-07 11:00';
+const BUILD_DATETIME='2026-07-09 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
