@@ -973,6 +973,18 @@ let EVENTS = [
    title:'삼성전자, 2분기 영업이익 89.4조원 역대 최대 — AI 메모리 특수로 엔비디아도 넘어',
    description:'삼성전자가 7월 7일 2026년 2분기 잠정실적으로 매출 171조원·영업이익 89.4조원을 발표. 전년 동기 대비 영업이익이 약 19배(1810%) 급증한 역대 최대치로, 엔비디아 직전 분기 영업이익 535억 달러(약 81.9조원)마저 넘어섰다. AI 서버향 HBM·고부가 메모리 수요 폭증에 따른 반도체 수익성 개선이 핵심 동력. 다만 실적 발표 직후 기대선 반영·차익실현으로 주가는 장중 6% 이상 하락했다. 부문별 확정 실적은 7월 30일 공개 예정.',
    tags:['Samsung','실적','HBM','AI메모리','반도체'],source:'https://www.hankookilbo.com/news/article/A2026070707400004305'},
+  {id:138,date:'2026-07-08',company:'OpenAI',companies:['OpenAI'],category:'acquisition',
+   title:'오픈AI 배포 자회사, 노스슬로프 인수 — 포워드 배포 엔지니어 대폭 확충',
+   description:'악시오스가 7월 8일 오픈AI의 기업 배포 전담 자회사 OpenAI Deployment Company가 노스슬로프(Northslope) 인수에 합의했다고 단독 보도. 고객사 내부에 상주하며 실제 업무에 맞춰 AI 시스템을 구축하는 포워드 배포 엔지니어(FDE) 인력을 수백 명 규모로 확충하는 것이 목표. 5월 출범한 배포 자회사는 40억 달러의 인수 실탄을 확보했고, 이번은 토모로(Tomoro)에 이은 두 번째 인수. 노스슬로프 창업진은 팰런티어 출신으로, 엔지니어를 고객사에 직접 투입해 운영에 맞춘 소프트웨어를 만드는 팰런티어식 전략을 계승. 거래 금액은 비공개이며 규제 승인 대상. 모델 판매를 넘어 AI 도입·운영 서비스로 매출을 확대하려는 오픈AI의 기업시장 공략을 상징.',
+   tags:['OpenAI','노스슬로프','인수','FDE','기업AI'],source:'https://www.axios.com/2026/07/08/openai-deployment-company-northslope-acquisition'},
+  {id:139,date:'2026-07-10',company:'Apple',companies:['Apple','OpenAI'],category:'regulation',
+   title:'애플, 오픈AI에 영업비밀 침해 소송 — AI 하드웨어 설계 도용 주장',
+   description:'애플이 7월 10일 캘리포니아 북부 연방법원에 오픈AI를 상대로 영업비밀·기밀정보 절도 혐의 소송을 제기(CNBC·블룸버그·테크크런치 보도). 애플은 "기술직 직원부터 최고하드웨어책임자까지 모든 층위에서, 사업 파트너와 공조해" 자사 기밀을 빼돌렸다고 주장. 오픈AI 하드웨어 총괄이자 전 애플 부사장인 탕 탄(Tang Tan)이 입사 면접 중 애플 직원들에게 기밀 공유를 지시하고 실제 부품을 가져와 "쇼앤텔"을 했다는 의혹, 전 애플 엔지니어 창 리우(Chang Liu)가 퇴사 후 회사 노트북을 반납하지 않고 기밀 문서를 내려받았다는 주장 포함. 오픈AI가 조니 아이브의 io Products를 64억 달러에 인수해 하드웨어 진출을 선언한 뒤 급랭한 양사 관계가 소송으로 비화. 오픈AI는 "혁신 기술 개발에 집중하고 있다"고 반응.',
+   tags:['Apple','OpenAI','영업비밀','소송','AI하드웨어'],source:'https://www.cnbc.com/2026/07/10/apple-openai-lawsuit-trade-secrets.html'},
+  {id:140,date:'2026-07-10',company:'SK',companies:['SK'],category:'infrastructure',
+   title:'SK하이닉스, 나스닥 ADR 상장 — 265억 달러 조달 역대 최대 외국기업 미국 상장',
+   description:'SK하이닉스가 7월 10일 미국 나스닥에 주식예탁증서(ADR) 형태로 상장하며 265억 달러를 조달(블룸버그·CNBC·SK하이닉스 뉴스룸). 외국 기업의 미국 증시 사상 최대 규모로 2014년 알리바바(250억 달러)를 넘어섰고, 한국 상장사의 ADR 상장은 20여 년 만. ADR은 주당 149달러에 책정, 총 1억7790만 주(10 ADR=보통주 1주)로 구성됐으며 상장 첫날 13% 상승. 조달 자금은 용인 클러스터 등 국내 생산시설 확장과 EUV 노광장비 등 첨단 장비 구매에 투입해 AI용 HBM 생산능력을 키우는 데 쓸 계획.',
+   tags:['SK','SK하이닉스','나스닥','ADR상장','HBM'],source:'https://news.skhynix.com/skhynix-lists-adrs-on-nasdaq/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1101,6 +1113,9 @@ const MM_NODES = [
   {id:'MetaCompute',label:'Meta Compute\n(클라우드 진출)',grp:'topic',sz:13},
   {id:'AppleCNMem',label:'애플-中메모리\n구매협상',grp:'topic',sz:12},
   {id:'Samsung2Q26',label:'2Q26 실적\n89.4조(역대최대)',grp:'topic',sz:13},
+  {id:'Northslope',label:'노스슬로프 인수(FDE)',grp:'topic',sz:12},
+  {id:'AppleOAISuit',label:'애플-오픈AI 소송',grp:'topic',sz:13},
+  {id:'SKNasdaq',label:'SK하이닉스 나스닥ADR',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1263,13 +1278,17 @@ const MM_LINKS = [
   {s:'Apple',t:'AppleCNMem',type:'메모리 구매 협상',rel:'infrastructure'},
   {s:'Samsung',t:'Samsung2Q26',type:'AI 메모리 특수로 역대 최대 실적',rel:'infrastructure'},
   {s:'Samsung2Q26',t:'NVIDIA',type:'분기 영업이익 추월',rel:'infrastructure'},
+  {s:'OpenAI',t:'Northslope',type:'배포 자회사 인수',rel:'acquisition'},
+  {s:'Apple',t:'AppleOAISuit',type:'소송 제기',rel:'regulation'},
+  {s:'AppleOAISuit',t:'OpenAI',type:'영업비밀 침해 피소',rel:'regulation'},
+  {s:'SK',t:'SKNasdaq',type:'265억 달러 조달',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-09 11:00';
+const BUILD_DATETIME='2026-07-14 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
