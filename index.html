@@ -985,6 +985,18 @@ let EVENTS = [
    title:'SK하이닉스, 나스닥 ADR 상장 — 265억 달러 조달 역대 최대 외국기업 미국 상장',
    description:'SK하이닉스가 7월 10일 미국 나스닥에 주식예탁증서(ADR) 형태로 상장하며 265억 달러를 조달(블룸버그·CNBC·SK하이닉스 뉴스룸). 외국 기업의 미국 증시 사상 최대 규모로 2014년 알리바바(250억 달러)를 넘어섰고, 한국 상장사의 ADR 상장은 20여 년 만. ADR은 주당 149달러에 책정, 총 1억7790만 주(10 ADR=보통주 1주)로 구성됐으며 상장 첫날 13% 상승. 조달 자금은 용인 클러스터 등 국내 생산시설 확장과 EUV 노광장비 등 첨단 장비 구매에 투입해 AI용 HBM 생산능력을 키우는 데 쓸 계획.',
    tags:['SK','SK하이닉스','나스닥','ADR상장','HBM'],source:'https://news.skhynix.com/skhynix-lists-adrs-on-nasdaq/'},
+  {id:141,date:'2026-07-13',company:'Anthropic',companies:['Anthropic'],category:'leadership',
+   title:'앤트로픽, 몬조 공동창업자 톰 블롬필드 영입 — 컴퓨트팀 합류',
+   description:'핀테크 몬조(Monzo)·고카드리스(GoCardless) 공동창업자이자 Y컴비네이터 파트너인 톰 블롬필드(Tom Blomfield)가 7월 13일 YC 휴직을 선언하고 앤트로픽 컴퓨트팀에 합류(PYMNTS·AI Weekly·TechFundingNews 보도). 컴퓨트팀은 공동창업자 톰 브라운(Chief Compute Officer) 산하로, 프론티어 AI의 최대 병목인 컴퓨트 확보를 담당. 블롬필드는 재귀적 자기개선(recursive self-improvement)과 컴퓨트 가용성을 핵심 논거로 제시. 앤트로픽이 2026년 노벨상 수상자 존 점퍼, 안드레이 카파시 등을 잇달아 영입한 공격적 인재 확보전의 연장선.',
+   tags:['Anthropic','블롬필드','인재영입','컴퓨트','Monzo'],source:'https://www.pymnts.com/personnel/2026/anthropic-recruits-monzo-co-founder-to-tackle-compute-issues/'},
+  {id:142,date:'2026-07-15',company:'Microsoft',companies:['Microsoft','OpenAI','Anthropic'],category:'leadership',
+   title:'MS, 영업조직에 오픈AI·앤트로픽 견제 지침 — 자체 MAI 모델 우위 마케팅',
+   description:'마이크로소프트가 7월 15일 영업 인력에게 오픈AI·구글·앤트로픽의 AI 제품을 자사 제품 대비 부정적으로 비교하도록 교육한다고 보도(TechCrunch·Bloomberg). 회의는 자체 개발 MAI 모델의 효율성·비용 경쟁력을 경쟁사 모델 대비 강조하는 데 초점. 오픈AI의 최대 후원자였던 MS가 자체 모델 내재화로 파트너와 거리를 두며 정면 경쟁 구도로 전환하는 신호로 해석.',
+   tags:['Microsoft','OpenAI','Anthropic','MAI','경쟁전략'],source:'https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/'},
+  {id:143,date:'2026-07-15',company:'Samsung',companies:['Samsung','SK','Naver'],category:'infrastructure',
+   title:'한국 정부, 1,350조원(약 8,800억달러) AI·반도체·로봇 10년 투자 계획 발표',
+   description:'한국 정부가 7월 15일 삼성전자·SK하이닉스 등 주요 기업 투자를 결집한 약 1,350조원(8,800억달러) 규모의 10년 AI·반도체·로봇 투자 계획을 공개(TechSpot·The Information·GuruFocus). 삼성·SK가 남서부에 각각 신규 반도체 팹 2곳(합계 약 800조원)을 건설하고, 네이버 등이 참여해 2029년까지 8.4GW 규모 AI 데이터센터 용량(약 550조원)을 구축. 이재명 대통령은 반도체·피지컬 AI·데이터센터를 잇는 ‘트리플 축’ 전략으로 규정. AI 인프라 전 스택에서 주도권을 확보하려는 국가급 베팅.',
+   tags:['한국','정부투자','반도체','데이터센터','HBM'],source:'https://www.techspot.com/news/112926-south-korea-betting-880-billion-next-ai-race.html'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1116,6 +1128,9 @@ const MM_NODES = [
   {id:'Northslope',label:'노스슬로프 인수(FDE)',grp:'topic',sz:12},
   {id:'AppleOAISuit',label:'애플-오픈AI 소송',grp:'topic',sz:13},
   {id:'SKNasdaq',label:'SK하이닉스 나스닥ADR',grp:'topic',sz:14},
+  {id:'Blomfield',label:'블롬필드\\n컴퓨트팀 합류',grp:'topic',sz:13},
+  {id:'MSvsRivals',label:'MS 영업전략\\n경쟁사 견제',grp:'topic',sz:13},
+  {id:'KRAI880',label:'K-AI 1,350조\\n국가투자(10년)',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1282,13 +1297,21 @@ const MM_LINKS = [
   {s:'Apple',t:'AppleOAISuit',type:'소송 제기',rel:'regulation'},
   {s:'AppleOAISuit',t:'OpenAI',type:'영업비밀 침해 피소',rel:'regulation'},
   {s:'SK',t:'SKNasdaq',type:'265억 달러 조달',rel:'infrastructure'},
+  {s:'Anthropic',t:'Blomfield',type:'컴퓨트팀 영입',rel:'partnership'},
+  {s:'Microsoft',t:'MSvsRivals',type:'경쟁사 견제 지침',rel:'product'},
+  {s:'MSvsRivals',t:'OpenAI',type:'견제 대상',rel:'partnership'},
+  {s:'MSvsRivals',t:'Anthropic',type:'견제 대상',rel:'partnership'},
+  {s:'MSvsRivals',t:'MAIModels',type:'자체모델 우위 마케팅',rel:'product'},
+  {s:'Samsung',t:'KRAI880',type:'반도체 팹 투자',rel:'infrastructure'},
+  {s:'SK',t:'KRAI880',type:'메모리·데이터센터',rel:'infrastructure'},
+  {s:'Naver',t:'KRAI880',type:'AI 데이터센터',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-14 11:00';
+const BUILD_DATETIME='2026-07-16 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
