@@ -997,6 +997,18 @@ let EVENTS = [
    title:'한국 정부, 1,350조원(약 8,800억달러) AI·반도체·로봇 10년 투자 계획 발표',
    description:'한국 정부가 7월 15일 삼성전자·SK하이닉스 등 주요 기업 투자를 결집한 약 1,350조원(8,800억달러) 규모의 10년 AI·반도체·로봇 투자 계획을 공개(TechSpot·The Information·GuruFocus). 삼성·SK가 남서부에 각각 신규 반도체 팹 2곳(합계 약 800조원)을 건설하고, 네이버 등이 참여해 2029년까지 8.4GW 규모 AI 데이터센터 용량(약 550조원)을 구축. 이재명 대통령은 반도체·피지컬 AI·데이터센터를 잇는 ‘트리플 축’ 전략으로 규정. AI 인프라 전 스택에서 주도권을 확보하려는 국가급 베팅.',
    tags:['한국','정부투자','반도체','데이터센터','HBM'],source:'https://www.techspot.com/news/112926-south-korea-betting-880-billion-next-ai-race.html'},
+  {id:144,date:'2026-07-16',company:'Google',companies:['Google'],category:'product',
+   title:'구글 제미나이 3.5 Pro 출시 3차 연기 — 스톱갭 3.6 Flash 검토',
+   description:'구글 딥마인드가 플래그십 프론티어 모델 제미나이 3.5 Pro의 광범위 출시를 또다시 연기(블룸버그·9to5Google·TechTimes 보도, 7월 16일). 6월·7월 17일에 이어 세 번째 목표 시한을 넘겼으며, 내부 테스트에서 코딩 성능과 장기 추론에서 기대에 못 미치고 잦은 환각·불안정한 출력으로 기본 신뢰성 기준을 통과하지 못한 것이 원인. GPT-5.6 벤치마크에도 뒤처진 것으로 전해짐. 구글은 Gemini 3.6 Flash·3.5 Flash Light 등 모델명을 등록하며 Pro 개발 지연 동안 경쟁 공백을 메울 스톱갭(중간) Flash 모델 선출시를 저울질. 예측시장은 다음 출시 시점을 8월 초로 전망.',
+   tags:['Google','Gemini','출시연기','코딩','GPT-5.6'],source:'https://www.bloomberg.com/news/articles/2026-07-16/google-gemini-launch-delayed-as-tech-falls-short-of-internal-goals'},
+  {id:145,date:'2026-07-17',company:'Anthropic',companies:['Anthropic','Meta'],category:'infrastructure',
+   title:'앤트로픽, 메타로부터 AI 컴퓨트 임대 초기 협상',
+   description:'앤트로픽이 메타(Meta)로부터 AI 컴퓨트(연산 자원)를 임대하기 위한 매우 초기 단계의 협의를 진행 중이라고 CNBC가 7월 17일 보도. 프론티어 AI의 최대 병목인 컴퓨트를 확보하려는 앤트로픽이 xAI Colossus·구글 등과의 대규모 임대 계약에 이어 새 공급원을 모색하는 흐름. 메타는 최근 자체 클라우드 사업(Meta Compute)을 출범해 남는 연산 용량을 외부에 판매하려는 전략을 추진 중이어서, 성사 시 경쟁 AI 랩에 인프라를 공급하는 이례적 구도가 형성.',
+   tags:['Anthropic','Meta','컴퓨트','임대','인프라'],source:'https://www.cnbc.com/2026/07/17/anthropic-meta-ai-compute.html'},
+  {id:146,date:'2026-07-17',company:'Microsoft',companies:['Microsoft','OpenAI','Anthropic'],category:'product',
+   title:'MS, AI 보안제품 ‘Project Perception’ — MS·오픈AI·앤트로픽 모델 혼용',
+   description:'마이크로소프트가 사내 코드명 ‘Project Perception’으로 알려진 AI 사이버보안 제품을 이달 중 출시 준비 중이라고 보도(Tech Startups·The Information, 7월 17일). 이 시스템은 보안 작업의 성격에 따라 마이크로소프트·오픈AI·앤트로픽의 모델을 상황별로 선택해 사용하는 멀티모델 구조가 특징. MS가 자체 MAI 모델 내재화를 강화하면서도 특정 작업에는 파트너 모델을 병행 채택하는 실용적 접근을 보여주는 사례.',
+   tags:['Microsoft','OpenAI','Anthropic','사이버보안','멀티모델'],source:'https://techstartups.com/2026/07/17/top-tech-news-today-july-17-2026-anthropic-apple-google-meta-moonshot-ai-nvidia-more/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1131,6 +1143,10 @@ const MM_NODES = [
   {id:'Blomfield',label:'블롬필드\\n컴퓨트팀 합류',grp:'topic',sz:13},
   {id:'MSvsRivals',label:'MS 영업전략\\n경쟁사 견제',grp:'topic',sz:13},
   {id:'KRAI880',label:'K-AI 1,350조\\n국가투자(10년)',grp:'topic',sz:15},
+  {id:'Gemini35Pro',label:'Gemini 3.5 Pro\\n출시 3차 연기',grp:'topic',sz:15},
+  {id:'Gemini36Flash',label:'Gemini 3.6\\nFlash(스톱갭)',grp:'topic',sz:12},
+  {id:'AnthMetaCompute',label:'앤트로픽-메타\\n컴퓨트 협상',grp:'topic',sz:13},
+  {id:'ProjPerception',label:'Project\\nPerception(보안)',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1305,13 +1321,22 @@ const MM_LINKS = [
   {s:'Samsung',t:'KRAI880',type:'반도체 팹 투자',rel:'infrastructure'},
   {s:'SK',t:'KRAI880',type:'메모리·데이터센터',rel:'infrastructure'},
   {s:'Naver',t:'KRAI880',type:'AI 데이터센터',rel:'infrastructure'},
+  {s:'Google',t:'Gemini35Pro',type:'출시 3차 연기(7/16)',rel:'product'},
+  {s:'Google',t:'Gemini36Flash',type:'스톱갭 대체 검토',rel:'product'},
+  {s:'Gemini35Pro',t:'GPT56',type:'벤치마크 열세',rel:'product'},
+  {s:'Anthropic',t:'AnthMetaCompute',type:'컴퓨트 임대 협상(7/17)',rel:'infrastructure'},
+  {s:'Meta',t:'AnthMetaCompute',type:'컴퓨트 공급 논의',rel:'infrastructure'},
+  {s:'AnthMetaCompute',t:'MetaCompute',type:'클라우드 사업 연계',rel:'infrastructure'},
+  {s:'Microsoft',t:'ProjPerception',type:'AI 보안제품 출시 예정',rel:'product'},
+  {s:'OpenAI',t:'ProjPerception',type:'모델 채택',rel:'partnership'},
+  {s:'Anthropic',t:'ProjPerception',type:'모델 채택',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-16 11:00';
+const BUILD_DATETIME='2026-07-18 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
