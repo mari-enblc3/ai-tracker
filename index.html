@@ -1013,6 +1013,14 @@ let EVENTS = [
    title:'앤트로픽, Claude Fable 5 구독 체계 확정 — Max·Team Premium 상시 포함(한도 50%)',
    description:'앤트로픽이 7월 20일부터 최상위 프런티어 모델 Claude Fable 5를 Max·Team Premium 플랜에 상시 포함(주간 한도의 50% 수준)하기로 확정(the-decoder·DAWN 보도). 6월 이후 반복된 무료 체험 연장과 크레딧 전환으로 이어진 "구독 불확실성"을 마무리하는 조치. Pro·Team Standard 사용자는 Fable 5를 구독 기본 한도에 포함하지 않고 사용량 크레딧(선불 오버리지)으로만 이용하며, 일회성 $100 크레딧을 지급. 크레딧 요율은 입력 100만 토큰당 $10, 출력 100만 토큰당 $50로 유지돼 현존 최고가 일반 출시 모델의 위상을 이어감.',
    tags:['Anthropic','ClaudeFable5','구독플랜','사용량크레딧','과금'],source:'https://the-decoder.com/anthropic-slashes-claude-fable-5-limits-in-max-and-team-premium-and-pushes-pro-users-toward-api-pricing/'},
+  {id:148,date:'2026-07-21',company:'NVIDIA',companies:['NVIDIA','Naver','LG','SK'],category:'partnership',
+   title:'엔비디아, 첫 한국 개최 ‘네모트론 개발자 데이’ — K-AI 오픈 생태계 동맹',
+   description:'엔비디아가 7월 21일부터 서울에서 ‘네모트론 디벨로퍼 데이즈 서울 2026’을 처음으로 한국에서 개최(전자신문·인더스트리뉴스). 그동안 GTC에서만 열던 행사를 한국에 첫 유치. 한국 시장 특화 합성 데이터셋 ‘네모트론 페르소나 코리아’를 허깅페이스에 상업적 활용이 가능하도록 공개. 네이버클라우드는 엔비디아 훈련 기술과 자체 데이터셋·파이프라인을 결합해 한국어 모델을 개발·검증 중이며, LG AI연구원은 카탄자로 부사장과 전문분야 특화 모델 공동개발에 합의, SK텔레콤은 차세대 모델 ‘A.X K2’ 개발에 엔비디아 데이터셋·솔루션을 활용. 소버린·에이전틱 AI 확산을 겨냥한 오픈 생태계 동맹 강화.',
+   tags:['NVIDIA','Nemotron','K-AI','네이버','LG','SK','소버린AI'],source:'https://www.industrynews.co.kr/news/articleView.html?idxno=80343'},
+  {id:149,date:'2026-07-21',company:'Google',companies:['Google','Tesla','Microsoft','Meta','Apple'],category:'infrastructure',
+   title:'빅테크 2분기 어닝시즌 개막 — 알파벳·테슬라 22일 첫 분수령, AI CAPEX 시험대',
+   description:'알파벳·테슬라가 7월 22일(현지시간) 실적을 시작으로 빅테크 2분기 어닝시즌 개막(서울신문·디지털타임스, 7월 21일). 29일 마이크로소프트·메타, 30일 애플·아마존이 뒤를 이음. 시장은 실적 자체보다 천문학적 AI 설비투자(CAPEX)가 실제 매출 재가속으로 이어지는지에 주목. 알파벳 올해 CAPEX는 전년 대비 약 2배인 1,870억 달러(약 280조원)로 전망. 5대 빅테크의 AI 계약상 ‘숨은 부채’가 1조6,500억 달러(약 2,455조원)로 4년 만에 8배 급증했다는 분석도 제기되며 투자 피로감이 확산.',
+   tags:['빅테크','실적','CAPEX','AI투자','알파벳'],source:'https://www.seoul.co.kr/news/economy/industry/2026/07/21/20260721031002'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1152,6 +1160,8 @@ const MM_NODES = [
   {id:'AnthMetaCompute',label:'앤트로픽-메타\\n컴퓨트 협상',grp:'topic',sz:13},
   {id:'ProjPerception',label:'Project\\nPerception(보안)',grp:'topic',sz:13},
   {id:'Fable5Sub',label:'Fable5 구독확정\\nMax·Premium 포함',grp:'topic',sz:14},
+  {id:'NemotronKR',label:'네모트론 개발자데이\\n서울(K-AI동맹)',grp:'topic',sz:15},
+  {id:'BigTechEarn',label:'빅테크 2Q26 실적\\nAI CAPEX 시험대',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1338,13 +1348,23 @@ const MM_LINKS = [
   {s:'Anthropic',t:'Fable5Sub',type:'구독 체계 확정(7/20)',rel:'product'},
   {s:'Fable5Sub',t:'Fable5',type:'Fable5 접근성 조치',rel:'product'},
   {s:'Fable5Sub',t:'Fable5Bill',type:'Pro·Standard 크레딧 과금',rel:'product'},
+  {s:'NVIDIA',t:'NemotronKR',type:'서울 개발자데이 개최(7/21)',rel:'partnership'},
+  {s:'NVIDIA',t:'Naver',type:'한국어 모델 공동개발',rel:'partnership'},
+  {s:'NVIDIA',t:'LG',type:'특화모델 공동개발 합의',rel:'partnership'},
+  {s:'NVIDIA',t:'SK',type:'A.X K2에 데이터셋 활용',rel:'partnership'},
+  {s:'NemotronKR',t:'Nemotron3',type:'네모트론 생태계 확장',rel:'product'},
+  {s:'Google',t:'BigTechEarn',type:'알파벳 22일 첫 실적',rel:'infrastructure'},
+  {s:'Tesla',t:'BigTechEarn',type:'22일 실적 발표',rel:'infrastructure'},
+  {s:'Microsoft',t:'BigTechEarn',type:'29일 실적 발표',rel:'infrastructure'},
+  {s:'Meta',t:'BigTechEarn',type:'29일 실적 발표',rel:'infrastructure'},
+  {s:'Apple',t:'BigTechEarn',type:'30일 실적 발표',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-20 11:00';
+const BUILD_DATETIME='2026-07-21 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
