@@ -1021,6 +1021,18 @@ let EVENTS = [
    title:'빅테크 2분기 어닝시즌 개막 — 알파벳·테슬라 22일 첫 분수령, AI CAPEX 시험대',
    description:'알파벳·테슬라가 7월 22일(현지시간) 실적을 시작으로 빅테크 2분기 어닝시즌 개막(서울신문·디지털타임스, 7월 21일). 29일 마이크로소프트·메타, 30일 애플·아마존이 뒤를 이음. 시장은 실적 자체보다 천문학적 AI 설비투자(CAPEX)가 실제 매출 재가속으로 이어지는지에 주목. 알파벳 올해 CAPEX는 전년 대비 약 2배인 1,870억 달러(약 280조원)로 전망. 5대 빅테크의 AI 계약상 ‘숨은 부채’가 1조6,500억 달러(약 2,455조원)로 4년 만에 8배 급증했다는 분석도 제기되며 투자 피로감이 확산.',
    tags:['빅테크','실적','CAPEX','AI투자','알파벳'],source:'https://www.seoul.co.kr/news/economy/industry/2026/07/21/20260721031002'},
+  {id:150,date:'2026-07-21',company:'OpenAI',companies:['OpenAI','Anthropic','Google'],category:'regulation',
+   title:'백악관, 프론티어 AI 자율규제안 마감 임박 — 출시 前 최대 30일 정부 검토창',
+   description:'백악관이 OpenAI·구글·앤트로픽 등 선도 AI 랩과 프론티어 모델 출시에 관한 자발적(voluntary) 규제 프레임워크 마련을 마무리 단계에 두고 있으며, 8월 1일 이전 발표가 예상된다고 복수 매체가 보도(Eastern Herald·AI Weekly 등). 이 프레임워크는 신규 프론티어 모델의 공개 전 연방기관이 국가안보 영향을 최대 30일간 검토할 수 있는 창구를 두는 것이 골자로, 트럼프 대통령의 6월 2일 AI·사이버보안 행정명령이 정한 60일 시한(재무·국방·국토안보부의 벤치마킹·자율 프레임워크 마련)과 맞물림. 다만 의무적 대기기간이나 사전 승인 요건은 아니며, 메타는 이번 합의에서 빠졌고 평가 벤치마크는 기밀로 분류.',
+   tags:['백악관','규제','프론티어모델','국가안보','자율규제'],source:'https://easternherald.com/2026/07/06/white-house-voluntary-ai-frontier-model-standards/'},
+  {id:151,date:'2026-07-21',company:'OpenAI',companies:['OpenAI','Anthropic','Google','Microsoft'],category:'regulation',
+   title:'OpenAI·앤트로픽, 2분기 연방 로비 지출 사상 최대',
+   description:'OpenAI와 앤트로픽이 2026년 2분기 연방 로비 지출을 사상 최고 수준으로 끌어올렸다고 CNBC가 7월 21일 보도. AI 업계가 중간선거와 양사의 기대 IPO를 앞두고 워싱턴 영향력 확보에 수백만 달러를 쏟아붓는 흐름. 구글은 전분기 대비 25% 늘린 357만 달러, 마이크로소프트는 약 13% 늘린 269만 달러를 지출. AI 기업이 레거시 테크·방산의 로비 위상을 빠르게 잠식하고 있음을 보여주는 신호.',
+   tags:['로비','규제','OpenAI','Anthropic','IPO'],source:'https://www.cnbc.com/2026/07/21/openai-anthropic-ai-lobbying-spending-q2-2026.html'},
+  {id:152,date:'2026-07-22',company:'Samsung',companies:['Samsung','SK','Naver','NVIDIA'],category:'partnership',
+   title:'삼성·SK·네이버 총수, 방미해 젠슨 황 회동 — 한·미 AI 반도체 협력',
+   description:'삼성전자 이재용 회장, SK그룹 최태원 회장, 네이버 이해진 이사회 의장이 이번 주 미국에서 엔비디아 젠슨 황 CEO와 함께 회동할 예정이라고 코리아중앙데일리가 7월 22일 보도. 회동에는 오픈AI 샘 올트먼, 앤트로픽 다리오 아모데이도 합류할 가능성이 거론되며, 글로벌 AI·반도체 시장에서 한국의 역할을 부각. HBM·파운드리·소버린 AI 인프라를 둘러싼 한·미 협력 논의가 핵심으로, 앞선 25만+ GPU 한국 배치 계획과 연장선.',
+   tags:['Samsung','SK','Naver','NVIDIA','한미협력','HBM'],source:'https://www.koreajoongangdaily.com/business/samsung-sk-and-naver-leaders-to-meet-nvidia-ceo-jensen-huang-in-us-ai-talks/12785372'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1162,6 +1174,9 @@ const MM_NODES = [
   {id:'Fable5Sub',label:'Fable5 구독확정\\nMax·Premium 포함',grp:'topic',sz:14},
   {id:'NemotronKR',label:'네모트론 개발자데이\\n서울(K-AI동맹)',grp:'topic',sz:15},
   {id:'BigTechEarn',label:'빅테크 2Q26 실적\\nAI CAPEX 시험대',grp:'topic',sz:15},
+  {id:'WHFrontier',label:'백악관 프론티어\\nAI 자율규제',grp:'topic',sz:14},
+  {id:'AILobbying',label:'2Q 로비지출\\n사상최대',grp:'topic',sz:13},
+  {id:'HuangSummit',label:'젠슨 황\\n한·미 회동',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1358,13 +1373,22 @@ const MM_LINKS = [
   {s:'Microsoft',t:'BigTechEarn',type:'29일 실적 발표',rel:'infrastructure'},
   {s:'Meta',t:'BigTechEarn',type:'29일 실적 발표',rel:'infrastructure'},
   {s:'Apple',t:'BigTechEarn',type:'30일 실적 발표',rel:'infrastructure'},
+  {s:'OpenAI',t:'WHFrontier',type:'자율규제 참여',rel:'regulation'},
+  {s:'Anthropic',t:'WHFrontier',type:'자율규제 참여',rel:'regulation'},
+  {s:'Google',t:'WHFrontier',type:'자율규제 참여',rel:'regulation'},
+  {s:'OpenAI',t:'AILobbying',type:'로비 지출 급증',rel:'regulation'},
+  {s:'Anthropic',t:'AILobbying',type:'로비 지출 급증',rel:'regulation'},
+  {s:'Samsung',t:'HuangSummit',type:'방미 회동',rel:'partnership'},
+  {s:'SK',t:'HuangSummit',type:'방미 회동',rel:'partnership'},
+  {s:'Naver',t:'HuangSummit',type:'방미 회동',rel:'partnership'},
+  {s:'NVIDIA',t:'HuangSummit',type:'한·미 정상급 회동',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-21 11:00';
+const BUILD_DATETIME='2026-07-22 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
