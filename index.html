@@ -1033,6 +1033,14 @@ let EVENTS = [
    title:'삼성·SK·네이버 총수, 방미해 젠슨 황 회동 — 한·미 AI 반도체 협력',
    description:'삼성전자 이재용 회장, SK그룹 최태원 회장, 네이버 이해진 이사회 의장이 이번 주 미국에서 엔비디아 젠슨 황 CEO와 함께 회동할 예정이라고 코리아중앙데일리가 7월 22일 보도. 회동에는 오픈AI 샘 올트먼, 앤트로픽 다리오 아모데이도 합류할 가능성이 거론되며, 글로벌 AI·반도체 시장에서 한국의 역할을 부각. HBM·파운드리·소버린 AI 인프라를 둘러싼 한·미 협력 논의가 핵심으로, 앞선 25만+ GPU 한국 배치 계획과 연장선.',
    tags:['Samsung','SK','Naver','NVIDIA','한미협력','HBM'],source:'https://www.koreajoongangdaily.com/business/samsung-sk-and-naver-leaders-to-meet-nvidia-ceo-jensen-huang-in-us-ai-talks/12785372'},
+  {id:153,date:'2026-07-22',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'오픈AI, 엔터프라이즈 에이전트 플랫폼 ‘Presence’ 공개',
+   description:'오픈AI가 7월 22일 기업용 실시간 음성·챗 에이전트 배포·관리 플랫폼 ‘Presence’를 공개(VentureBeat·The Register 보도). 모델 추론에 기업 정책·가드레일·에스컬레이션 규칙을 결합해 고객지원·아웃바운드 세일즈·사내 IT 지원 등 프로덕션 에이전트를 운영하며, 프로덕션 데이터 기반 개선안을 제안하는 Codex 도구를 내장. 셀프서비스 API가 아니라 오픈AI의 포워드 배포 엔지니어(FDE)와 글로벌 SI가 배포를 주도하는 컨설팅형 모델로, Salesforce·ServiceNow·Sierra·앤트로픽과 정면 경쟁. 초기 고객은 BBVA 멕시코, 소프트뱅크(일본어), 호주 IAG(보험). 오픈AI 자체 영어 전화지원의 75%를 사람 개입 없이 처리한다고 밝힘.',
+   tags:['OpenAI','Presence','에이전트','음성AI','엔터프라이즈'],source:'https://venturebeat.com/orchestration/openai-unveils-presence-a-new-platform-that-lets-enterprises-launch-and-manage-realtime-voice-agents-and-chatbots'},
+  {id:154,date:'2026-07-22',company:'Google',companies:['Google'],category:'infrastructure',
+   title:'알파벳 2Q26 실적 서프라이즈 — 2026 CAPEX $195~205B로 상향',
+   description:'알파벳이 7월 22일(현지시간) 2분기 실적을 발표. 매출은 전년 대비 24% 늘어난 1,198억 달러로 12분기 연속 두 자릿수 성장, 구글 클라우드 매출은 82% 급증한 248억 달러를 기록(CNBC·SEC 8-K). 회사는 2026 연간 설비투자(CAPEX) 가이던스를 기존 1,800~1,900억 달러에서 1,950~2,050억 달러로 상향하며 AI 인프라 수요 대응 가속을 이유로 제시. 다만 공급 제약으로 용량 확대 속도가 여전히 제한적이라고 밝힘. 제미나이 앱 월간활성이용자(MAU)는 9억5천만 명, 분당 220억 토큰을 처리. AI 투자 회수 우려로 발표 후 주가는 하락.',
+   tags:['Google','알파벳','실적','CAPEX','클라우드','AI투자'],source:'https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1177,6 +1185,8 @@ const MM_NODES = [
   {id:'WHFrontier',label:'백악관 프론티어\\nAI 자율규제',grp:'topic',sz:14},
   {id:'AILobbying',label:'2Q 로비지출\\n사상최대',grp:'topic',sz:13},
   {id:'HuangSummit',label:'젠슨 황\\n한·미 회동',grp:'topic',sz:14},
+  {id:'OAIPresence',label:'OpenAI Presence\\n엔터프라이즈\\n음성·챗 에이전트',grp:'topic',sz:15},
+  {id:'AlphaQ2',label:'알파벳 2Q26\\nCAPEX $205B',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1382,13 +1392,15 @@ const MM_LINKS = [
   {s:'SK',t:'HuangSummit',type:'방미 회동',rel:'partnership'},
   {s:'Naver',t:'HuangSummit',type:'방미 회동',rel:'partnership'},
   {s:'NVIDIA',t:'HuangSummit',type:'한·미 정상급 회동',rel:'partnership'},
+  {s:'OpenAI',t:'OAIPresence',type:'출시(FDE 배포형)',rel:'product'},
+  {s:'Google',t:'AlphaQ2',type:'실적발표·CAPEX 상향',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-22 11:00';
+const BUILD_DATETIME='2026-07-25 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=6,selDate=null;
