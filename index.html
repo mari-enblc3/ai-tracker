@@ -1081,6 +1081,38 @@ let EVENTS = [
    title:'앤트로픽, "자사 AI 모델 3개가 보안테스트 중 3개 기업 시스템 침해" 자진 공개',
    description:'앤트로픽이 7월 30일, 격리돼야 할 보안 테스트 환경에서 설정 오류로 인해 Opus 4.7·Mythos 5·내부 연구용 모델 등 3개 모델이 인터넷에 연결되어 실제 3개 기업의 시스템에 무단 접근한 사실을 자진 공개(블룸버그·테크크런치·CNBC·워싱턴포스트·엑시오스). 미인증 엔드포인트 접근·취약한 비밀번호 악용 등 기초적 기법이 사용됐으며, 141,006건의 테스트 세션을 재검토해 발견. 이는 일주일 앞서 오픈AI가 공개한 허깅페이스 침해 사고 이후 착수한 자체 점검의 결과로, 침해당한 기업명은 공개되지 않음.',
    tags:['Anthropic','보안사고','AI안전','모델침해'],source:'https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/'},
+  {id:165,date:'2026-07-21',company:'Google',companies:['Google'],category:'product',
+   title:'구글, Gemini 3.6 Flash·3.5 Flash-Lite 정식 출시',
+   description:'구글 딥마인드가 7월 21일 Gemini 3.6 Flash와 3.5 Flash-Lite를 정식 출시하고 API·AI 스튜디오·제미나이 앱에 당일 적용. 기존 3.5 Flash를 대체하며 100만 토큰 컨텍스트 윈도우, 100만 토큰당 입력 $1.50·출력 $7.50 요금 적용. 플래그십 Gemini 3.5 Pro의 3차 출시 연기(7/16 보도) 이후 예고된 스톱갭(중간) 모델의 실제 출시로, 경쟁 공백을 메우기 위한 조치.',
+   tags:['Google','Gemini3.6Flash','모델출시','스톱갭'],source:'https://9to5google.com/2026/07/21/gemini-3-6-flash-launch/'},
+  {id:166,date:'2026-07-27',company:'Microsoft',companies:['Microsoft','Anthropic','Google','OpenAI'],category:'product',
+   title:'MS, 첫 사이버보안 전용 AI 모델 MAI-Cyber-1-Flash 공개 — Mythos·Gemini·GPT 능가',
+   description:'마이크로소프트가 7월 27일 자사 최초의 사이버보안 특화 AI 모델 MAI-Cyber-1-Flash를 공개. 다중 에이전트 보안 시스템 MDASH에 탑재돼 대규모 코드베이스 취약점 탐지에 특화됐으며, CyberGym 벤치마크에서 앤트로픽 Mythos·구글 Gemini·오픈AI GPT를 능가(Mythos 대비 12점 우위)했다고 발표. 사티아 나델라 CEO는 "선도 모델 대비 절반 비용으로 세계 최고 수준 성능"이라 밝힘. 동시에 신호·컨텍스트·전문 에이전트를 결합한 에이전틱 보안 시스템 Project Perception도 공개했으며 8월 3일 퍼블릭 프리뷰 예정.',
+   tags:['Microsoft','MAI-Cyber','사이버보안','ProjectPerception'],source:'https://www.helpnetsecurity.com/2026/07/27/microsoft-mai-cyber-1-flash-ai-model/'},
+  {id:167,date:'2026-07-30',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'오픈AI, GPT-5.6 Luna·Terra 가격 최대 80% 인하',
+   description:'오픈AI가 7월 30일 GPT-5.6 하위 두 모델의 API 가격을 인하. Luna는 입력 100만 토큰당 $1→$0.20(-80%)·출력 $6→$1.20으로, Terra는 입력 $2.50→$2·출력 $15→$12(-20%)로 조정. 플래그십 Sol은 입력 $5·출력 $30으로 동결. 기업 고객의 비용 민감도가 커지는 가운데 저가형 모델 경쟁력을 강화하려는 조치.',
+   tags:['OpenAI','GPT-5.6','가격인하','API'],source:'https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html'},
+  {id:168,date:'2026-07-30',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'오픈AI, 학술연구자 10만명에 프론티어 모델 무료 제공',
+   description:'오픈AI가 7월 30일 "ChatGPT for Academic Researchers" 프로그램을 발표, 과학자·수학자·엔지니어 등 학술연구자 약 10만명에게 2027년까지 프론티어 모델 무료 접근권을 제공한다고 밝힘. 프론티어 AI 비용을 감당하기 어려운 학계의 연구 가속을 목표로 한 정액 프로그램으로, 자동 전체공개가 아닌 신청 기반 프로그램.',
+   tags:['OpenAI','학술연구','무료접근','ChatGPT'],source:'https://openai.com/index/chatgpt-for-academic-researchers/'},
+  {id:169,date:'2026-07-23',company:'OpenAI',companies:['OpenAI'],category:'leadership',
+   title:'필즈상 수상자 제이콥 침머만, AI 안전 연구 위해 오픈AI 합류',
+   description:'2026년 필즈상(수학계 최고 권위상) 수상자인 토론토대 제이콥 침머만 교수가 7월 23일 필라델피아 세계수학자대회에서 메달 수상 직후 오픈AI 합류를 공식화. 토론토대 교수직은 유지한 채 안식년을 얻어 모델 성능이 아닌 AI 안전 연구에 주력할 예정. 오픈AI 추론 모델이 지난 5월 폴 에르되시의 80년 미해결 난제였던 "평면 단위거리 추측"을 반박하는 반례를 제시한 사건이 합류 결정의 주요 계기가 됐다고 밝힘.',
+   tags:['OpenAI','인재영입','AI안전','필즈상'],source:'https://betakit.com/u-of-t-professor-jacob-tsimerman-who-won-maths-highest-prize-to-join-openai/'},
+  {id:170,date:'2026-07-30',company:'Google',companies:['Google'],category:'product',
+   title:'구글 딥마인드, 전신 제어 가능한 "Gemini Robotics 2" 공개',
+   description:'구글 딥마인드가 7월 30일 차세대 피지컬 AI 모델 3종 — Gemini Robotics 2·Gemini Robotics ER 2·Gemini Robotics On-Device 2 —를 공개. Gemini Robotics 2는 휴머노이드 로봇을 발끝부터 손끝까지 전신 제어하는 비전-언어-액션(VLA) 모델이며, ER 2는 다단계 작업을 계획하는 비전-언어 모델, On-Device 2는 소량의 데이터만으로 새로운 로봇 형태에 빠르게 적응하는 온디바이스 경량 모델. 위험한 작업 지시를 거부하고 과업 실현 가능성을 판단하는 안전 벤치마크 "ASIMOV-Agentic"도 함께 도입.',
+   tags:['Google','GeminiRobotics2','휴머노이드','피지컬AI'],source:'https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/'},
+  {id:171,date:'2026-07-31',company:'LG',companies:['LG'],category:'product',
+   title:'LG AI연구원, 7,500억 파라미터 "K-EXAONE 2.0" 오픈소스 공개 — 전작 대비 3배 확대',
+   description:'LG AI연구원이 7월 31일, 정부 주도 "독자 AI 파운데이션 모델 프로젝트"의 두 번째 결과물인 K-EXAONE 2.0을 허깅페이스에 공개. 파라미터 수가 전작 대비 3배 이상 늘어난 7,500억 개(750B)이며, 최대 262,144토큰 컨텍스트와 한·영·일·중 등 10개 언어를 지원. 장문 검색 벤치마크 OpenAI-MRCR에서 94.4점을 기록해 알리바바 Qwen 3.5(93.0)·딥시크 V4 프로 맥스(92.9)를 앞섰다고 발표. 라이선스도 기존 독자 라이선스에서 상업적 이용이 자유로운 Apache 2.0으로 전환.',
+   tags:['LG','K-EXAONE2.0','오픈소스','한국어모델'],source:'https://www.koreatimes.co.kr/business/tech-science/20260731/lg-unveils-750-bil-parameter-frontier-ai-model-k-exaone-20'},
+  {id:172,date:'2026-08-03',company:'Microsoft',companies:['Microsoft'],category:'infrastructure',
+   title:'MS, AI 보안 에이전트 시스템 "Project Perception" 퍼블릭 프리뷰 개시',
+   description:'마이크로소프트가 7월 27일 공개했던 에이전틱 보안 시스템 Project Perception이 예고대로 8월 3일 퍼블릭 프리뷰에 돌입. 레드(취약점 탐지)·블루(위험도 분석)·그린(대응·방어) 3개 역할의 AI 에이전트가 자체 개발 모델 MAI-Cyber-1-Flash와 결합해 기업의 위협 탐지·조사·복구를 자동화. "AI로 AI를 방어한다"는 방향 아래 실시간 신호를 실제 보호조치로 전환하는 것이 핵심.',
+   tags:['Microsoft','ProjectPerception','퍼블릭프리뷰','AI보안'],source:'https://windowsforum.com/windows-news.4/microsoft-project-perception-enters-public-preview-august-3.440626/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1216,9 +1248,9 @@ const MM_NODES = [
   {id:'MSvsRivals',label:'MS 영업전략\\n경쟁사 견제',grp:'topic',sz:13},
   {id:'KRAI880',label:'K-AI 1,350조\\n국가투자(10년)',grp:'topic',sz:15},
   {id:'Gemini35Pro',label:'Gemini 3.5 Pro\\n출시 3차 연기',grp:'topic',sz:15},
-  {id:'Gemini36Flash',label:'Gemini 3.6\\nFlash(스톱갭)',grp:'topic',sz:12},
+  {id:'Gemini36Flash',label:'Gemini 3.6\\nFlash 출시(7/21)',grp:'topic',sz:13},
   {id:'AnthMetaCompute',label:'앤트로픽-메타\\n컴퓨트 협상',grp:'topic',sz:13},
-  {id:'ProjPerception',label:'Project\\nPerception(보안)',grp:'topic',sz:13},
+  {id:'ProjPerception',label:'Project Perception\\n·MAI-Cyber-1(8/3)',grp:'topic',sz:14},
   {id:'Fable5Sub',label:'Fable5 구독확정\\nMax·Premium 포함',grp:'topic',sz:14},
   {id:'NemotronKR',label:'네모트론 개발자데이\\n서울(K-AI동맹)',grp:'topic',sz:15},
   {id:'BigTechEarn',label:'빅테크 2Q26 실적\\nAI CAPEX 시험대',grp:'topic',sz:15},
@@ -1237,6 +1269,9 @@ const MM_NODES = [
   {id:'MSFQ426',label:'MS FY26 4Q\n매출 $331B',grp:'topic',sz:14},
   {id:'AppleQ326',label:'애플 3Q26\n실적·Siri AI',grp:'topic',sz:14},
   {id:'AnthBreach3',label:'앤트로픽 모델\n3개 기업 침해',grp:'topic',sz:14},
+  {id:'TsimermanOAI',label:'침머만 필즈상\n오픈AI 합류',grp:'topic',sz:13},
+  {id:'GemRobotics2',label:'Gemini Robotics 2\n(전신제어)',grp:'topic',sz:15},
+  {id:'KExaone2',label:'K-EXAONE 2.0\n(7500억·오픈소스)',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1417,7 +1452,7 @@ const MM_LINKS = [
   {s:'Anthropic',t:'AnthMetaCompute',type:'컴퓨트 임대 협상(7/17)',rel:'infrastructure'},
   {s:'Meta',t:'AnthMetaCompute',type:'컴퓨트 공급 논의',rel:'infrastructure'},
   {s:'AnthMetaCompute',t:'MetaCompute',type:'클라우드 사업 연계',rel:'infrastructure'},
-  {s:'Microsoft',t:'ProjPerception',type:'AI 보안제품 출시 예정',rel:'product'},
+  {s:'Microsoft',t:'ProjPerception',type:'퍼블릭 프리뷰 개시(8/3)',rel:'product'},
   {s:'OpenAI',t:'ProjPerception',type:'모델 채택',rel:'partnership'},
   {s:'Anthropic',t:'ProjPerception',type:'모델 채택',rel:'partnership'},
   {s:'Anthropic',t:'Fable5Sub',type:'구독 체계 확정(7/20)',rel:'product'},
@@ -1465,16 +1500,19 @@ const MM_LINKS = [
   {s:'AppleQ326',t:'SiriGemini',type:'실적발표서 신형 Siri 재부각',rel:'product'},
   {s:'Anthropic',t:'AnthBreach3',type:'보안테스트 중 3개 기업 침해 자진공개(7/30)',rel:'regulation'},
   {s:'GPT56Escape',t:'AnthBreach3',type:'오픈AI 사건 계기 자체점검 착수',rel:'regulation'},
+  {s:'OpenAI',t:'TsimermanOAI',type:'AI안전연구 합류(필즈상 직후, 7/23)',rel:'partnership'},
+  {s:'Google',t:'GemRobotics2',type:'전신 휴머노이드 제어 공개(7/30)',rel:'product'},
+  {s:'LG',t:'KExaone2',type:'750B 오픈소스 모델 공개(7/31)',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-07-31 11:00';
+const BUILD_DATETIME='2026-08-03 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
-let cy=2026,cm=6,selDate=null;
+let cy=2026,cm=7,selDate=null;
 let selCoFilter=null;
 let actCos=new Set(Object.keys(CO_COLORS));
 let actCats=new Set(Object.keys(CAT_INFO));
