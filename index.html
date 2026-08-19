@@ -1185,6 +1185,18 @@ let EVENTS = [
    title:'앤트로픽, 블록버스터 IPO 앞두고 투자자 설명회 조율 — 10월 상장 목표',
    description:'월스트리트저널이 8월 12일 앤트로픽이 올가을 기업공개(IPO)를 목표로 잠재 투자자들과 미팅을 조율하고 있다고 보도. 주관사인 모건스탠리·골드만삭스·JP모건이 향후 몇 주 내 투자자 면담을 주선 중이며 이르면 10월 상장이 거론됨. 중국발 경쟁, AI 인프라 지출 부담, 워싱턴발 정치적 마찰, AI에 대한 대중적 반감 확산 등에 대한 투자자들의 우려를 해소하는 데 주력. 앤트로픽은 안전성·리스크 관리를 강조해온 만큼 이 원칙이 상장 후 성장 속도에 대한 공개시장의 기대와 충돌할 가능성도 지목됨.',
    tags:['Anthropic','IPO','투자자미팅','10월상장'],source:'https://www.wsj.com/tech/ai/anthropic-tries-to-shore-up-investor-confidence-ahead-of-blockbuster-ipo-0ff736ad'},
+  {id:191,date:'2026-08-12',company:'xAI',companies:['xAI'],category:'product',
+   title:'xAI, Grok 4.6 출시 — 장기 실행 에이전트 특화·프론티어 성능을 절반 가격에',
+   description:'xAI(현 SpaceXAI)가 8월 12일 신규 플래그십 모델 Grok 4.6을 출시. Grok 4.5 이후 35일 만의 후속 모델로 Cursor·Grok Build·xAI API 등에서 즉시 이용 가능. 50만 토큰 컨텍스트와 $2/$6(백만 토큰당 입력/출력) 가격을 유지하면서 신규 xhigh 추론 모드를 추가. Artificial Analysis Intelligence Index에서 61점을 기록해 종합 4위(Claude Opus 5에 이어)로 상승했으며, 유사 성능의 경쟁 모델 대비 절반 수준 가격을 강점으로 내세움.',
+   tags:['xAI','Grok4.6','SpaceXAI','신모델'],source:'https://x.ai/news/grok-4-6'},
+  {id:192,date:'2026-08-14',company:'Anthropic',companies:['Anthropic'],category:'regulation',
+   title:'앤트로픽, 8월 리스크 보고서 발간 — 오정렬 위험 "매우 낮음"→"낮음" 상향, 미공개 내부모델 "Model 2" 존재 공개',
+   description:'앤트로픽이 8월 14일 책임확장정책(RSP) v3.4에 따른 "2026년 8월 리스크 보고서"를 발간(2월 24일~7월 15일 커버리지). 고위험 상황에서의 오정렬발 재앙적 피해 위험 등급을 2월 첫 보고서의 "매우 낮음"에서 "낮음"으로 상향 조정했으며, 특정 실패 사례보다는 전반적 불확실성 증가와 사이버보안 평가에서 드러난 모델 행동에 대한 최근 공개를 근거로 제시. 보고서는 또한 현재 미출시 상태인 내부 프론티어 모델 "Model 2"의 존재를 최초로 공개했는데, Mythos 5보다 뚜렷이 강력한 성능에도 사전배포 안전성 평가가 완료되지 않아 외부 출시 계획이 없다고 밝힘.',
+   tags:['Anthropic','리스크보고서','오정렬','Model2'],source:'https://www.anthropic.com/aug-2026-risk-report'},
+  {id:193,date:'2026-08-18',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'오픈AI, 13~17세 전용 "챗GPT 틴즈" 출시 — 연령예측 기반 자동전환·자살자해 대화 차단',
+   description:'오픈AI가 8월 18일 만 13~17세 이용자를 위한 별도 버전 "ChatGPT for Teens"를 출시. 연령예측 모델을 통해 미성년으로 추정되는 이용자를 자동으로 틴즈 모드로 전환하며, 자살·자해·로맨틱 및 성적 대화를 차단하는 등 안전장치를 대폭 강화. 숙제 지원 기능은 정답을 곧바로 제시하지 않고 학생이 스스로 답에 도달하도록 유도하는 방식으로 설계. 연령예측 모델은 일부 국가에서 시험 단계이며, 성인 이용자를 오인식하지 않으면서 미성년자를 정확히 식별하는 것이 과제로 지목됨.',
+   tags:['OpenAI','ChatGPT','청소년안전','연령예측'],source:'https://www.usnews.com/news/technology/articles/2026-08-18/openai-launches-chatgpt-for-teens-promising-a-more-age-appropriate-chatbot'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1362,6 +1374,9 @@ const MM_NODES = [
   {id:'Nemotron4',label:'Nemotron 4\n1조 파라미터(8/11)',grp:'topic',sz:15},
   {id:'SAFEFramework',label:'SAFE\n에이전트사고공유(8/11)',grp:'topic',sz:13},
   {id:'AnthOctIPO',label:'앤트로픽\n10월 IPO투자자미팅(8/12)',grp:'topic',sz:14},
+  {id:'Grok46',label:'Grok 4.6\n출시(8/12)',grp:'topic',sz:15},
+  {id:'AnthRiskAug',label:'8월 리스크보고서\n오정렬↑·Model2(8/14)',grp:'topic',sz:15},
+  {id:'ChatGPTTeens',label:'ChatGPT 틴즈\n출시(8/18)',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1619,13 +1634,18 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'Nemotron4',type:'1조 파라미터 모델 개발(8/11)',rel:'product'},
   {s:'NVIDIA',t:'SAFEFramework',type:'AI에이전트 사고보고 프레임워크 제안(8/11)',rel:'regulation'},
   {s:'Anthropic',t:'AnthOctIPO',type:'투자자 미팅·10월 상장 목표(8/12)',rel:'regulation'},
+  {s:'xAI',t:'Grok46',type:'신모델 출시(8/12)',rel:'product'},
+  {s:'GrokBuild',t:'Grok46',type:'동시 지원 툴',rel:'product'},
+  {s:'Anthropic',t:'AnthRiskAug',type:'리스크보고서 발간·오정렬 등급 상향(8/14)',rel:'regulation'},
+  {s:'Fable5',t:'AnthRiskAug',type:'Model2, Mythos5 상회 성능(미출시)',rel:'regulation'},
+  {s:'OpenAI',t:'ChatGPTTeens',type:'청소년 전용버전 출시(8/18)',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-08-13 11:00';
+const BUILD_DATETIME='2026-08-19 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=7,selDate=null;
