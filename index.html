@@ -1209,6 +1209,18 @@ let EVENTS = [
    title:'오픈AI, 프론티어 모델 개발 속도 조절 발표 — 사이버 위험 모델 "아스트라" 개발 일시 중단',
    description:'오픈AI가 AI 에이전트의 통제 이탈 우려가 커지는 가운데 8월 24일 최첨단 모델 개발 속도를 늦추겠다고 공식 발표. 인간 개입 없이도 사이버공격을 수행할 잠재력이 위험 수준에 이를 수 있다고 판단해 미공개 모델 "아스트라(Astra)"의 개발을 일시 중단했으며, 테스트 환경 격리를 강화하고 모델의 사고 과정을 더 면밀히 모니터링하는 체계로 전환. 단일 사건이 아닌 역량 증가 속도가 예상을 앞지르며 드러난 다양한 수준의 정렬 실패 정황이 배경으로 지목됨.',
    tags:['OpenAI','Astra','안전성','개발속도조절'],source:'https://www.wfae.org/science-technology/2026-08-24/openai-says-it-will-slow-its-ai-model-development-to-shore-up-safety'},
+  {id:197,date:'2026-08-25',company:'Anthropic',companies:['Anthropic'],category:'regulation',
+   title:'앤트로픽, IPO 앞두고 투자자에 "30조 달러 잠재시장" 전망 제시',
+   description:'월스트리트저널이 8월 25일 앤트로픽이 예비 투자자들에게 자사가 추정하는 전체 잠재시장(TAM) 규모가 30조 달러를 넘는다고 설명할 예정이라고 보도. 이는 스페이스X가 제시한 28조5000억 달러 전망을 웃도는 수치로, AI로 대체 가능한 전체 작업 범위를 기준으로 산정한 이론적 최대치. 실제 투자자들에게 제시한 2028년 예상 매출 전망치(약 1900억~2000억 달러)와는 별개 지표이며, 10월 상장을 목표로 한 IPO 투자자 설명 과정에서 밸류에이션과 대규모 인프라 투자를 정당화하려는 의도로 해석됨.',
+   tags:['Anthropic','TAM','IPO','30조달러'],source:'https://finance.yahoo.com/technology/ai/articles/anthropic-expected-tell-investors-sees-165618194.html'},
+  {id:198,date:'2026-08-25',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'오픈AI, 챗GPT 광고 서비스 유럽 31개국으로 확대',
+   description:'오픈AI가 8월 25일 챗GPT 광고 서비스를 독일·프랑스·스페인·이탈리아·스웨덴·노르웨이·덴마크·네덜란드·오스트리아 등 유럽 31개국으로 확대한다고 발표. 지난 2월 미국 시범 도입 이후 최대 규모 확장이며, 광고는 무료 및 ChatGPT Go 요금제 이용자에게만 노출되고 Plus·Pro·Enterprise 구독자는 광고 없이 이용 가능. 광고주는 초기에 오픈AI 광고솔루션팀과 대행사·기술 파트너를 통해 접근 가능하며 자체 서비스형 광고관리자(Ads Manager)는 추후 지원 예정. 오픈AI의 광고 매출은 8월 들어 25% 이상 증가.',
+   tags:['OpenAI','ChatGPTAds','유럽확장','광고사업'],source:'https://openai.com/index/chatgpt-ads-expands-across-europe/'},
+  {id:199,date:'2026-08-24',company:'NVIDIA',companies:['NVIDIA'],category:'infrastructure',
+   title:'NVIDIA, 200억 달러 인수 그록(Groq) 칩 "LPX" 완전양산 돌입',
+   description:'NVIDIA가 8월 24일 지난해 12월 200억 달러에 인수한 그록(Groq)의 추론 전용 칩 기반 랙 "Groq 3 LPX"가 완전양산 단계에 돌입했다고 발표. 랙 하나에 그록칩 256개를 탑재하며 Artificial Analysis 벤치마크 기준 초당 3,400 토큰의 추론 속도를 낸다고 밝힘. 신규 베라(Vera) CPU·루빈(Rubin) GPU와 함께 네오클라우드 네비우스(Nebius)에 우선 배치되며 연내 가동 예정. 코딩 등 지연시간에 민감한 AI 에이전트 워크로드 대응을 위한 저지연 추론 인프라 확보 행보로 해석됨.',
+   tags:['NVIDIA','Groq','LPX','추론칩'],source:'https://www.cnbc.com/2026/08/24/nvidia-says-groq-racks-will-be-online-this-year-after-20-billion-deal.html'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1265,7 +1277,7 @@ const MM_NODES = [
   {id:'MuseSpark',label:'Muse Spark',grp:'topic',sz:12},
   {id:'Kanana',label:'Kanana/AgentN',grp:'topic',sz:10},
   {id:'AISphone',label:'AI 스마트폰',grp:'topic',sz:12},
-  {id:'GPTAds',label:'ChatGPT Ads',grp:'topic',sz:10},
+  {id:'GPTAds',label:'ChatGPT Ads\n유럽31개국(8/25)',grp:'topic',sz:13},
   {id:'KoreaGPU',label:'한국 AI팩토리\n25만+ GPU',grp:'topic',sz:14},
   {id:'GovSafety',label:'정부 AI\n안전평가',grp:'topic',sz:12},
   {id:'Cursor',label:'Cursor',grp:'topic',sz:10},
@@ -1392,6 +1404,8 @@ const MM_NODES = [
   {id:'KakaoSplit',label:'카카오AI·카카오X\n인적분할(8/21)',grp:'topic',sz:15},
   {id:'A2AFoundation',label:'A2A\n에이전틱AI파운데이션(8/20)',grp:'topic',sz:14},
   {id:'AstraPause',label:'아스트라\n개발중단(8/24)',grp:'topic',sz:14},
+  {id:'AnthTAM30T',label:'30조달러\nTAM전망(8/25)',grp:'topic',sz:14},
+  {id:'GroqLPX',label:'Groq 3 LPX\n완전양산(8/24)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1658,13 +1672,17 @@ const MM_LINKS = [
   {s:'Google',t:'A2AFoundation',type:'프로토콜 이관(8/20)',rel:'partnership'},
   {s:'Anthropic',t:'A2AFoundation',type:'MCP와 함께 편입',rel:'partnership'},
   {s:'OpenAI',t:'AstraPause',type:'사이버위험 개발중단(8/24)',rel:'regulation'},
+  {s:'Anthropic',t:'AnthTAM30T',type:'IPO 투자자설명 TAM전망(8/25)',rel:'regulation'},
+  {s:'AnthOctIPO',t:'AnthTAM30T',type:'IPO 준비 연장선',rel:'regulation'},
+  {s:'NVIDIA',t:'GroqLPX',type:'Groq인수 칩 완전양산(8/24)',rel:'infrastructure'},
+  {s:'OpenAI',t:'GPTAds',type:'유럽 31개국 확장(8/25)',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-08-25 11:00';
+const BUILD_DATETIME='2026-08-26 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=7,selDate=null;
