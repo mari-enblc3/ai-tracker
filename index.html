@@ -1221,6 +1221,14 @@ let EVENTS = [
    title:'NVIDIA, 200억 달러 인수 그록(Groq) 칩 "LPX" 완전양산 돌입',
    description:'NVIDIA가 8월 24일 지난해 12월 200억 달러에 인수한 그록(Groq)의 추론 전용 칩 기반 랙 "Groq 3 LPX"가 완전양산 단계에 돌입했다고 발표. 랙 하나에 그록칩 256개를 탑재하며 Artificial Analysis 벤치마크 기준 초당 3,400 토큰의 추론 속도를 낸다고 밝힘. 신규 베라(Vera) CPU·루빈(Rubin) GPU와 함께 네오클라우드 네비우스(Nebius)에 우선 배치되며 연내 가동 예정. 코딩 등 지연시간에 민감한 AI 에이전트 워크로드 대응을 위한 저지연 추론 인프라 확보 행보로 해석됨.',
    tags:['NVIDIA','Groq','LPX','추론칩'],source:'https://www.cnbc.com/2026/08/24/nvidia-says-groq-racks-will-be-online-this-year-after-20-billion-deal.html'},
+  {id:200,date:'2026-08-26',company:'NVIDIA',companies:['NVIDIA'],category:'infrastructure',
+   title:'엔비디아 2Q(FY27) 실적 서프라이즈 — 매출 962억달러(+106%), 데이터센터 890억달러',
+   description:'엔비디아가 8월 26일(현지시간) 2027 회계연도 2분기 실적을 발표. 매출은 전년 대비 106% 증가한 962.2억 달러로 월가 예상치(922.7억 달러)를 상회했고, 조정 주당순이익은 2.22달러로 예상치(2.09달러)를 웃돎. 데이터센터 부문 매출은 890억 달러로 2배 이상 성장. 젠슨 황 CEO는 "AI가 변곡점에 도달해 토큰이 생산적이고 수익성 있는 일을 하고 있다"며 "수요가 가속화하고 있다"고 밝혔으나, 동시에 "공급망 전체가 도전받고 있으며 수요 대비 공급이 70% 수준"이라고 언급. 3분기 매출 가이던스는 910억 달러(±2%) 제시.',
+   tags:['NVIDIA','2Q FY27실적','데이터센터','실적서프라이즈'],source:'https://fortune.com/2026/08/26/nvidia-results-q2-earnings/'},
+  {id:201,date:'2026-08-26',company:'SK',companies:['SK','Naver','LG'],category:'partnership',
+   title:'SKT·네이버클라우드, 정부 "사이버보안 특화 AI" 사업 컨소시엄 경쟁',
+   description:'과학기술정보통신부·정보통신산업진흥원(NIPA)이 추진하는 \'사이버보안 특화 AI 파운데이션 모델 개발\' 사업 공모에 8월 26일 SK텔레콤과 네이버클라우드 컨소시엄이 각각 제안서를 제출. SK텔레콤은 업스테이지·SK쉴더스·안랩 등 13개 기관과 손잡고 \'에이전틱 보안 서비스 실증\'을 제안했고, 네이버클라우드는 LG AI연구원·LG유플러스·LG CNS 등 LG그룹 계열사를 포함한 32개 기관과 컨소시엄을 구성. 정부는 9월 초 1개 팀을 선정해 엔비디아 B200 GPU 256장을 10개월간 지원할 계획이며, 개발된 모델은 오픈소스로 공개해 국내 보안 생태계에 확산할 방침.',
+   tags:['SK','Naver','LG','사이버보안AI','정부공모'],source:'https://www.newstomato.com/ReadNews.aspx?no=1311569'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1406,6 +1414,8 @@ const MM_NODES = [
   {id:'AstraPause',label:'아스트라\n개발중단(8/24)',grp:'topic',sz:14},
   {id:'AnthTAM30T',label:'30조달러\nTAM전망(8/25)',grp:'topic',sz:14},
   {id:'GroqLPX',label:'Groq 3 LPX\n완전양산(8/24)',grp:'topic',sz:14},
+  {id:'NvQ2FY27',label:'엔비디아 2Q FY27\n실적$962억(8/26)',grp:'topic',sz:16},
+  {id:'CyberAIBid',label:'사이버보안AI\n정부공모경쟁(8/26)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1676,13 +1686,17 @@ const MM_LINKS = [
   {s:'AnthOctIPO',t:'AnthTAM30T',type:'IPO 준비 연장선',rel:'regulation'},
   {s:'NVIDIA',t:'GroqLPX',type:'Groq인수 칩 완전양산(8/24)',rel:'infrastructure'},
   {s:'OpenAI',t:'GPTAds',type:'유럽 31개국 확장(8/25)',rel:'product'},
+  {s:'NVIDIA',t:'NvQ2FY27',type:'2분기 실적 서프라이즈(8/26)',rel:'infrastructure'},
+  {s:'SK',t:'CyberAIBid',type:'컨소시엄 제안(13개기관, 8/26)',rel:'partnership'},
+  {s:'Naver',t:'CyberAIBid',type:'컨소시엄 제안(32개기관, 8/26)',rel:'partnership'},
+  {s:'LG',t:'CyberAIBid',type:'네이버 컨소시엄 참여(8/26)',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-08-26 11:00';
+const BUILD_DATETIME='2026-08-27 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=7,selDate=null;
