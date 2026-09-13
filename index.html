@@ -1333,6 +1333,18 @@ let EVENTS = [
    title:'오픈AI, "에이전트 API" 퍼블릭 베타 공개 — 코덱스 하니스를 API 하나로 제공',
    description:'오픈AI가 9월 10일 코딩 에이전트 "코덱스(Codex)"를 구동해온 오픈소스 하니스와 인프라를 개발자에게 API 형태로 공개하는 "에이전트 API" 퍼블릭 베타를 발표. 세션 유지, 컨텍스트가 가득 찼을 때의 압축, 실패 후 복구 등을 오픈AI 측이 관리하고 개발자는 지시문·도구·MCP 서버만 제공하면 되는 구조. 별도 이용료 없이 토큰·도구 사용량에만 과금되며 모든 개발자에게 즉시 공개. 에이전트가 파일 작업·코드 실행·중간 결과 저장 등을 여러 날에 걸쳐 안정적으로 수행할 수 있는 인프라를 API 한 번의 호출로 제공한다는 점에서 에이전틱 AI 개발의 진입장벽을 낮추는 행보로 평가.',
    tags:['OpenAI','AgentsAPI','Codex','에이전트인프라'],source:'https://openai.com/index/introducing-the-agents-api/'},
+  {id:228,date:'2026-09-11',company:'Anthropic',companies:['Anthropic'],category:'regulation',
+   title:'앤트로픽, 위협 인텔리전스 보고서 발표 — 이란·러시아·중국·예멘의 클로드 무기화 시도 적발',
+   description:'앤트로픽 위협인텔리전스팀이 9월 11일 공개한 보고서에 따르면, 지난 1년간 이란·러시아·중국·예멘(후티 반군 통제지역) 등의 행위자가 클로드를 가미카제 드론 군집·미사일 유도 시스템·생물무기 관련 연구 등 군사적 목적에 오용하려 시도한 정황이 다수 확인됨. 러시아 정보기관 연계 해킹조직은 클로드로 악성코드 개발과 군·국방 표적 피싱 이메일 작성을 자동화했고, 후티 통제지역 예멘 조직은 미사일 유도로켓 시험발사까지 진행(실전 배치 성공 증거는 없음). 중국 연계 조직은 위구르족 감시·프로파일링에, 이란 조직은 기도시간 앱으로 위장한 감시코드 개발에 클로드를 악용. 앤트로픽은 모든 사례를 차단하고 당국·타 AI기업과 정보를 공유했으며, 해당 사례에 최신 모델 페이블·미토스는 관여되지 않았다고 밝힘.',
+   tags:['Anthropic','위협인텔리전스','국가행위자','AI오용'],source:'https://www.anthropic.com/threat-intelligence-report-september-2026'},
+  {id:229,date:'2026-09-11',company:'xAI',companies:['xAI'],category:'product',
+   title:'xAI, "그록 4.7" 출시 또 연기 — 머스크 "강화학습 튜닝에 며칠 더 필요"',
+   description:'일론 머스크가 9월 12일 출시를 목표로 했던 2.1조 파라미터 모델 "그록 4.7"의 출시를 9월 11일 재차 연기한다고 발표. 머스크는 강화학습(RL) 과정에서 응답 길이에 과도한 페널티를 준 탓에 모델이 어려운 과제를 풀 수 있음에도 너무 일찍 포기하고, 결과 검증도 충분히 엄격하지 않다는 문제를 언급하며 추가 튜닝이 필요하다고 설명. 그록 4.7은 스페이스X의 로켓·제조 데이터로 일부 학습됐으며 그록 4.6 대비 파라미터가 40% 늘어난 모델로, 9월 2일 공개 이후 벌써 두 번째 출시 지연.',
+   tags:['xAI','Grok4.7','출시연기','일론머스크'],source:'https://www.datastudios.org/post/xai-grok-4-7-delay-reinforcement-learning-self-checking'},
+  {id:230,date:'2026-09-10',company:'NVIDIA',companies:['NVIDIA'],category:'infrastructure',
+   title:'엔비디아, CUDA 13.4 정식 출시 — 차세대 베라 루빈 GPU 개발자 프리뷰 지원',
+   description:'엔비디아가 CUDA 툴킷 13.4(13.4.1)를 정식 출시하며 Windows on Arm 지원과 공유 GPU에 대한 세밀한 제어 기능을 추가. 이번 버전에는 차세대 "베라 루빈(Vera Rubin)" GPU(SM_107, 컴퓨트 capability 10.7)에 대한 개발자 프리뷰 지원이 처음 포함돼 개발자들이 정식 출시 전에 미리 소프트웨어 포팅과 검증을 시작할 수 있게 됨(벤치마킹·성능분석·상용배포용은 아님). 출시를 앞둔 RTX 스파크 AI PC 대응도 함께 강화됨.',
+   tags:['NVIDIA','CUDA13.4','VeraRubin','개발자프리뷰'],source:'https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1545,6 +1557,9 @@ const MM_NODES = [
   {id:'NvGroqDOJ',label:'그록 라이선스\nDOJ조사(9/9)',grp:'topic',sz:14},
   {id:'NvAusData',label:'호주 AI데이터센터\n2GW(9/10)',grp:'topic',sz:15},
   {id:'OAIAgentsAPI',label:'에이전트API\n퍼블릭베타(9/10)',grp:'topic',sz:14},
+  {id:'AnthThreatIntel',label:'위협보고서\n국가행위자오용(9/11)',grp:'topic',sz:15},
+  {id:'Grok47Delay',label:'Grok 4.7\n출시연기(9/11)',grp:'topic',sz:14},
+  {id:'CUDA134',label:'CUDA 13.4\n루빈프리뷰(9/10)',grp:'topic',sz:13},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1858,13 +1873,16 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'NvGroqDOJ',type:'DOJ 반독점 조사(9/9)',rel:'regulation'},
   {s:'NVIDIA',t:'NvAusData',type:'호주 8개사 파트너십(9/10)',rel:'infrastructure'},
   {s:'OpenAI',t:'OAIAgentsAPI',type:'퍼블릭베타 출시(9/10)',rel:'product'},
+  {s:'Anthropic',t:'AnthThreatIntel',type:'위협 인텔리전스 보고서 발표(9/11)',rel:'regulation'},
+  {s:'xAI',t:'Grok47Delay',type:'출시 재연기 발표(9/11)',rel:'product'},
+  {s:'NVIDIA',t:'CUDA134',type:'CUDA 13.4 정식출시(9/10)',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-11 11:00';
+const BUILD_DATETIME='2026-09-12 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
