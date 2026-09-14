@@ -1361,6 +1361,14 @@ let EVENTS = [
    title:'오픈AI, 2026년 기업공개 보류 — 알트먼 "AI 안전 우려 속 지금은 상장에 부적절한 시점"',
    description:'샘 알트먼 오픈AI CEO가 9월 12일 포춘과의 인터뷰에서 "AI 안전과 관련한 최근 상황을 감안하면 지금 상장을 추진하는 것은 시기상 부적절하다"며 오픈AI가 2026년 안에는 기업공개(IPO)를 하지 않겠다고 공식 확인. 오픈AI는 지난 6월 비공개로 IPO 서류(S-1)를 제출했으나, 앤트로픽이 먼저 상장 절차(10월 목표)를 밟는 것과 달리 상장 압박은 느끼지 않는다고 밝힘. 같은 날 나온 아모데이의 "AI 개발 속도 조절" 에세이와 맞물려, AI 업계 전반의 안전성 우려 고조를 보여주는 행보로 해석됨.',
    tags:['OpenAI','IPO보류','알트먼','AI안전'],source:'https://fortune.com/2026/09/12/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/'},
+  {id:235,date:'2026-09-12',company:'Anthropic',companies:['Anthropic','Google'],category:'leadership',
+   title:'앤트로픽 스케일러블 오버사이트팀장·구글 딥마인드 AGI안전연구원, AI안전 우려로 잇단 사직 — METR 합류',
+   description:'앤트로픽에서 확장가능한감독(Scalable Oversight)팀을 이끌던 조 벤턴이 9월 11일 2주 전 사직 사실을 공개하고, 구글 딥마인드 AGI 안전팀 연구원 조시 엥겔스도 뒤이어 퇴사를 발표. 두 사람 모두 독립 AI 리스크 평가기관 METR로 이직해 자율 AI 시스템의 위험성을 외부에서 평가하는 업무를 맡을 예정. 벤턴은 경쟁사 간 속도 경쟁이 모든 프론티어 AI 기업으로 하여금 안전 프로토콜을 소홀히 하게 만들고 있다며, AI 최전선의 사고에 대한 투명성 강화가 시급하다고 지적. 이는 앞서 앤트로픽 연구자 제이컵 콕슨의 공개 사직·경고에 이어 며칠 만에 나온 추가 이탈로, AI 업계 안전 인력 유출 우려를 키움.',
+   tags:['Anthropic','Google','METR','AI안전','사직'],source:'https://www.nbcnews.com/tech/security/two-ai-researchers-leave-anthropic-google-safety-concerns-rcna597086'},
+  {id:236,date:'2026-09-13',company:'Anthropic',companies:['Anthropic','NVIDIA'],category:'partnership',
+   title:'엔비디아, 앤트로픽 나스닥 IPO에 최대 100억 달러 앵커 투자 검토 — 기업가치 2조 달러 눈앞',
+   description:'로이터·블룸버그 보도(9월 11~13일)에 따르면 엔비디아가 앤트로픽의 나스닥 기업공개(IPO)에 최대 100억 달러 규모의 앵커 투자자로 참여하는 방안을 논의 중. 앤트로픽은 이번 IPO를 통해 최대 1,000억 달러를 조달할 계획이며, 성사되면 기업가치는 약 2조 달러에 달해 역대 최대 규모 IPO가 될 전망. 지난 5월 965억 달러 밸류에이션으로 650억 달러를 조달한 지 몇 달 만에 다시 대규모 밸류에이션 상승이 예상되는 것으로, 2028년 매출 1,900억~2,000억 달러 전망이 근거로 제시됨. 다만 논의는 비공개 단계로 조건은 유동적이며, IPO는 11월 미 중간선거 이전 완료를 목표로 하는 것으로 전해짐.',
+   tags:['Anthropic','NVIDIA','IPO','앵커투자'],source:'https://americanbazaaronline.com/2026/09/13/nvidia-10-billion-investment-anthropic-ipo-488038/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1579,6 +1587,8 @@ const MM_NODES = [
   {id:'FieldsMedalAI',label:'필즈메달25인\nAI정렬성명(9/11)',grp:'topic',sz:15},
   {id:'PentagonLoan',label:'국방부\n플루이드스택대출$50억(9/11)',grp:'topic',sz:15},
   {id:'PacingEssay',label:'아모데이\n속도조절에세이(9/12)',grp:'topic',sz:15},
+  {id:'SafetyExits',label:'벤튼·엥겔스\nMETR합류(9/12)',grp:'topic',sz:14},
+  {id:'AnthNvIPO',label:'엔비디아 100억불\nIPO앵커투자(9/13)',grp:'topic',sz:16},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1902,13 +1912,17 @@ const MM_LINKS = [
   {s:'Anthropic',t:'PacingEssay',type:'AI개발 속도조절 촉구(9/12)',rel:'regulation'},
   {s:'OpenAI',t:'PacingEssay',type:'속도조절 동의 표명(9/12)',rel:'regulation'},
   {s:'OpenAI',t:'OpenAIIPO',type:'2026년 상장보류·안전우려(9/12)',rel:'regulation'},
+  {s:'Anthropic',t:'SafetyExits',type:'오버사이트팀장 사직·METR합류(9/12)',rel:'regulation'},
+  {s:'Google',t:'SafetyExits',type:'AGI안전연구원 사직·METR합류(9/12)',rel:'regulation'},
+  {s:'Anthropic',t:'AnthNvIPO',type:'나스닥IPO 앵커투자 유치(9/13)',rel:'partnership'},
+  {s:'NVIDIA',t:'AnthNvIPO',type:'최대100억달러 앵커투자 검토(9/13)',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-13 11:00';
+const BUILD_DATETIME='2026-09-14 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
