@@ -1369,6 +1369,10 @@ let EVENTS = [
    title:'엔비디아, 앤트로픽 나스닥 IPO에 최대 100억 달러 앵커 투자 검토 — 기업가치 2조 달러 눈앞',
    description:'로이터·블룸버그 보도(9월 11~13일)에 따르면 엔비디아가 앤트로픽의 나스닥 기업공개(IPO)에 최대 100억 달러 규모의 앵커 투자자로 참여하는 방안을 논의 중. 앤트로픽은 이번 IPO를 통해 최대 1,000억 달러를 조달할 계획이며, 성사되면 기업가치는 약 2조 달러에 달해 역대 최대 규모 IPO가 될 전망. 지난 5월 965억 달러 밸류에이션으로 650억 달러를 조달한 지 몇 달 만에 다시 대규모 밸류에이션 상승이 예상되는 것으로, 2028년 매출 1,900억~2,000억 달러 전망이 근거로 제시됨. 다만 논의는 비공개 단계로 조건은 유동적이며, IPO는 11월 미 중간선거 이전 완료를 목표로 하는 것으로 전해짐.',
    tags:['Anthropic','NVIDIA','IPO','앵커투자'],source:'https://americanbazaaronline.com/2026/09/13/nvidia-10-billion-investment-anthropic-ipo-488038/'},
+  {id:237,date:'2026-09-14',company:'Anthropic',companies:['Anthropic','OpenAI','xAI','NVIDIA','Meta'],category:'regulation',
+   title:'머스크 "다리오가 옳다" — 속도조절 동조 확산에 AI 반도체주 급락, 빅테크는 반등',
+   description:'일론 머스크가 9월 13일 X에 "Dario is right"이라며 다리오 아모데이(앤트로픽)·샘 알트먼(오픈AI)의 AI 개발 속도조절론에 공개 동조. 이에 따라 9월 14일(월) 뉴욕증시에서 AI 반도체·인프라 관련주가 일제히 하락, 엔비디아는 8.38% 급락해 210.82달러를 기록했고 인텔·AMD·마벨도 5~6%대 낙폭을 보이며 필라델피아반도체지수가 6% 가까이 빠짐. 반면 메타(주간 +7.12%)·알파벳(+2%)·마이크로소프트(+1.6%) 등 대규모 데이터센터 자본지출 의존도가 낮은 빅테크는 오히려 상승. 시장은 프론티어 모델 개발 속도가 늦춰질 경우 칩·데이터센터 투자 사이클이 둔화될 수 있다는 신호로 해석.',
+   tags:['xAI','NVIDIA','Meta','일론머스크','AI안전','속도조절','증시반응'],source:'https://fortune.com/2026/09/14/ai-slowdown-stocks-nvidia-meta/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1916,13 +1920,16 @@ const MM_LINKS = [
   {s:'Google',t:'SafetyExits',type:'AGI안전연구원 사직·METR합류(9/12)',rel:'regulation'},
   {s:'Anthropic',t:'AnthNvIPO',type:'나스닥IPO 앵커투자 유치(9/13)',rel:'partnership'},
   {s:'NVIDIA',t:'AnthNvIPO',type:'최대100억달러 앵커투자 검토(9/13)',rel:'partnership'},
+  {s:'xAI',t:'PacingEssay',type:'머스크 동조 "Dario is right"(9/13)',rel:'regulation'},
+  {s:'NVIDIA',t:'PacingEssay',type:'속도조절 우려로 주가 8.4%급락(9/14)',rel:'regulation'},
+  {s:'Meta',t:'PacingEssay',type:'속도조절 기대감에 주가 반등(9/14)',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-14 11:00';
+const BUILD_DATETIME='2026-09-15 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
