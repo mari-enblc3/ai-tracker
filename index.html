@@ -1373,6 +1373,14 @@ let EVENTS = [
    title:'머스크 "다리오가 옳다" — 속도조절 동조 확산에 AI 반도체주 급락, 빅테크는 반등',
    description:'일론 머스크가 9월 13일 X에 "Dario is right"이라며 다리오 아모데이(앤트로픽)·샘 알트먼(오픈AI)의 AI 개발 속도조절론에 공개 동조. 이에 따라 9월 14일(월) 뉴욕증시에서 AI 반도체·인프라 관련주가 일제히 하락, 엔비디아는 8.38% 급락해 210.82달러를 기록했고 인텔·AMD·마벨도 5~6%대 낙폭을 보이며 필라델피아반도체지수가 6% 가까이 빠짐. 반면 메타(주간 +7.12%)·알파벳(+2%)·마이크로소프트(+1.6%) 등 대규모 데이터센터 자본지출 의존도가 낮은 빅테크는 오히려 상승. 시장은 프론티어 모델 개발 속도가 늦춰질 경우 칩·데이터센터 투자 사이클이 둔화될 수 있다는 신호로 해석.',
    tags:['xAI','NVIDIA','Meta','일론머스크','AI안전','속도조절','증시반응'],source:'https://fortune.com/2026/09/14/ai-slowdown-stocks-nvidia-meta/'},
+  {id:238,date:'2026-09-15',company:'OpenAI',companies:['OpenAI','Anthropic','Google'],category:'regulation',
+   title:'오픈AI·앤트로픽·구글, 수주간 AI안전기구 설립 물밑협상 — 반독점 리스크·트럼프 견제 속',
+   description:'테크크런치가 9월 15일 보도한 바에 따르면 오픈AI·앤트로픽·구글 세 회사가 수 주째 AI 안전 관련 협력 방안을 비공개로 논의해온 것으로 확인됨. 오픈AI 글로벌정책총괄 크리스 러헤인은 이번 협의가 지난 토요일 발표된 다리오 아모데이(앤트로픽 CEO)의 "속도조절" 에세이 이후 촉발됐다고 설명. 샘 알트먼(오픈AI)·데미스 하사비스(구글 딥마인드)·일론 머스크(xAI)도 아모데이의 제안에 공개 동조했으며, 알트먼은 앤트로픽처럼 제3자 평가기관을 자사 내부에 상주시켜 안전성을 감시하도록 하겠다고 밝힘. 다만 경쟁사 간 이 같은 조율이 반독점법 위반 소지가 있다는 지적이 제기됐고, 러헤인은 정부의 별도 면제 없이도 협력이 가능하다는 입장. 반면 트럼프 대통령은 이러한 안전 우려를 "사기(hoax)"로 일축하며 규제 강화에 반대하고, 속도 조절 시 중국에 주도권을 내줄 수 있다고 경고함.',
+   tags:['OpenAI','Anthropic','Google','AI안전','반독점','물밑협상'],source:'https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/'},
+  {id:239,date:'2026-09-15',company:'Google',companies:['Google','Anthropic'],category:'partnership',
+   title:'구글, 전 엔지니어에 앤트로픽 클로드 오퍼스5 접근권 개방 — 사내 개발도구 정책 전환',
+   description:'비즈니스인사이더(휴 랭글리) 보도에 따르면 구글이 9월 15일 사내 개발 플랫폼 "앤티그래비티(Antigravity)"를 통해 전 엔지니어에게 앤트로픽 클로드 오퍼스5 접근권을 부여하는 정책 전환을 단행. 기존에는 딥마인드 일부 팀과 우선순위 프로젝트 담당자에게만 제한적으로 허용됐고, 클로드 코드·오픈AI 코덱스 등 외부 코딩툴 사용은 대체로 금지돼 왔음. 이번 조치로 직원마다 클로드 오퍼스5 이용을 위한 개인별 할당량(퍼-유저 쿼터)이 부여되나, 구글은 "제미나이가 여전히 사내 개발의 주력·기초 모델"이라는 입장을 재확인하며 서드파티 모델은 특수 용도 보완재로 자리매김한다고 설명.',
+   tags:['Google','Anthropic','ClaudeOpus5','Antigravity','사내정책'],source:'https://dataconomy.com/2026/09/15/google-opens-anthropic-claude-access-for-engineers/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1593,6 +1601,8 @@ const MM_NODES = [
   {id:'PacingEssay',label:'아모데이\n속도조절에세이(9/12)',grp:'topic',sz:15},
   {id:'SafetyExits',label:'벤튼·엥겔스\nMETR합류(9/12)',grp:'topic',sz:14},
   {id:'AnthNvIPO',label:'엔비디아 100억불\nIPO앵커투자(9/13)',grp:'topic',sz:16},
+  {id:'SafetyTalks915',label:'AI안전기구\n물밑협상(9/15)',grp:'topic',sz:15},
+  {id:'GoogClaudeAccess',label:'구글 전직원\n클로드 접근개방(9/15)',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'JumperAnth',type:'영입(노벨화학상)',rel:'partnership'},
@@ -1923,13 +1933,18 @@ const MM_LINKS = [
   {s:'xAI',t:'PacingEssay',type:'머스크 동조 "Dario is right"(9/13)',rel:'regulation'},
   {s:'NVIDIA',t:'PacingEssay',type:'속도조절 우려로 주가 8.4%급락(9/14)',rel:'regulation'},
   {s:'Meta',t:'PacingEssay',type:'속도조절 기대감에 주가 반등(9/14)',rel:'regulation'},
+  {s:'OpenAI',t:'SafetyTalks915',type:'수주간 AI안전기구 물밑협상(9/15)',rel:'regulation'},
+  {s:'Anthropic',t:'SafetyTalks915',type:'수주간 AI안전기구 물밑협상(9/15)',rel:'regulation'},
+  {s:'Google',t:'SafetyTalks915',type:'수주간 AI안전기구 물밑협상(9/15)',rel:'regulation'},
+  {s:'Google',t:'GoogClaudeAccess',type:'전직원 클로드 오퍼스5 접근개방(9/15)',rel:'partnership'},
+  {s:'Anthropic',t:'GoogClaudeAccess',type:'구글 앤티그래비티 통해 사내공급(9/15)',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-15 11:00';
+const BUILD_DATETIME='2026-09-16 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
