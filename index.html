@@ -1421,6 +1421,18 @@ let EVENTS = [
    title:'오픈AI, "호주 청소년 안전 청사진" 발표 — AI리터러시부터 위기지원 연계까지 6대 원칙 제시',
    description:'오픈AI가 9월 19일 청소년의 AI 이용을 보호하기 위한 정책 로드맵 "호주 청소년 안전 청사진(Australian Youth Safety Blueprint)"을 공개. AI 리터러시 교육, 연령대별 안전장치, 프라이버시를 보호하는 연령확인 체계, 실제 위기상담 서비스 연계, 접근 가능한 부모통제 기능 등 6개 원칙을 제시하며 AI 기업의 청소년 리스크 식별·대응 책임을 규정. 앞서 8월 호주에서 13~17세 이용자를 대상으로 한 기본 안전모드 "챗GPT 틴즈"를 시범 도입한 데 이은 후속 조치로, 호주 정부가 추진 중인 "디지털플랫폼법" 온라인 유해콘텐츠 규제 개정안 발표를 앞두고 선제적으로 규제 대응에 나선 행보로 평가.',
    tags:['OpenAI','호주','청소년안전','규제대응'],source:'https://openai.com/index/australian-youth-safety-blueprint/'},
+  {id:250,date:'2026-09-18',company:'OpenAI',companies:['OpenAI'],category:'product',
+   title:'오픈AI, 챗GPT 데스크톱 앱에 크롬 확장프로그램 지원 추가',
+   description:'오픈AI가 9월 18일 챗GPT 데스크톱 앱 내장 브라우저에 크롬 확장프로그램 지원을 추가했다고 발표. 이용자는 1Password 등 평소 쓰던 확장프로그램을 설치·고정해 챗GPT 작업 중에도 그대로 사용할 수 있으며, 크롬 개발자도구 프로토콜(CDP) 지원으로 AI 비서가 실시간 브라우저 세션과 직접 상호작용 가능. 같은 날 챗GPT용 마이크로소프트 워드 확장 정식 출시(GA), 플러그인 다중계정 지원, 윈도우용 "앱샷(Appshots)" 기능도 함께 공개.',
+   tags:['OpenAI','ChatGPT','크롬확장','데스크톱브라우저'],source:'https://www.neowin.net/news/chatgpt-finally-comes-to-microsoft-word-gets-new-google-chrome-extension-and-more/'},
+  {id:251,date:'2026-09-18',company:'Meta',companies:['Meta'],category:'product',
+   title:"메타 '뮤즈', 출시 10일 만에 美 앱스토어 1위 — 챗GPT·제미나이·클로드 제쳐",
+   description:'메타의 개인 AI 에이전트 앱 "뮤즈(Muse)"가 출시(9월 8일) 10일 만인 9월 18일 미국 애플 앱스토어 무료 앱 순위 1위에 올랐다고 시장조사업체 센서타워가 집계, 해당 기간 미국 내 누적 다운로드 73만 건 이상을 기록하며 챗GPT·구글 제미나이·앤트로픽 클로드는 물론 메타 자사 인스타그램까지 제쳤다. 뮤즈는 단순 대화형 챗봇과 달리 이메일 발송·여행 예약·구매 등 이용자를 대신해 작업을 수행하는 에이전트형 앱으로, 무료 기본형과 월 20달러·100달러 유료 요금제로 운영.',
+   tags:['Meta','Muse','앱스토어1위','다운로드'],source:'https://9to5mac.com/2026/09/18/metas-new-muse-ai-agent-app-overtakes-chatgpt-as-top-iphone-app/'},
+  {id:252,date:'2026-09-18',company:'Anthropic',companies:['Anthropic','OpenAI','Microsoft','Google'],category:'regulation',
+   title:"'플러그인4쉘' 제로클릭 취약점 공개 — 클로드코드·코덱스·코파일럿·제미나이CLI 4대 AI코딩에이전트 강타",
+   description:'보안업체 AIR시큐리티가 9월 18일 AI 코딩 에이전트 생태계 최초의 "공급망형" 취약점으로 지목한 "플러그인4쉘(Plugin4Shell)" 제로클릭 원격코드실행(RCE) 결함을 공개. 악성 플러그인 업데이트만으로 이용자 클릭·승인·재설치 없이 공격자 코드가 실행되며, 설치 플러그인을 특정 검증버전에 고정하는 SHA핀 검증 체계를 우회하는 방식. 앤트로픽은 클로드코드 2.1.179에서, 오픈AI는 코덱스 0.146.0에서 각각 패치를 완료했으나, 마이크로소프트는 깃허브 코파일럿 패치를 공개 시점까지 내놓지 않았고, 구글은 제미나이CLI를 사용중단(deprecated) 처리하며 앤티그래비티(Antigravity)로의 이전을 권고.',
+   tags:['보안취약점','Plugin4Shell','AI코딩에이전트','제로클릭RCE'],source:'https://cybersecuritynews.com/plugin4shell-zero-click-rce/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1653,6 +1665,9 @@ const MM_NODES = [
   {id:'GeminiHack3',label:'제미나이\n3사무단접속(9/18)',grp:'topic',sz:15},
   {id:'AnthChinaCCTV',label:'中CCTV\n프라이버시지적(9/19)',grp:'topic',sz:13},
   {id:'OAIAusBlueprint',label:'호주청소년\n안전청사진(9/19)',grp:'topic',sz:13},
+  {id:'ChatGPTChromeExt',label:'챗GPT\n크롬확장(9/18)',grp:'topic',sz:12},
+  {id:'MuseTop1',label:'뮤즈\n앱스토어1위(9/18)',grp:'topic',sz:14},
+  {id:'Plugin4Shell',label:'Plugin4Shell\n제로클릭RCE(9/18)',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'AnthAccenture',type:'액센츄어와 임베디드평가 파트너십(9/18)',rel:'partnership'},
@@ -2009,13 +2024,20 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'AppleM8Server',type:'NVLink Fusion 탑재논의(9/16)',rel:'infrastructure'},
   {s:'OpenAI',t:'OpenAI15T',type:'신규 펀딩라운드 검토(9/16)',rel:'regulation'},
   {s:'OpenAI15T',t:'OpenAIIPO',type:'IPO 2027년으로 재확인',rel:'regulation'},
+  {s:'OpenAI',t:'ChatGPTChromeExt',type:'데스크톱 챗GPT에 크롬 확장 지원 추가(9/18)',rel:'product'},
+  {s:'Meta',t:'MuseTop1',type:'출시 10일만 美 앱스토어 1위(9/18)',rel:'product'},
+  {s:'MuseAgent',t:'MuseTop1',type:'뮤즈 정식출시 이후 성과',rel:'product'},
+  {s:'Anthropic',t:'Plugin4Shell',type:'클로드코드 취약점·패치완료(9/18)',rel:'regulation'},
+  {s:'OpenAI',t:'Plugin4Shell',type:'코덱스 취약점·패치완료(9/18)',rel:'regulation'},
+  {s:'Microsoft',t:'Plugin4Shell',type:'코파일럿 취약점·미패치(9/18)',rel:'regulation'},
+  {s:'Google',t:'Plugin4Shell',type:'제미나이CLI 취약점·사용중단(9/18)',rel:'regulation'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-20 11:00';
+const BUILD_DATETIME='2026-09-21 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
