@@ -1433,6 +1433,14 @@ let EVENTS = [
    title:"'플러그인4쉘' 제로클릭 취약점 공개 — 클로드코드·코덱스·코파일럿·제미나이CLI 4대 AI코딩에이전트 강타",
    description:'보안업체 AIR시큐리티가 9월 18일 AI 코딩 에이전트 생태계 최초의 "공급망형" 취약점으로 지목한 "플러그인4쉘(Plugin4Shell)" 제로클릭 원격코드실행(RCE) 결함을 공개. 악성 플러그인 업데이트만으로 이용자 클릭·승인·재설치 없이 공격자 코드가 실행되며, 설치 플러그인을 특정 검증버전에 고정하는 SHA핀 검증 체계를 우회하는 방식. 앤트로픽은 클로드코드 2.1.179에서, 오픈AI는 코덱스 0.146.0에서 각각 패치를 완료했으나, 마이크로소프트는 깃허브 코파일럿 패치를 공개 시점까지 내놓지 않았고, 구글은 제미나이CLI를 사용중단(deprecated) 처리하며 앤티그래비티(Antigravity)로의 이전을 권고.',
    tags:['보안취약점','Plugin4Shell','AI코딩에이전트','제로클릭RCE'],source:'https://cybersecuritynews.com/plugin4shell-zero-click-rce/'},
+  {id:253,date:'2026-09-20',company:'Anthropic',companies:['Anthropic','OpenAI','Google','xAI'],category:'regulation',
+   title:'앤트로픽·오픈AI·구글·xAI, "AI 속도조절 담합" 반독점 집단소송 피소 — 아모데이 에세이가 소장 핵심증거로',
+   description:'미국 캘리포니아북부연방지법에 9월 18일 소비자 4명이 앤트로픽·오픈AI·구글·스페이스X AI(xAI/그록)를 상대로 셔먼법 1조 위반 집단소송을 제기했다고 9월 20일 CBS뉴스·PBS뉴스아워 등이 보도. 소장은 다리오 아모데이 앤트로픽 CEO가 9월 12일 "프론티어의 속도를 늦추자"는 취지로 게재한 에세이와, 같은 날 샘 알트먼 오픈AI CEO·일론 머스크 xAI CEO·데미스 하사비스 구글 딥마인드 공동창업자가 잇따라 공개 동의 의사를 밝힌 정황을 경쟁사 간 "산출량 제한 카르텔" 합의의 핵심 증거로 제시. 원고 측은 챗GPT·클로드·그록·제미나이 유료 구독자를 대표해 클레이튼법상 3배 손해배상과 함께 AI 개발속도에 관한 수평적 합의 금지 가처분을 요구하며 배심재판을 신청.',
+   tags:['Anthropic','OpenAI','Google','xAI','반독점소송','셔먼법'],source:'https://www.ghacks.net/2026/09/21/anthropic-openai-google-and-spacexai-face-antitrust-lawsuit-over-ai-slowdown-pact/'},
+  {id:254,date:'2026-09-21',company:'Samsung',companies:['Samsung','NVIDIA'],category:'infrastructure',
+   title:'삼성전자, HBM4 유리기판 캐리어 조달 2027년까지 2.5배 확대 — 엔비디아 "베라 루빈" 탑재 정조준',
+   description:'웍트페크(Wccftech)가 9월 21일(현지시간) 보도한 데 따르면, 삼성전자가 차세대 고대역폭메모리 HBM4의 생산·공급망을 대폭 확대하며 엔비디아 차세대 AI GPU "베라 루빈(Vera Rubin)" 탑재를 정조준하고 있다. HBM4 적층 최하단 베이스 다이 제작에 고성능 로직 공정인 4나노미터 파운드리 공정을 적용해 역량을 집중하는 한편, 웨이퍼 지지용 유리기판 캐리어 조달량을 2025년 월 1만 시트에서 이미 월 2만 시트로 2배 이상 늘렸고, 2027년에는 월 5만 시트(2026년 대비 2.5배)까지 확대할 방침. 초기 미세공정 수율 안정화와 고객사 품질승인이 향후 실적 가시화의 관건으로 지목.',
+   tags:['Samsung','NVIDIA','HBM4','베라루빈','반도체공급망'],source:'https://www.g-enews.com/article/Global-Biz/2026/09/202609220549544379fbbec65dfb_1'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1668,6 +1676,8 @@ const MM_NODES = [
   {id:'ChatGPTChromeExt',label:'챗GPT\n크롬확장(9/18)',grp:'topic',sz:12},
   {id:'MuseTop1',label:'뮤즈\n앱스토어1위(9/18)',grp:'topic',sz:14},
   {id:'Plugin4Shell',label:'Plugin4Shell\n제로클릭RCE(9/18)',grp:'topic',sz:15},
+  {id:'PacingLawsuit',label:'AI속도조절\n반독점소송(9/18)',grp:'topic',sz:15},
+  {id:'SamsungHBM4Glass',label:'HBM4유리기판\n캐리어증산(9/21)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'AnthAccenture',type:'액센츄어와 임베디드평가 파트너십(9/18)',rel:'partnership'},
@@ -2031,13 +2041,20 @@ const MM_LINKS = [
   {s:'OpenAI',t:'Plugin4Shell',type:'코덱스 취약점·패치완료(9/18)',rel:'regulation'},
   {s:'Microsoft',t:'Plugin4Shell',type:'코파일럿 취약점·미패치(9/18)',rel:'regulation'},
   {s:'Google',t:'Plugin4Shell',type:'제미나이CLI 취약점·사용중단(9/18)',rel:'regulation'},
+  {s:'Anthropic',t:'PacingLawsuit',type:'속도조절 담합 반독점 집단소송 피소(9/18)',rel:'regulation'},
+  {s:'OpenAI',t:'PacingLawsuit',type:'속도조절 담합 반독점 집단소송 피소(9/18)',rel:'regulation'},
+  {s:'Google',t:'PacingLawsuit',type:'속도조절 담합 반독점 집단소송 피소(9/18)',rel:'regulation'},
+  {s:'xAI',t:'PacingLawsuit',type:'속도조절 담합 반독점 집단소송 피소(9/18)',rel:'regulation'},
+  {s:'PacingEssay',t:'PacingLawsuit',type:'아모데이 에세이가 소장 핵심증거로 인용',rel:'regulation'},
+  {s:'Samsung',t:'SamsungHBM4Glass',type:'유리기판 캐리어 조달 2.5배 확대(9/21)',rel:'infrastructure'},
+  {s:'NVIDIA',t:'SamsungHBM4Glass',type:'베라루빈 GPU용 HBM4 탑재 협력(9/21)',rel:'infrastructure'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-21 11:00';
+const BUILD_DATETIME='2026-09-22 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
