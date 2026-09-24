@@ -1441,6 +1441,18 @@ let EVENTS = [
    title:'삼성전자, HBM4 유리기판 캐리어 조달 2027년까지 2.5배 확대 — 엔비디아 "베라 루빈" 탑재 정조준',
    description:'웍트페크(Wccftech)가 9월 21일(현지시간) 보도한 데 따르면, 삼성전자가 차세대 고대역폭메모리 HBM4의 생산·공급망을 대폭 확대하며 엔비디아 차세대 AI GPU "베라 루빈(Vera Rubin)" 탑재를 정조준하고 있다. HBM4 적층 최하단 베이스 다이 제작에 고성능 로직 공정인 4나노미터 파운드리 공정을 적용해 역량을 집중하는 한편, 웨이퍼 지지용 유리기판 캐리어 조달량을 2025년 월 1만 시트에서 이미 월 2만 시트로 2배 이상 늘렸고, 2027년에는 월 5만 시트(2026년 대비 2.5배)까지 확대할 방침. 초기 미세공정 수율 안정화와 고객사 품질승인이 향후 실적 가시화의 관건으로 지목.',
    tags:['Samsung','NVIDIA','HBM4','베라루빈','반도체공급망'],source:'https://www.g-enews.com/article/Global-Biz/2026/09/202609220549544379fbbec65dfb_1'},
+  {id:255,date:'2026-09-22',company:'Anthropic',companies:['Anthropic'],category:'model',
+   title:'앤트로픽, 클로드 오퍼스 5.5 출시 — 비용 40%↓ 속도 30%↑',
+   description:'앤트로픽이 9월 22일 5.5 패밀리의 첫 모델인 클로드 오퍼스 5.5를 출시했다. 기존 오퍼스5 대비 전형적 워크로드 비용을 약 40% 절감했고 출력 속도는 30% 이상 향상됐다. 가격은 입력 100만 토큰당 4달러·출력 20달러로 이전 대비 약 20% 인하됐으며, 캐시 읽기 비용은 0.20달러로 60% 낮아졌다. 대부분의 업무에서 클로드 페이블 5.1과 동등한 성능을 보이며 100만 토큰 컨텍스트 윈도우를 지원한다. 앤트로픽은 소넷 5.5·하이쿠 5.5도 수주 내 순차 출시할 예정이라고 밝혔다.',
+   tags:['Anthropic','ClaudeOpus5.5','모델출시','비용절감'],source:'https://finance.yahoo.com/technology/ai/articles/anthropic-claude-5-5-release-185148663.html'},
+  {id:256,date:'2026-09-22',company:'OpenAI',companies:['OpenAI'],category:'model',
+   title:'오픈AI, GPT-6 Sol·Luna 출시 — API 가격 기존대비 최대 50%↓',
+   description:'오픈AI가 9월 22일 GPT-6 패밀리의 새 모델 Sol과 Luna를 출시했다. API 가격은 GPT-5.6 프로모션 가격 대비 최대 50% 낮으며, 캐싱·추론 효율 개선이 배경이다. Sol은 대화형·에이전틱 코딩에 균형 잡힌 모델, Luna는 소규모·고속 작업에 최적화된 GPT-6 패밀리 중 최저비용 모델이다. 두 모델 모두 GPT-6 아스트라의 기술적 진보를 계승해 더 빠르고 저렴하게 구현했으며, 내부 사실성 평가에서 Sol의 오류율은 전작 대비 절반 수준으로 아스트라급 신뢰도를 훨씬 낮은 비용에 달성했다. 플러스·프로·비즈니스·엔터프라이즈·에듀 사용자에게 챗GPT워크·코덱스에서 제공되며 API 접근도 함께 열렸다.',
+   tags:['OpenAI','GPT-6','Sol','Luna','모델출시'],source:'https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/'},
+  {id:257,date:'2026-09-23',company:'Anthropic',companies:['Anthropic'],category:'product',
+   title:'앤트로픽 신설 바이오랩, 클로드가 박테리오파지서 CRISPR 유사 신규 효소 시스템 발견',
+   description:'앤트로픽이 9월 23일 신설한 생명과학 연구 그룹(바이오랩)의 첫 성과를 공개했다. 클로드가 20만 개 이상의 역전사효소를 스캔해 박테리오파지(박테리아를 감염시키는 바이러스) DNA에 숨어있던 미확인 효소 시스템 "ART(array-associated reverse transcriptase)"를 자율적으로 발견했다고 밝혔다. 약 950개 에이전트가 21시간 동안 2억1000만 토큰을 사용해 3,500개 후보를 20개 시스템으로 좁혔으며, 효소 유전자 옆에 CRISPR와 유사하게 일정 간격으로 반복되는 DNA 배열이 존재함을 확인했다. 다만 이 시스템이 실제로 어떤 기능을 하는지는 아직 밝혀지지 않았다. 앤트로픽은 범용 AI 모델이 생물학적 발견을 체계화·가속할 수 있는지 시험하기 위해 올봄 이 연구그룹을 신설했다고 설명했다.',
+   tags:['Anthropic','바이오랩','효소발견','CRISPR','생명과학'],source:'https://www.anthropic.com/news/claude-discovers-novel-enzyme-system'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1678,6 +1690,9 @@ const MM_NODES = [
   {id:'Plugin4Shell',label:'Plugin4Shell\n제로클릭RCE(9/18)',grp:'topic',sz:15},
   {id:'PacingLawsuit',label:'AI속도조절\n반독점소송(9/18)',grp:'topic',sz:15},
   {id:'SamsungHBM4Glass',label:'HBM4유리기판\n캐리어증산(9/21)',grp:'topic',sz:14},
+  {id:'Opus55',label:'Claude Opus 5.5\n출시(9/22)',grp:'topic',sz:16},
+  {id:'GPT6SolLuna',label:'GPT-6\nSol·Luna(9/22)',grp:'topic',sz:16},
+  {id:'AnthEnzyme',label:'박테리오파지\n신규효소ART(9/23)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'AnthAccenture',type:'액센츄어와 임베디드평가 파트너십(9/18)',rel:'partnership'},
@@ -2048,13 +2063,16 @@ const MM_LINKS = [
   {s:'PacingEssay',t:'PacingLawsuit',type:'아모데이 에세이가 소장 핵심증거로 인용',rel:'regulation'},
   {s:'Samsung',t:'SamsungHBM4Glass',type:'유리기판 캐리어 조달 2.5배 확대(9/21)',rel:'infrastructure'},
   {s:'NVIDIA',t:'SamsungHBM4Glass',type:'베라루빈 GPU용 HBM4 탑재 협력(9/21)',rel:'infrastructure'},
+  {s:'Anthropic',t:'Opus55',type:'클로드 오퍼스 5.5 출시, 비용40%↓(9/22)',rel:'product'},
+  {s:'OpenAI',t:'GPT6SolLuna',type:'GPT-6 Sol·Luna 출시, API가격 최대50%↓(9/22)',rel:'product'},
+  {s:'Anthropic',t:'AnthEnzyme',type:'신설 바이오랩, 박테리오파지 신규효소ART 발견(9/23)',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-22 11:00';
+const BUILD_DATETIME='2026-09-24 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
