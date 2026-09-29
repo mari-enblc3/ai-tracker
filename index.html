@@ -1517,6 +1517,9 @@ let EVENTS = [
    title:'일본 성우 츠다 켄지로, AI 음성복제 놓고 틱톡 상대 일본 첫 소송 제기',
    description:'일본 애니메이션 성우 츠다 켄지로가 자신의 저음 목소리를 무단 복제해 사용하는 계정을 방치했다며 바이트댄스의 틱톡을 상대로 일본 내 첫 음성 정체성 AI복제 소송을 제기했다고 재팬투데이가 9월 28일 보도했다.',
    tags:['ByteDance','TikTok','AI음성복제','성우소송','일본'],source:'https://japantoday.com/category/entertainment/japanese-anime-actor-fights-tiktok-over-ai-voice-cloning'},
+  {id:274,date:'2026-09-28',company:'Anthropic',companies:['Anthropic'],category:'product',title:'앤트로픽, 클로드 소넷 5.5 출시…소넷 5 가격 동결',description:'앤트로픽이 클로드 소넷 5.5를 공개했다. 이전 세대보다 약 30% 빠르며 가격은 소넷 5와 동일(입력 $2/출력 $10)하다. 터미널벤치 4.0에서 70.6%를 기록했다고 마크테크포스트가 9월 28일 보도했다.',tags:['Anthropic','Claude','Sonnet 5.5','모델출시'],source:'https://www.anthropic.com/claude-sonnet-5-5'},
+  {id:275,date:'2026-09-28',company:'Meta',companies:['Meta'],category:'leadership',title:'메타, 엔터프라이즈 플랫폼 출범…몽고DB 전 CEO 데사이 영입',description:'메타가 기업용 AI 서비스를 담당하는 엔터프라이즈 플랫폼 조직을 신설하고, 몽고DB CEO였던 치란탄 CJ 데사이를 최고엔터프라이즈플랫폼책임자로 임명했다고 ANI가 9월 28일 보도했다.',tags:['Meta','엔터프라이즈','인사','CJ Desai'],source:'https://aninews.in/news/business/meta-launches-enterprise-platform-appoints-chirantan-desai-to-lead-division20260928195820/'},
+  {id:276,date:'2026-09-28',company:'NVIDIA',companies:['NVIDIA','Anthropic','Microsoft'],category:'infrastructure',title:'엔비디아, 오픈 에이전트 안전 플랫폼 공개…파트너 100곳 이상',description:'엔비디아가 AI 에이전트를 테스트부터 배포까지 보호하는 오픈 에이전트 안전 플랫폼(OpenShell 런타임, BlueField-4 기반 Sentry 감시)을 공개했다. 앤트로픽 등 100곳 넘는 파트너가 참여한다고 엔비디아 뉴스룸이 밝혔다.',tags:['NVIDIA','에이전트안전','OpenShell','Sentry'],source:'https://nvidianews.nvidia.com/news/open-agent-safety-platform'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1772,6 +1775,10 @@ const MM_NODES = [
   {id:'TrumpAmodeiDinner',label:'트럼프-아모데이\n백악관만찬(9/27)',grp:'topic',sz:14},
   {id:'VisionProDelay',label:'비전프로\n후속작지연(9/27)',grp:'topic',sz:12},
   {id:'TikTokVoiceSuit',label:'틱톡\n음성복제소송(9/28)',grp:'topic',sz:13},
+  {id:'Sonnet55',label:'클로드 소넷5.5\n(9/28)',grp:'topic',sz:15},
+  {id:'MetaEnterprise',label:'메타 엔터프라이즈\n플랫폼(9/28)',grp:'topic',sz:14},
+  {id:'CJDesai',label:'CJ 데사이\n(전 몽고DB CEO)',grp:'topic',sz:12},
+  {id:'AgentSafety',label:'엔비디아 에이전트\n안전플랫폼(9/28)',grp:'topic',sz:14},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'AnthAccenture',type:'액센츄어와 임베디드평가 파트너십(9/18)',rel:'partnership'},
@@ -2173,13 +2180,20 @@ const MM_LINKS = [
   {s:'TrumpXiAI',t:'TrumpAmodeiDinner',type:'행정부-AI업계 관계 완화 흐름',rel:'regulation'},
   {s:'Apple',t:'VisionProDelay',type:'차세대 모델 개발정체 보도(9/27)',rel:'product'},
   {s:'ByteDance',t:'TikTokVoiceSuit',type:'성우 음성복제 소송 피소(9/28)',rel:'regulation'},
+  {s:'Anthropic',t:'Sonnet55',type:'소넷 5.5 출시, 가격 동결(9/28)',rel:'product'},
+  {s:'Sonnet55',t:'Sonnet5',type:'소넷 5 후속 모델',rel:'product'},
+  {s:'Meta',t:'MetaEnterprise',type:'엔터프라이즈 플랫폼 출범(9/28)',rel:'product'},
+  {s:'MetaEnterprise',t:'CJDesai',type:'몽고DB 전 CEO 총괄 영입',rel:'partnership'},
+  {s:'NVIDIA',t:'AgentSafety',type:'오픈 에이전트 안전 플랫폼 공개(9/28)',rel:'infrastructure'},
+  {s:'Anthropic',t:'AgentSafety',type:'launch 파트너 참여',rel:'partnership'},
+  {s:'Microsoft',t:'AgentSafety',type:'launch 파트너 참여',rel:'partnership'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-28 11:00';
+const BUILD_DATETIME='2026-09-29 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
