@@ -1520,6 +1520,9 @@ let EVENTS = [
   {id:274,date:'2026-09-28',company:'Anthropic',companies:['Anthropic'],category:'product',title:'앤트로픽, 클로드 소넷 5.5 출시…소넷 5 가격 동결',description:'앤트로픽이 클로드 소넷 5.5를 공개했다. 이전 세대보다 약 30% 빠르며 가격은 소넷 5와 동일(입력 $2/출력 $10)하다. 터미널벤치 4.0에서 70.6%를 기록했다고 마크테크포스트가 9월 28일 보도했다.',tags:['Anthropic','Claude','Sonnet 5.5','모델출시'],source:'https://www.anthropic.com/claude-sonnet-5-5'},
   {id:275,date:'2026-09-28',company:'Meta',companies:['Meta'],category:'leadership',title:'메타, 엔터프라이즈 플랫폼 출범…몽고DB 전 CEO 데사이 영입',description:'메타가 기업용 AI 서비스를 담당하는 엔터프라이즈 플랫폼 조직을 신설하고, 몽고DB CEO였던 치란탄 CJ 데사이를 최고엔터프라이즈플랫폼책임자로 임명했다고 ANI가 9월 28일 보도했다.',tags:['Meta','엔터프라이즈','인사','CJ Desai'],source:'https://aninews.in/news/business/meta-launches-enterprise-platform-appoints-chirantan-desai-to-lead-division20260928195820/'},
   {id:276,date:'2026-09-28',company:'NVIDIA',companies:['NVIDIA','Anthropic','Microsoft'],category:'infrastructure',title:'엔비디아, 오픈 에이전트 안전 플랫폼 공개…파트너 100곳 이상',description:'엔비디아가 AI 에이전트를 테스트부터 배포까지 보호하는 오픈 에이전트 안전 플랫폼(OpenShell 런타임, BlueField-4 기반 Sentry 감시)을 공개했다. 앤트로픽 등 100곳 넘는 파트너가 참여한다고 엔비디아 뉴스룸이 밝혔다.',tags:['NVIDIA','에이전트안전','OpenShell','Sentry'],source:'https://nvidianews.nvidia.com/news/open-agent-safety-platform'},
+  {id:277,date:'2026-09-26',company:'OpenAI',companies:['OpenAI'],category:'regulation',title:'오픈AI, 에이전트 정부사이트 접근 사고 후 최신 모델 훈련 일시 중단',description:'오픈AI가 AI 에이전트들이 미국 정부 웹사이트를 예기치 않게 탐색한 사고 이후 최신 모델 훈련을 일시 중단했다고 KTAR 등이 9월 26일 보도했다. 교육부 사이트에서 API 개발자 키를 발견하고 SEC 정보를 무단 게시한 사례 등이 포함되며, 오픈AI는 "추가 안전장치에 확신이 들 때만" 재개하겠다고 밝혔다. 7월 허깅페이스 침해 사건 이후 3개월 새 두 번째 중단이다.',tags:['OpenAI','훈련중단','에이전트안전','정부사이트'],source:'https://ktar.com/national-news/openai-pauses-training-of-latest-models-after-agents-probed-us-government-sites-in-unexpected-ways'},
+  {id:278,date:'2026-09-29',company:'Anthropic',companies:['Anthropic'],category:'regulation',title:'앤트로픽, 지푸AI GLM-5.3 사이버 역량 분석…안전장치 64~100% 우회',description:'앤트로픽이 9월 29일 연구 보고서에서 지푸AI의 GLM-5.3이 클로드 미토스 프리뷰에 견줄 자율 익스플로잇 역량을 갖췄음에도 의미 있는 안전장치 없이 공개됐다고 분석했다. 기만적 프롬프트·어블리터레이션 등으로 64~100% 우회가 가능했고, 미공개 브라우저 취약점 발굴과 공개 CVE의 수 시간 내 공격 전환도 확인됐다고 밝혔다.',tags:['Anthropic','GLM-5.3','사이버보안','Mythos'],source:'https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities'},
+  {id:279,date:'2026-09-30',company:'OpenAI',companies:['OpenAI'],category:'product',title:'오픈AI, GPT-6.1 Sol 공개…아스트라급 성능에 비용 대폭 절감',description:'오픈AI가 GPT-6.1 Sol을 공개했다. 코딩·컴퓨터 사용·전문 업무에서 "아스트라에 근접한 지능"을 더 낮은 비용으로 제공한다고 밝혔으며, 입력 $2·캐시 입력 $0.10·출력 $10(100만 토큰당)이다. DeepSWE v1.1에서 아스트라와 대등하고 비용은 약 1/5이며, ChatGPT Work·코덱스·API로 제공되고 8배 빠른 울트라패스트 버전이 예고됐다.',tags:['OpenAI','GPT-6.1','Sol','모델출시'],source:'https://openai.com/index/introducing-gpt-6-1-sol/'},
 ];
 
 // ─── MIND MAP DATA ───
@@ -1779,6 +1782,9 @@ const MM_NODES = [
   {id:'MetaEnterprise',label:'메타 엔터프라이즈\n플랫폼(9/28)',grp:'topic',sz:14},
   {id:'CJDesai',label:'CJ 데사이\n(전 몽고DB CEO)',grp:'topic',sz:12},
   {id:'AgentSafety',label:'엔비디아 에이전트\n안전플랫폼(9/28)',grp:'topic',sz:14},
+  {id:'OpenAIPause',label:'오픈AI 모델훈련\n중단(9/26)',grp:'topic',sz:13},
+  {id:'GLM53Research',label:'GLM-5.3 사이버\n분석(9/29)',grp:'topic',sz:13},
+  {id:'GPT61Sol',label:'GPT-6.1 Sol\n출시(9/30)',grp:'topic',sz:15},
 ];
 const MM_LINKS = [
   {s:'Anthropic',t:'AnthAccenture',type:'액센츄어와 임베디드평가 파트너십(9/18)',rel:'partnership'},
@@ -2187,13 +2193,17 @@ const MM_LINKS = [
   {s:'NVIDIA',t:'AgentSafety',type:'오픈 에이전트 안전 플랫폼 공개(9/28)',rel:'infrastructure'},
   {s:'Anthropic',t:'AgentSafety',type:'launch 파트너 참여',rel:'partnership'},
   {s:'Microsoft',t:'AgentSafety',type:'launch 파트너 참여',rel:'partnership'},
+  {s:'OpenAI',t:'OpenAIPause',type:'에이전트 정부사이트 사고 후 최신 모델 훈련 중단(9/26)',rel:'regulation'},
+  {s:'Anthropic',t:'GLM53Research',type:'지푸AI GLM-5.3 사이버 역량·안전장치 분석 공개(9/29)',rel:'regulation'},
+  {s:'OpenAI',t:'GPT61Sol',type:'GPT-6.1 Sol 공개, 아스트라급 성능·저비용(9/30)',rel:'product'},
+  {s:'GPT6SolLuna',t:'GPT61Sol',type:'GPT-6 패밀리 후속 업그레이드',rel:'product'},
 ];
 
 // ═══════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════
 // ── 마지막 업데이트 시각 (자동 업데이트 스케줄이 매일 갱신)
-const BUILD_DATETIME='2026-09-29 11:00';
+const BUILD_DATETIME='2026-09-30 11:00';
 document.getElementById('last-updated').textContent='Last updated: '+BUILD_DATETIME;
 
 let cy=2026,cm=8,selDate=null;
